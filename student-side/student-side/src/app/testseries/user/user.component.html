@@ -1,0 +1,188 @@
+<!-- <div class="container border" [hidden]="hideUserForm">
+  <div>
+    <h2>User Details</h2>
+  </div>
+  <form [formGroup]="UserForm" (ngSubmit)="usersubmit()">
+    <label for="firstName">FirstName</label>
+    <input type="text" id="firstName" class="form-control is-invalid" formControlName="firstName"
+      placeholder="firstName" [ngClass]="{'is-invalid': firstName?.touched && firstName?.invalid}">
+    <span *ngIf="firstName?.touched && firstName?.invalid" style="color: red;">
+      <h6>Pls Fill in the First Name</h6>
+    </span>
+
+    <label for="lastName">LastName</label>
+    <input type="text" formControlName="lastName" id="lastName" class="form-control is-invalid" placeholder="lastName"
+      [ngClass]="{'is-invalid': lastName?.touched && lastName?.invalid}">
+    <span *ngIf="lastName?.touched && lastName?.invalid" style="color: red;">
+      <h6>Pls Fill in the Last Name</h6>
+    </span>
+
+    <label for="email">Email</label><br>
+    <input type="text" formControlName="email" id="email" class="form-control is-invalid" placeholder="email"
+      [ngClass]="{'is-invalid': email?.touched && email?.invalid}">
+    <span *ngIf="email?.touched && email?.invalid" style="color: red;">
+      <h6>Pls Fill in the Email</h6>
+    </span>
+
+    <label for="phoneNumber">Phone Number</label><br>
+    <input type="text" id="phoneNumber" formControlName="phoneNumber" class="form-control is-invalid"
+      placeholder="Enter PhoneNumber" required [ngClass]="{'is-invalid': phoneNumber?.touched && phoneNumber?.invalid}">
+    <span *ngIf="phoneNumber?.touched && phoneNumber?.invalid" style="color: red;">
+      <h6>Pls Enter PhoneNumber</h6>
+    </span>
+
+    <label for="chooseQuestions">ChooseQuestions</label><br>
+    <input type="text" id="chooseQuestions" formControlName="chooseQuestions" class="form-control is-invalid"
+      placeholder="Enter PhoneNumber" required
+      [ngClass]="{'is-invalid': chooseQuestions?.touched && chooseQuestions?.invalid }">
+    <span *ngIf="chooseQuestions?.touched && chooseQuestions?.invalid" style="color: red;">
+      <h6>Choose Number Questions</h6>
+    </span>
+
+    <div class="d-grid gap-2 col-6 mx-auto">
+      <button class="btn btn-primary" type="submit" [disabled]="!UserForm.valid"
+        style="margin-left: 10px">Submit</button>
+    </div>
+  </form>
+  <div>
+    <div *ngIf="msgDanger" style="color: red;">
+      <p><strong>{{content}}</strong></p>
+    </div>
+  </div>
+</div> -->
+
+<!-- ************************     User Test **************************  -->
+<div class="container-content" style="background-color: white;padding-left: 10%;padding-right: 10%;"
+  [hidden]="questionblock">
+  <div class="d-flex justify-content-center row">
+    <div class="col-md-10 col-lg-10" class="container-test">
+      <div class="border">
+        <div class="question bg-white p-3 border-bottom">
+          <div class="d-flex flex-row justify-content-between align-items-center mcq">
+            <div class="timer" style="color: green;font-weight: bold;" id="timeRemaining"
+              [style.color]="timerExpired ? 'red' : initialColor"
+              [style.animation]="timerExpired ? 'blink 1s infinite' : 'initial'">
+              Time Remaining: {{ formatTime(remainingTime) }}
+            </div>
+
+            <h4>Test Questions :30</h4>
+            <span style="font-weight: bold;">Question No:{{ currentQuestionIndex + 1 }}</span>
+          </div>
+        </div>
+
+        <!-- ... (previous code) ... -->
+
+        <!-- ... (previous code) ... -->
+
+        <div class="question bg-white p-3 border-bottom" style="background: white;">
+          <h5 style="color: blue; font-size: large;">Description : {{ currentQuestion.description.descriptionText }}
+          </h5><br>
+          <div class="d-flex flex-row align-items-center question-title">
+            <h3 class="text-danger">Q.{{ currentQuestionIndex + 1 }}</h3>&nbsp;&nbsp;
+            <h5 class="mt-1 ml-2" style="font-size: large;">{{ currentQuestion?.questionText }}</h5><br>
+          </div>
+
+          <!-- Loop through options with conditional rendering based on optionText -->
+          <div *ngFor="let option of currentQuestion.option; let i = index" class="ans ml-2">
+            <!-- Only render the option if optionText is not empty -->
+            <div *ngIf="option.optionText !== null && option.optionText.trim() !== ''">
+              <label class="checkbox">
+                <input type="checkbox" name="questionOption" style="margin-left: 0px;"
+                  [checked]="isOptionSelected(option, currentQuestion.id)"
+                  (change)="toggleAnswer(option, currentQuestion.id)" />&nbsp;&nbsp;
+                <span>{{ option.optionText }}</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- ... (remaining code) ... -->
+
+
+        <div class="d-flex flex-row justify-content-between align-items-center p-3 bg-white">
+          <button class="btn btn-primary d-flex align-items-center btn-danger" type="button" (click)="prevQuestion()">
+            <i class="fa fa-angle-left mt-1 mr-1"></i>&nbsp;previous
+          </button>
+
+          <button class="btn btn-success" type="button" (click)="nextQuestion()">
+            Next <i class="fa fa-angle-right ml-2"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center mt-3" *ngIf="isLastQuestion()">
+    <button class="btn btn-primary" (click)="evaluateAnswers()">Submit</button>
+  </div>
+</div>
+
+<!-- *****************************Show result ********************************* -->
+<div *ngIf="questionblock" style="background: white;padding-left: 10%;padding-right: 10%;">
+  <hr>
+  <h2>Test Results</h2>
+  <h5 style="color: coral;"></h5>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Total Questions</th>
+        <th>Total Corrected Questions</th>
+        <th>Percentage</th>
+        <th>Eligible</th>
+      </tr>
+    </thead>
+    <!-- <div *ngFor="let answer of userAnswers | keyvalue">
+        Key: {{ answer.key }} - 
+      </div> -->
+    <!-- {totalNumberQuestions: 5, totalNumberCorrectQuestions: 0, percentage: 0, isStatus: 'Not Eligible'} -->
+    <tbody>
+      <tr>
+        <td>{{ userTest.totalNumberQuestions}}</td>
+        <td>{{ userTest.totalNumberCorrectQuestions}}</td>
+        <td>{{ userTest.percentage}}%</td>
+        <td>{{ userTest. isStatus}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div>
+    <button class="btn btn-primary" (click)="toggleSummary()">Summary</button>
+  </div>
+</div>
+
+<!-- ******************** Summary ***************************** -->
+<div *ngIf="showSummary" style="background: white;padding-left: 10%;padding-right: 10%;">
+  <h2>Test Summary</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Question</th>
+        <th>Correct Answer</th>
+        <th>Your Answers</th>
+        <th>Result</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let question of fetchList; let i = index">
+        <td>{{ question.questionText}}</td>
+        <td>
+          <!-- <div *ngIf="correctOptionsMap.get(question.id)"> -->
+          <span *ngFor="let option of question.option">
+            <span>
+              {{ getCorrectAnswer(option)}}
+            </span>
+
+          </span>
+          <!-- </div> -->
+        </td>
+        <td>
+          <span *ngFor="let selectedOption of selectedOption.get(question.id); let j = index">
+            {{ selectedOption.text }},
+          </span>
+        </td>
+        <td [ngClass]="getAnswerResultClass(question)">
+          {{ getAnswerResultText(question) }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

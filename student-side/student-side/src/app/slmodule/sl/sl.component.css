@@ -1,0 +1,50 @@
+.container{
+    border: 1px solid black;
+    overflow: hidden;
+}
+form{
+    transition: all 0.5s ease-in;
+}
+input{
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+}
+.field{
+    border-bottom: 1px solid black;
+    margin-bottom: 25px;
+}
+label{
+
+}
+.form label{
+    position: absolute;
+    left: 0;
+    transform: translateY(-95%);
+    transition: all 0.5s ease;
+}
+.input::placeholder{
+    color: transparent;
+}
+
+input:placeholder-shown + label{
+    transform: translateY(0);
+}
+@media (min-width: 992px) {
+    .container{
+        min-height: 50vh;
+    }
+}
+.login{
+    display: none;
+    transform: translateX(-250%);
+}
+.signin{
+    display: none;
+    transform: translateX(250%);
+}
+.show-login{
+    
+}

@@ -1,0 +1,84 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-primary">
+              Overall Earned Points:
+          </div>
+          <div class="card-body">
+              <div class="card-body-header">
+                  <h5>Total Points:</h5>
+                  <!-- <span>{{totalVideoPointsObj.point + totalMctExamPointsObj.point + totalCumExamPointsObj.point}}</span> -->
+                  <span>{{totalPoints}}</span>
+              </div>
+              
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+               Go through all the videos and attend test to increase your points.
+            </div>
+          </div>
+        </div>
+      </div>  
+</div>
+<div class="row">
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-header card-header-success">
+          Earned Video Points:
+      </div>
+      <div class="card-body">
+          <div class="card-body-header">
+              <h5>Total Video Points:</h5>
+              <span>{{videoPoints}}</span>
+          </div>
+          
+      </div>
+      <div class="card-footer">
+        <div class="stats">
+            <i class="fa fa-clock-o" aria-hidden="true"></i>
+            Updated: {{lastUpdatedVideoPoints}}
+        </div>
+      </div>
+    </div>
+  </div>  
+
+  <div class="col-md-4">
+      <div class="card">
+        <div class="card-header card-header-warning">
+          Earned Microtopic Exam Points:
+        </div>
+        <div class="card-body">
+            <div class="card-body-header">
+                <h5>Total Microtopic Exam Points:</h5>
+                <span>{{examPoints}}</span>
+            </div>
+        </div>
+        <div class="card-footer">
+          <div class="stats">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              Updated: {{lastUpdatedExamPoints}}
+          </div>
+        </div>
+      </div>
+    </div>  
+
+    <div class="col-md-4">
+        <div class="card">
+          <div class="card-header card-header-danger">
+              Earned Cumulative Exam Points:
+          </div>
+          <div class="card-body">
+              <div class="card-body-header">
+                  <h5>Total Cumulative Exam Points:</h5>
+                  <span>{{cumExamPoints}}</span>
+              </div>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+                <i class="fa fa-clock-o" aria-hidden="true"></i>
+                Updated: {{lastUpdatedCumExamPoints}}
+            </div>
+          </div>
+        </div>
+      </div>  
+</div>

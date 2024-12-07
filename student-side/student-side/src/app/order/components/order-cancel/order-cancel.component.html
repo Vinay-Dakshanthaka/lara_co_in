@@ -1,0 +1,47 @@
+<div class="container-fluid cntfld-fw">
+  <div class="container form-bnr-sec">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 pd-t40 pd-b50 form-bnr">
+        <div class="row">
+          <div class="col-lg-11 col-md-12 col-sm-12 div-center">
+            <div>
+              <h1>Order Information</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="container-fluid">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-11 col-md-12 col-sm-12 div-center">
+          <div class="row">
+              <div class="col-lg-12 pd-t20 pd-b10" style="margin-left:30px;">
+                <h4>Order Complete</h4>
+                <hr/>
+                <h6>Your order has been completed successfully</h6>
+                <P>Click <a [routerLink]="['/dashboard']">here</a> to view your courses.</P>                
+              </div>              
+            </div>
+      </div>
+    </div>
+  </div> 
+</div>-->
+
+<div class="container-fluid cntfld-fw">
+  <div class="container"><br><br>
+    <h3 style="text-align: center;">Order Failed</h3><br><br>
+    <div class="" style="margin-top:20px;">
+      
+      <p style="text-align: center;">Your order with order #{{orderDetails.orderId}} has been failed due to following reason:</p>
+      <p style="text-align: center;">StatusMessage: {{orderDetails.orderStatus}}</p>
+      <p style="text-align: center;">StatusMessage: {{orderDetails.orderStatusMessage}}</p>
+      <p style="text-align: center;">Click <a [routerLink]="['/']">here</a> to view course packages.</p>      
+    </div>
+    
+    <br><br>
+
+</div>

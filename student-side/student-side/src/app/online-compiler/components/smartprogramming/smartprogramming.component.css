@@ -1,0 +1,39 @@
+
+
+.editor.allow-tabs {
+    background : #8e8f8e;
+    color : #fff;
+    height:44vh;
+    resize:none;
+    width:100%;
+    }
+    
+    .output-holder  {
+    background : #8e8f8e;
+    color : #fff;
+    resize:none;
+    width:100%;
+    height: 25vh;
+    padding:20px;
+    }
+    
+    .output-actions {
+        width:100%;
+        height:40px;
+    }
+    
+    .notes-container {
+        overflow:auto;
+        background:#ddd;
+        height: calc(100vh - 295px);
+    }
+    
+    .notes-textarea {
+        width:100%;
+        height:100px;
+        resize:none;
+    }
+    
+    .bg-grey {
+        background:#ddd;
+    }

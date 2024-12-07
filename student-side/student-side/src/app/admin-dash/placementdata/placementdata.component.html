@@ -1,0 +1,66 @@
+
+<div class="container">
+    <div class="data-list-container">
+      <h2>Placement Data</h2>
+      <br>
+      <table >
+        <thead >
+          <tr >
+            <th>Id</th>
+            <th>Date</th>
+            <th>Company Name</th>
+            <th>Students Attended</th>
+            <th>Students Placed</th>
+            <th>Salary Package(LPA)</th>
+            <th>Action</th>
+            <th>Display Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of placementdata; let i = index" [ngClass]="{ 'selected-row': i === selectedRowIndex }">
+            <td>{{ i + 1 }}</td>
+            <td>{{ data.date | date: 'dd/MM/yyyy'}}</td>
+            <td>{{ data.companyName }}</td>
+            <td>{{ data.studentAttended }}</td>
+            <td>{{ data.studentPlaced }}</td>
+            <td>{{ data.salaryPackage }}</td>
+            <td>
+              <button  (click)="updateEntry(i); selectedRowIndex = i" id="update" >Update</button>
+            </td>
+            <td>
+              <input type="checkbox" id="select" (change)="select(i)" [ngClass]="{ 'checkbox-selected': data.selected, 'checkbox-deselected': !data.selected }">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <div class="divider" style="width: 20px;"></div>
+  
+    <div class="form-container" style="margin-right: 5px;margin-left: 20px;">
+      <h2>Placement Data Form</h2>
+      <form class="bg-light py-3" [formGroup]="placementForm" (ngSubmit)="save(placementForm)" style="box-shadow: 4px 3px 15px #362a4f;">
+        <label for="companyName">Company Name:</label><br>
+        <input type="text" id="companyName" formControlName="companyName" ><br><br>
+  
+        <label for="studentAttended">No. of Students Attended:</label><br>
+        <input type="number" id="studentAttended" formControlName="studentAttended" ><br><br>
+  
+        <label for="studentPlaced">No. of Students Placed:</label><br>
+        <input type="number" id="studentPlaced" formControlName="studentPlaced" ><br><br>
+  
+        <label for="salaryPackage">Salary Package(LPA):</label><br>
+        <input type="number" formControlName="salaryPackage" id="salaryPackage"><br><br>
+  
+        <label for="date">Date:</label><br>
+        <input type="date" id="date" formControlName="date"><br><br>
+  
+        {{ saveMessage }} {{ updateMessage }}
+        <br>
+        <button [hidden]="hiddens" style="height: 35px; width: 60px;border-radius: 6px;" [disabled]="placementForm.invalid" type="submit" class="btn btn-primary" id="submit">Submit</button>
+        <br><br>
+        <button [hidden]="hiddenu"  style="margin-top: -67px;" type="button"  class="btn btn-primary overlap-button" (click)="changes()">Update</button>
+      </form>
+    </div>
+  </div>
+  

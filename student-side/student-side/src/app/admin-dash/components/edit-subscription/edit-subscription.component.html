@@ -1,0 +1,81 @@
+<div class="container-fluid cntfld-fw">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8">
+            <div [@simpleFadeAnimation]="'in'" *ngIf="successAlert"
+            class="alert alert-success fade in alert-dismissible show" role="alert">
+            <button style="outline:none;" type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true" style="font-size:20px">×</span>
+            </button>
+            {{successMsg}}
+          </div>
+        </div>
+      </div>
+      <div class="row">
+            <div class="col-sm-8">
+        User Details:
+        <p>User Id: {{userId}}</p>
+        <p>Email: {{email}}</p>
+        <p>Mobile: {{mobileNo}}</p>
+        <form>
+        <div  *ngFor="let mpcpg of coursePackageList;let i=index;">
+          <div>            
+            <span><input type="checkbox" [attr.id]="'cpg-'+mpcpg.coursePackageId" (change)="chkUnchkCpg($event)" /></span>&nbsp;&nbsp;            
+            <span>{{mpcpg.coursePackageName}}</span>
+          </div>
+        </div> 
+      </form>               
+      </div>
+          
+      </div>
+      <div class="row">
+        <div class="col-sm-2">
+          <button (click)="manageSubscription()" class="btn btn-primary btn-block">Update Subscription</button>
+        </div>
+      </div>  
+    </div>
+    <!-- <div class="container">
+      
+
+      <div class="row">
+        <div class="col-sm-12">
+           <h6>Available Course Package</h6>
+          <div *ngFor="let cpg of coursePackageList; let i=index;">
+            <input type="checkbox" value="cpg.coursePackageId" />{{cpg.coursePackageName}}
+          </div>
+          <div style="padding-top:20px;">
+              <div class="col-sm-12">
+                <div class="tbl-sec" style="overflow-y:scroll;height:500px;">
+                  <h6>Available Course Package</h6>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <thead>
+                      <tr class="td-bg">
+                        <th class=""><input type="checkbox" /></th>
+                        <th class="">Course Package Name</th>
+                        <th class="">Status</th>
+                        <th class="">Subscription</th>
+                        <th class="">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="td-bg" [className]="i % 2==0 ? 'td-bg' : 'td-bg-none'"
+                        *ngFor="let mpcpg of mappedCoursePackageList;let i=index;">
+                        <td style="padding:8px;color:#666666; border-left:1px solid #eee">
+                          <input type="checkbox" checked="checked" [attr.id]="'cpg-'+mpcpg.coursePackageId" />
+                        </td>
+                        <td style="padding:8px;color:#666666; border-left:1px solid #eee">{{mpcpg.coursePackageName}}</td>
+                        <td style="padding:8px;color:#666666;border-left:1px solid #eee">{{mpcpg.status}}</td>
+                        <td style="padding:8px;color:#666666;border-left:1px solid #eee">{{mpcpg.subscription}}</td>
+                        <td style="padding:8px;color:#666666;border-left:1px solid #eee">
+                          <button (click)="updateSubscription()">Update</button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+  </div> -->
+</div>

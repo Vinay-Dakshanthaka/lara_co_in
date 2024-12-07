@@ -1,0 +1,41 @@
+
+    <div class="row">
+      <div class="col-sm-12">
+        <h4>Upload Files </h4>
+        <div class="row" style="margin-top:30px;">
+          <div class="col-sm-8">
+            <div *ngIf="error">
+              {{ error.message }}
+            </div>
+            <div *ngIf="uploadResponse.status === 'error'">
+              {{ uploadResponse.message }}
+            </div>
+            <div *ngIf="uploadResponse.status === 'progress'">
+
+
+              <div role="progressbar" [style.width.%]="uploadResponse.message" aria-valuenow="25" aria-valuemin="0"
+                aria-valuemax="100">
+                {{uploadResponse.message}}%
+              </div>
+
+            </div>
+
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+              <div class="form-group">
+                <label>Select File Type For Bulk Upload</label>
+                <select id="bulkUploadFile" name="bulkUploadFile" class="form-control"
+                  (change)="chooseBulUploadType($event)">
+                  <option value="0">Select Bulk Upload Type</option>
+                  <option value="1">Question Answers</option>
+                  <option value="2">Videos</option>
+                  <option value="3">Documents</option>
+                </select>
+              </div>
+              <input type="file" name="avatar" (change)="onFileChange($event)" />
+              <button type="submit">Upload</button>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>

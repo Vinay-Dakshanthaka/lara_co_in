@@ -1,0 +1,646 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/carousel1.css">
+  <link rel="stylesheet" href="css/ani.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link href="https://fonts.googleapis.com/css?family=Amaranth&display=swap" rel="stylesheet">
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript" src="js/function.js"></script>
+  <title>Dashboard | Lara Technologies - A Unique future creator in java</title>
+</head>
+
+<body>
+  <!--Navigation-->
+  <div class="container-fluid">
+    <div class="container sm-pd-l0 sm-pd-r0">
+      <div class="row">
+        <div class="col-lg-11 col-md-11 col-sm-11 div-center">
+          <nav class="navbar navbar-expand-lg navbar-light sm-pd-l0 sm-pd-r0"> <a class="navbar-brand" href="#"><img
+                src="images/laralogo.png" class="logo-img"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09"
+              aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation"> <span
+                class="navbar-toggler-icon"></span> </button>
+            <div class="collapse navbar-collapse mob-nav-pad" id="navbarsExample09">
+              <form class="navbar-form form-inline">
+                <div class="input-group search-box">
+                  <input type="text" id="search" class="form-control" placeholder="Enter Course or any keyword"
+                    onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Course or any keyword'">
+                  <span class="input-group-addon"><i class="material-icons">&#xE8B6;</i></span> </div>
+              </form>
+              <ul class="nav navbar-nav navbar-right ml-auto nav-align">
+                <li class="nav-item"><a class="nav-link" href="#"><span class="fa fa-shopping-cart"></span> Cart</a>
+                </li>
+                <li class="nav-item"> <a data-toggle="dropdown" class="nav-link dropdown-toggle" href="#">Login</a>
+                  <ul class="dropdown-menu form-wrapper">
+                    <li>
+                      <form action="" method="post">
+                        <p class="hint-text">Sign in with your social media account</p>
+                        <div class="form-group social-btn clearfix i-log"> <a href="#"
+                            class="btn btn-primary pull-left"><i class="fa fa-facebook"></i></a> <a href="#"
+                            class="btn btn-info pull-left"><i class="fa fa-linkedin-in"></i></a> <a href="#"
+                            class="btn btn-danger pull-left"><i class="fa fa-google-plus"></i></a> </div>
+                        <div class="or-seperator"><b>or</b></div>
+                        <div class="form-group">
+                          <input type="text" class="form-control" placeholder="Username" required="required">
+                        </div>
+                        <div class="form-group">
+                          <input type="password" class="form-control" placeholder="Password" required="required">
+                        </div>
+                        <input type="submit" class="btn btn-primary btn-block" value="Login">
+                        <div class="form-footer"> <a href="#">Forgot Your password?</a> </div>
+                      </form>
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-item"> <a href="#" data-toggle="dropdown"
+                    class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1">Sign up</a>
+                  <ul class="dropdown-menu form-wrapper signup">
+                    <li>
+                      <form action="" method="post">
+                        <p class="hint-text">Fill in this form to create your account!</p>
+                        <div class="form-group">
+                          <input type="text" class="form-control" placeholder="Username" required="required">
+                        </div>
+                        <div class="form-group">
+                          <input type="password" class="form-control" placeholder="Password" required="required">
+                        </div>
+                        <div class="form-group">
+                          <input type="password" class="form-control" placeholder="Confirm Password"
+                            required="required">
+                        </div>
+                        <div class="form-group">
+                          <label class="checkbox-inline">
+                            <input type="checkbox" required="required">
+                            I accept the <a href="#">Terms &amp; Conditions</a></label>
+                        </div>
+                        <input type="submit" class="btn btn-primary btn-block" value="Sign up">
+                      </form>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Navigation end-->
+
+  <!--breadcrumb-->
+  <div class="container-fluid">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-11 col-md-12 col-sm-12 div-center">
+          <div class="row">
+            <div class="col-lg-12 pd-t20">
+              <nav>
+                <ol class="breadcrumb primary-color">
+                  <li class="breadcrumb-item"><a href="index.html" target="_self">Home</a></li>
+                  <li class="breadcrumb-item active">Dashboard</li>
+                </ol>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--breadcrumb end-->
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span
+              aria-hidden="true">&times;</span> </button>
+        </div>
+        <div class="modal-body">
+          <div class="embed-responsive embed-responsive-16by9">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/J3LGwXeIH1Y" frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+              style="border:0"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Modal end-->
+
+  <div class="container-fluid">
+    <div class="container form-bnr-sec">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 pd-t40 pd-b50 form-bnr">
+          <div class="row">
+            <div class="col-lg-11 col-md-12 col-sm-12 div-center">
+              <div>
+                <h1>Dashboard</h1>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--courses header end-->
+
+  <div class="container-fluid">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 pd-t30 pd-b30">
+          <div class="row">
+            <div class="col-lg-11 col-md-12 col-sm-12 div-center">
+
+
+
+
+              <div class="tabs">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-lg-3 pd-l0 pd-r0">
+                      <ul class="nav nav-pills nav-stacked flex-column w230">
+                        <li class="active"><a href="#tab_a" data-toggle="pill">My Profile</a></li>
+                        <li><a href="#tab_b" data-toggle="pill">My Courses</a></li>
+                        <li><a href="#tab_c" data-toggle="pill">My Exams</a></li>
+                        <li><a href="#tab_d" data-toggle="pill">Notifications</a></li>
+                        <li><a href="#tab_e" data-toggle="pill" id="myscore">My Score</a></li>
+                        <li><a href="#tab_f" data-toggle="pill">Purchase History</a></li>
+                        <li><a href="#tab_g" data-toggle="pill">Account Settings</a></li>
+                        <li><a href="#tab_h" data-toggle="pill">Logout</a></li>
+
+
+
+                      </ul>
+                    </div>
+                    <div class="col-lg-9 pd-r0 pd-l0">
+                      <div class="tab-content">
+                        <div class="tab-pane active bgc-white" id="tab_a">
+
+
+                          <!-- Tab links -->
+                          <div class="hoz-tab">
+                            <button class="tablinks active" onclick="openCity(event, 'tb-sec1')">Personal info</button>
+                            <button class="tablinks" onclick="openCity(event, 'tb-sec2')">Education </button>
+                            <button class="tablinks" onclick="openCity(event, 'tb-sec3')">Work Experience</button>
+                            <button class="tablinks" onclick="openCity(event, 'tb-sec4')">Technical Skills</button>
+                          </div>
+
+                          <!-- Tab content -->
+                          <div id="tb-sec1" class="hoztabcnt mr-l15" style="display: block;">
+
+                            <div class="container-fluid">
+                              <div class="row">
+                                <div class="col-lg-12 profile">
+
+                                  <div class="row mr-b25">
+                                    <div class="col-sm-6 col-md-6 col-lg-6">
+                                      <i class="material-icons micon-block pd-t7"> person </i><input type="text"
+                                        class="placeholder-fix" id="inputFirstname" placeholder="First Name"></div>
+                                    <div class="col-sm-6 col-md-6 col-lg-6">
+                                      <input type="text" class="placeholder-fix" id="inputLastname"
+                                        placeholder="Last Name"></div>
+                                  </div>
+
+                                  <div class="row mr-b25">
+                                    <div class="col-sm-6 col-md-6 col-lg-6">
+                                      <i class="material-icons micon-block pd-t7">mail</i><input type="text"
+                                        class="placeholder-fix" id="email" placeholder="Email"></div>
+                                    <div class="col-sm-3 col-md-3 col-lg-3">
+
+                                      <div class="sl-box">
+                                        <select>
+                                          <option value="" disabled selected hidden>Gender</option>
+                                          <option value="0">Male</option>
+                                          <option value="1">Female</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  <div class="row mr-b25">
+                                    <div class="col-sm-1 col-md-1 col-lg-1">
+                                      <i class="material-icons micon-block pd-t7">phone_iphone</i><input type="text"
+                                        class="placeholder-fix" id="mobilecode" placeholder="+91">
+                                    </div>
+                                    <div class="col-sm-5 col-md-5 col-lg-5 pd-l0">
+                                      <input type="text" class="placeholder-fix" id="mobile"
+                                        placeholder="Contact Number">
+                                    </div>
+                                    <div class="col-sm-3 col-md-3 col-lg-3">
+
+                                      <span class="cal-icn">
+                                        <input type="date" name="dateofbirth" id="dateofbirth"
+                                          class="placeholder-fix"></span>
+                                    </div>
+                                  </div>
+
+
+                                  <div class="row">
+                                    <div class="col-lg-12 mr-t20 mr-b10"><i
+                                        class="material-icons micon-block">location_on</i>
+                                      <h4>Current Address</h4>
+                                    </div>
+                                  </div>
+                                  <div id="currentAddress">
+                                    <div class="row mr-b25">
+                                      <div class="col-sm-6 col-md-6 col-lg-6">
+                                        <input type="text" class="placeholder-fix" id="inputHouseno"
+                                          placeholder="House Number"></div>
+                                      <div class="col-sm-6 col-md-6 col-lg-6">
+                                        <input type="text" class="placeholder-fix" id="inputStreetname"
+                                          placeholder="Street"></div>
+                                    </div>
+                                    <div class="row mr-b25">
+                                      <div class="col-sm-6 col-md-6 col-lg-6">
+                                        <input type="text" class="placeholder-fix" id="inputCity" placeholder="City">
+                                      </div>
+                                      <div class="col-sm-6 col-md-6 col-lg-6">
+                                        <input type="text" class="placeholder-fix" id="inputZipcode"
+                                          placeholder="Zip Code"></div>
+                                    </div>
+                                    <div class="row mr-b25">
+                                      <div class="col-sm-3 col-md-3 col-lg-3">
+                                        <div class="sl-box">
+                                          <select>
+                                            <option value="" disabled selected hidden>Select Country</option>
+                                            <option value="0">India</option>
+                                            <option value="1">America</option>
+                                          </select>
+                                        </div>
+                                      </div>
+
+                                      <div class="col-sm-3 col-md-3 col-lg-3 offset-3">
+                                        <div class="sl-box">
+                                          <select>
+                                            <option value="" disabled selected hidden>Select State</option>
+                                            <option value="0">Karnataka</option>
+                                            <option value="1">Kerala</option>
+                                          </select>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+
+
+
+
+                                  <div class="row">
+                                    <div class="col-lg-12 mr-t20"><i class="material-icons micon-block">location_on</i>
+                                      <h4>Permanent Address</h4>
+                                    </div>
+                                  </div>
+
+                                  <div class="row">
+                                    <div class="col-lg-12 mr-b10">
+                                      <label class="radio">Same as Above <input type="radio" name=""> <span
+                                          class="checkround"></span></label>
+                                    </div>
+                                  </div>
+
+                                  <div id="currentAddress">
+                                    <div class="row mr-b25">
+                                      <div class="col-sm-6 col-md-6 col-lg-6">
+                                        <input type="text" class="placeholder-fix" id="inputHouseno"
+                                          placeholder="House Number"></div>
+                                      <div class="col-sm-6 col-md-6 col-lg-6">
+                                        <input type="text" class="placeholder-fix" id="inputStreetname"
+                                          placeholder="Street"></div>
+                                    </div>
+                                    <div class="row mr-b25">
+                                      <div class="col-sm-6 col-md-6 col-lg-6">
+                                        <input type="text" class="placeholder-fix" id="inputCity" placeholder="City">
+                                      </div>
+                                      <div class="col-sm-6 col-md-6 col-lg-6">
+                                        <input type="text" class="placeholder-fix" id="inputZipcode"
+                                          placeholder="Zip Code"></div>
+                                    </div>
+                                    <div class="row mr-b25">
+                                      <div class="col-sm-3 col-md-3 col-lg-3">
+                                        <div class="sl-box">
+                                          <select>
+                                            <option value="" disabled selected hidden>Select Country</option>
+                                            <option value="0">India</option>
+                                            <option value="1">America</option>
+                                          </select>
+                                        </div>
+                                      </div>
+
+                                      <div class="col-sm-3 col-md-3 col-lg-3 offset-3">
+                                        <div class="sl-box">
+                                          <select>
+                                            <option value="" disabled selected hidden>Select State</option>
+                                            <option value="0">Karnataka</option>
+                                            <option value="1">Kerala</option>
+                                          </select>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-lg-12 mr-t20 mr-b10">
+                                      <span class="la-orange-btn">UPDATE</span>
+                                    </div>
+                                  </div>
+
+                                </div>
+
+                              </div>
+
+                            </div>
+
+
+
+                          </div>
+
+                          <div id="tb-sec2" class="hoztabcnt">
+                            <h4>Education</h4>
+                          </div>
+
+                          <div id="tb-sec3" class="hoztabcnt">
+                            <h4>Work Experience</h4>
+
+                          </div>
+                          <div id="tb-sec4" class="hoztabcnt">
+                            <h4>Technical Skills</h4>
+                          </div>
+
+
+
+
+
+                        </div>
+                        <div class="tab-pane bgc-white" id="tab_b">
+                          <div class="course-table">
+                            <h3>Topic Name</h3>
+                            <h5>Java</h5>
+                            <div id="accordion" class="accordion">
+                              <div class="card mb-0">
+                                <div class="card-header collapsed" data-toggle="collapse" href="#collapseOne"> <a
+                                    class="card-title">Section 1: Course overview </a><span class="pull-right">Total
+                                    Marks:100%</span> </div>
+                                <div id="collapseOne" class="card-body collapse" data-parent="#accordion">
+                                  <div class="acco-inner-sec">
+                                    <div class="tbl-sec">
+                                      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                        <tbody>
+                                          <tr>
+                                            <th>MicroTopic Name</th>
+                                            <th>Total Attempts</th>
+                                            <th>Average Marks</th>
+                                            <th>Actions</th>
+                                          </tr>
+                                          <tr class="td-bg">
+                                            <td>What is Java</td>
+                                            <td class="w125">4</td>
+                                            <td class="w125">30%</td>
+                                            <td class="w200">
+                                              <div><span class="blue-btn mr-r10">View</span> <span class="blue-btn">Try
+                                                  Again</span></div>
+                                            </td>
+                                          </tr>
+
+                                          <tr>
+                                            <td>History of Java</td>
+                                            <td class="w125">6</td>
+                                            <td class="w125">50%</td>
+                                            <td class="w200">
+                                              <div><span class="blue-btn mr-r10">View</span> <span class="blue-btn">Try
+                                                  Again</span></div>
+                                            </td>
+                                          </tr>
+                                          <tr class="td-bg">
+                                            <td>Features of Java</td>
+                                            <td class="w125">7</td>
+                                            <td class="w125">60%</td>
+                                            <td class="w200">
+                                              <div><span class="blue-btn mr-r10">View</span> <span class="blue-btn">Try
+                                                  Again</span></div>
+                                            </td>
+                                          </tr>
+
+                                        </tbody>
+                                      </table>
+
+
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion"
+                                  href="#collapseTwo"> <a class="card-title"> Section 2:</a> </div>
+                                <div id="collapseTwo" class="card-body collapse" data-parent="#accordion">
+                                  <div class="acco-inner-sec">
+                                    <div class="tbl-sec">
+                                      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                        <tbody>
+                                          <tr>
+                                            <th>MicroTopic Name</th>
+                                            <th>Total Attempts</th>
+                                            <th>Average Marks</th>
+                                            <th>Actions</th>
+                                          </tr>
+                                          <tr class="td-bg">
+                                            <td>What is Java</td>
+                                            <td class="w125">4</td>
+                                            <td class="w125">30%</td>
+                                            <td class="w200">
+                                              <div><span class="blue-btn mr-r10">View</span> <span class="blue-btn">Try
+                                                  Again</span></div>
+                                            </td>
+                                          </tr>
+
+                                          <tr>
+                                            <td>History of Java</td>
+                                            <td class="w125">6</td>
+                                            <td class="w125">50%</td>
+                                            <td class="w200">
+                                              <div><span class="blue-btn mr-r10">View</span> <span class="blue-btn">Try
+                                                  Again</span></div>
+                                            </td>
+                                          </tr>
+                                          <tr class="td-bg">
+                                            <td>Features of Java</td>
+                                            <td class="w125">7</td>
+                                            <td class="w125">60%</td>
+                                            <td class="w200">
+                                              <div><span class="blue-btn mr-r10">View</span> <span class="blue-btn">Try
+                                                  Again</span></div>
+                                            </td>
+                                          </tr>
+
+                                        </tbody>
+                                      </table>
+
+
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion"
+                                  href="#collapseThree"> <a class="card-title"> Section 3: </a> </div>
+                                <div id="collapseThree" class="collapse" data-parent="#accordion">
+                                  <div class="acco-inner-sec">
+                                    <div class="tbl-sec">
+                                      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                        <tbody>
+                                          <tr>
+                                            <th>MicroTopic Name</th>
+                                            <th>Total Attempts</th>
+                                            <th>Average Marks</th>
+                                            <th>Actions</th>
+                                          </tr>
+                                          <tr class="td-bg">
+                                            <td>What is Java</td>
+                                            <td class="w125">4</td>
+                                            <td class="w125">30%</td>
+                                            <td class="w200">
+                                              <div><span class="blue-btn mr-r10">View</span> <span class="blue-btn">Try
+                                                  Again</span></div>
+                                            </td>
+                                          </tr>
+
+                                          <tr>
+                                            <td>History of Java</td>
+                                            <td class="w125">6</td>
+                                            <td class="w125">50%</td>
+                                            <td class="w200">
+                                              <div><span class="blue-btn mr-r10">View</span> <span class="blue-btn">Try
+                                                  Again</span></div>
+                                            </td>
+                                          </tr>
+                                          <tr class="td-bg">
+                                            <td>Features of Java</td>
+                                            <td class="w125">7</td>
+                                            <td class="w125">60%</td>
+                                            <td class="w200">
+                                              <div><span class="blue-btn mr-r10">View</span> <span class="blue-btn">Try
+                                                  Again</span></div>
+                                            </td>
+                                          </tr>
+
+                                        </tbody>
+                                      </table>
+
+
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+                        <div class="tab-pane bgc-white" id="tab_c">
+                          <p>My exam</p>
+                        </div>
+                        <div class="tab-pane bgc-white" id="tab_d">
+                          <p>notification</p>
+                        </div>
+                        <div class="tab-pane bgc-white" id="tab_e">
+                          <p>my score</p>
+                        </div>
+                        <div class="tab-pane bgc-white" id="tab_f">
+                          <p>Purchase History</p>
+                        </div>
+                        <div class="tab-pane bgc-white" id="tab_g">
+                          <p>Account Settings</p>
+                        </div>
+                        <div class="tab-pane bgc-white" id="tab_h">
+                          <p>Logout</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--back to top-->
+  <div class="container-fluid">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12"> <a id="back-to-top" href="#" class="btn btn-info back-to-top"
+            role="button" title="Click to return on the top page" data-toggle="tooltip" data-placement="left"><i
+              class="material-icons">expand_less</i></a> </div>
+      </div>
+    </div>
+  </div>
+  <!--back to top end-->
+
+  <!-- Footer -->
+  <div class="container-fluid" id="footer">
+    <div class="container ftr-bg ">
+      <div class="row">
+        <div class="col-lg-11 col-md-12 col-sm-12 pd-t30 div-center">
+          <div class="row text-center text-xs-center text-sm-left text-md-left">
+            <div class="col-xs-12 col-sm-4 col-md-4 ftr-txt">
+              <h5>Quick links</h5>
+              <ul class="list-unstyled quick-links">
+                <li><a href="javascript:void();"><i class="fa fa-angle-right"></i>Home</a></li>
+                <li><a href="javascript:void();"><i class="fa fa-angle-right"></i>About</a></li>
+                <li><a href="javascript:void();"><i class="fa fa-angle-right"></i>FAQ</a></li>
+                <li><a href="javascript:void();"><i class="fa fa-angle-right"></i>Get Started</a></li>
+                <li><a href="javascript:void();"><i class="fa fa-angle-right"></i>Videos</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-4 ftr-txt">
+              <h5>Quick links</h5>
+              <ul class="list-unstyled quick-links">
+                <li><a href="javascript:void();"><i class="fa fa-angle-right"></i>Home</a></li>
+                <li><a href="javascript:void();"><i class="fa fa-angle-right"></i>About</a></li>
+                <li><a href="javascript:void();"><i class="fa fa-angle-right"></i>FAQ</a></li>
+                <li><a href="javascript:void();"><i class="fa fa-angle-right"></i>Get Started</a></li>
+                <li><a href="javascript:void();"><i class="fa fa-angle-right"></i>Videos</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-4 ftr-txt">
+              <h5>Find us</h5>
+              <p># 8, Above Reliance Digital, Nearby Udupi garden signal, BTM Layout, 2nd Stage, Bangalore – 560 076,
+              </p>
+              <p>Email: <a href="mailto:info@laratechnology.com">info@laratechnology.com</a></p>
+              <p>Phone: +91 0000000000</p>
+              <ul class="list-unstyled list-inline social text-white">
+                <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-facebook"></i></a></li>
+                <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-twitter"></i></a></li>
+                <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-google-plus"></i></a></li>
+                <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-linkedin-in"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-11 col-xs-12 col-sm-12 col-md-12 text-left ftr-txt div-center">
+          <p>&copy 2019 Laratechnology. All right Reversed.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Footer -->
+
+  <!-- Optional JavaScript -->
+  <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>

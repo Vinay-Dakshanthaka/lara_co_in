@@ -1,0 +1,42 @@
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { UploadService } from '../../services/upload.service';
+
+@Component({
+  selector: 'app-upload-emailids-for-bulk-emails',
+  templateUrl: './upload-emailids-for-bulk-emails.component.html',
+  styleUrls: ['./upload-emailids-for-bulk-emails.component.css']
+})
+export class UploadEmailidsForBulkEmailsComponent implements OnInit {
+
+  form: FormGroup;
+  error: string;
+  userId: number = 1;
+  uploadResponse = { status: '', message: '', filePath: '' };
+  constructor(private formBuilder: FormBuilder, private uploadService: UploadService) { }
+
+  ngOnInit() {
+    this.form = this.formBuilder.group({
+      avatar: ['']
+    });
+  }
+
+  onFileChange(event) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.form.get('avatar').setValue(file);
+    }
+  }
+  
+
+  onSubmit() {
+    const formData = new FormData();
+    formData.append('file', this.form.value.avatar);
+
+    this.uploadService.uploademailIdsForBulkMessages(formData).subscribe(
+      (res) => this.uploadResponse = res,
+      (err) => this.error = err
+    );
+  }
+
+}

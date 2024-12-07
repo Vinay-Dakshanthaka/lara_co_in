@@ -1,0 +1,81 @@
+
+<div class="fcf-body">
+	<div id="fcf-form" *ngIf="!formSubmitted">
+    <h3 class="fcf-h3">Enquiry Form (Contact us) </h3>
+
+    <form id="fcf-form-id" class="fcf-form-class" method="post" [formGroup]="contactForm" (ngSubmit)="save()">
+        
+        <div class="fcf-form-group">
+            <label for="Name" class="fcf-label">Your name</label>
+            <div class="fcf-input-group">
+                <input type="text" id="Name" formControlName="firstName" class="fcf-form-control">
+            </div>
+            <div *ngIf="firstName.touched && firstName.invalid" class="errorsClass">
+                Your Name is required one. Please enter
+            </div>
+        </div>
+
+        <div class="fcf-form-group">
+            <label for="Email" class="fcf-label">Your email address</label>
+            <div class="fcf-input-group">
+                <input type="email" id="Email" formControlName="email" class="fcf-form-control">
+            </div>
+            <div *ngIf="email.touched && email.invalid" class="errorsClass">
+                email is required one. Please enter
+            </div>
+
+        </div>
+
+		<div class="fcf-form-group">
+            <label for="mobileNo" class="fcf-label">Your Mobile Number</label>
+            <div class="fcf-input-group">
+                <input type="email" id="mobileNo" formControlName="mobileNo" class="fcf-form-control">
+            </div>
+            <div *ngIf="mobileNo.touched && mobileNo.invalid" class="errorsClass">
+                Mobile Number is required one. Please enter
+            </div>            
+        </div>
+
+		<div class="fcf-form-group">
+            <label for="courseType" class="fcf-label">Which courses you are looking? (Multiple selection allowed)</label>
+            <div class="fcf-input-group">
+                <select id="courseType" formControlName="courseType" class="fcf-form-control" size="5" required multiple>
+					<option value="javaFullStackFromCoreJava" [selected]="'javaFullStackFromCoreJava'">Java Full Stack Right from Core Java Including real Time Project development (No pre-requisites)</option>
+					<option value="javaFullStackProject">Java Full Stack real Time Project Development (You should know Core Java and Basics of JEE)</option>
+					<option value="pythonFullStack">Python Full Stack (No pre-requisites)</option>
+					<option value="springMicroServices">Spring Microservices (You should Know basics of Spring)</option>
+					<option value="springSecurity">Spring Security with an Angular (You should Know basics of Spring and Angular)</option>
+				</select>
+            </div>
+        </div>
+		<div class="fcf-form-group">
+            <label for="learnerType" class="fcf-label">Learner Type</label>
+            <div class="fcf-input-group">
+                <select id="learnerType" formControlName="learnerType" class="fcf-form-control" size="2" required>
+					<option value="jobSeeker" [selected]="'jobSeeker'">Job Seeker</option>
+					<option value="workingProfessional">Working Professional</option>
+				</select>
+            </div>
+        </div>
+
+        <div class="fcf-form-group">
+            <label for="specificMessage" class="fcf-label">Your message</label>
+            <div class="fcf-input-group">
+                <textarea id="specificMessage" formControlName="specificMessage" class="fcf-form-control" rows="6" maxlength="3000"></textarea>
+            </div>
+        </div>
+
+        <div class="fcf-form-group">
+            <button type="submit" id="fcf-button" class="fcf-btn fcf-btn-primary fcf-btn-lg fcf-btn-block">Send Message</button>
+        </div>
+
+        <div class="fcf-credit" id="fcf-credit">
+        For More Information: <a href="https://lara.co.in" target="_blank">lara.co.in</a>
+        </div>
+
+    </form>
+    </div>
+    <div *ngIf="formSubmitted">
+        Thank you for sumitting your data.  Our executive will contact you soon to provide more information.
+    </div>
+</div>

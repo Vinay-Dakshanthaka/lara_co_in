@@ -1,0 +1,54 @@
+
+<div class="fcf-body">
+	<div id="fcf-form" *ngIf="!formSubmitted">
+    <h3 class="fcf-h3">Signup Form (Registration Form) </h3>
+    <form id="fcf-form-id" class="fcf-form-class" method="post" [formGroup]="signupForm" (ngSubmit)="save()">
+        
+        <div class="fcf-form-group">
+            <label for="Name" class="fcf-label">Your Name</label>
+            <div class="fcf-input-group">
+                <input type="text" id="Name" formControlName="firstName" class="fcf-form-control">
+            </div>
+            <div *ngIf="firstName.touched && firstName.invalid" class="errorsClass alert alert-danger">
+                Your Name is required one. Please enter
+            </div>
+        </div>
+
+        <div class="fcf-form-group">
+            <label for="Email" class="fcf-label">Your email address</label>
+            <div class="fcf-input-group">
+                <input type="email" id="Email" formControlName="email" class="fcf-form-control">
+            </div>
+            <div *ngIf="email.touched && email.invalid" class="errorsClass alert alert-danger">
+                email is required one. Please enter
+            </div>
+
+        </div>
+
+		<div class="fcf-form-group">
+            <label for="password" class="fcf-label">Choose the Password</label>
+            <div class="fcf-input-group">
+                <input type="password" id="password" formControlName="password" class="fcf-form-control">
+            </div>
+            <div *ngIf="password.touched && password.invalid" class="errorsClass alert alert-danger">
+                Password is required one. Please enter
+            </div>            
+        </div>
+
+        <div class="fcf-form-group">
+            <button type="submit" id="fcf-button" class="fcf-btn fcf-btn-primary fcf-btn-lg fcf-btn-block">Submit</button>
+        </div>
+
+       
+
+    </form>
+    </div>
+    <div *ngIf="formSubmitted && !duplicateEmail">
+        Congratulations! You have been registered successfully. <br/>
+        We have sent an activation link to your email. <br/>
+        <u>Please check your email box including SPAM folder and activate it </u> 
+        To complete the signup process.. <br/>This activation is mandatory before login.<br/>
+        <a href="https://mail.google.com/">Go To Gmail to activate you email account</a>
+    </div>
+    <div *ngIf="duplicateEmail">{{ duplicateEmail }}</div>
+</div>

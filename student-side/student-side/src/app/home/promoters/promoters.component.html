@@ -1,0 +1,81 @@
+
+<div class="fcf-body">
+	<div id="fcf-form" *ngIf="!formSubmitted">
+    <h3 class="fcf-h3">Business Promoters Deatls</h3>
+
+    <form id="fcf-form-id" class="fcf-form-class" method="post" [formGroup]="promotersForm" (ngSubmit)="save()">
+        
+        <div class="fcf-form-group">
+            <label for="firstName" class="fcf-label">Your name</label>
+            <div class="fcf-input-group">
+                <input type="text" id="firstName" formControlName="firstName" class="fcf-form-control">
+            </div>
+            <div *ngIf="firstName.touched && firstName.invalid" class="errorsClass">
+                Your Name is required one. Please enter
+            </div>
+        </div>
+
+        <div class="fcf-form-group">
+            <label for="Email" class="fcf-label">Your email address</label>
+            <div class="fcf-input-group">
+                <input type="email" id="Email" formControlName="email" class="fcf-form-control">
+            </div>
+            <div *ngIf="email.touched && email.invalid" class="errorsClass">
+                email is required one. Please enter
+            </div>
+
+        </div>
+
+		<div class="fcf-form-group">
+            <label for="mobileNo" class="fcf-label">Your Mobile Number</label>
+            <div class="fcf-input-group">
+                <input type="text" id="mobileNo" formControlName="mobileNo" class="fcf-form-control">
+            </div>
+            <div *ngIf="mobileNo.touched && mobileNo.invalid" class="errorsClass">
+                Mobile Number is required one. Please enter
+            </div>            
+        </div>
+
+		<div class="fcf-form-group">
+            <label for="oppurtunityType" class="fcf-label">Which Oppurtunity you are looking for?</label>
+            <div class="fcf-input-group">
+                <select id="oppurtunityType" formControlName="oppurtunityType" class="fcf-form-control" size="5" required>
+					<option value="employee" [selected]="'employee'">Employee</option>
+					<option value="businessPartner">Business Partner</option>
+				</select>
+            </div>
+        </div>
+        <div class="fcf-form-group">
+            <label for="state" class="fcf-label">State</label>
+            <div class="fcf-input-group">
+                <input type="text" id="state" formControlName="state" class="fcf-form-control">
+            </div>
+            <div *ngIf="state.touched && state.invalid" class="errorsClass">
+                State is required one. Please enter
+            </div>            
+        </div>
+
+        <div class="fcf-form-group">
+            <label for="address" class="fcf-label">Detaild Address</label>
+            <div class="fcf-input-group">
+                <textarea id="address" formControlName="address" class="fcf-form-control" rows="6" maxlength="3000"></textarea>
+            </div>
+            <div *ngIf="address.touched && address.invalid" class="errorsClass">
+                Address is required one. Please enter
+            </div>             
+        </div>
+
+        <div class="fcf-form-group">
+            <button type="submit" id="fcf-button" class="fcf-btn fcf-btn-primary fcf-btn-lg fcf-btn-block">Submit My Data</button>
+        </div>
+
+        <div class="fcf-credit" id="fcf-credit">
+        For More Information: <a href="https://lara.co.in" target="_blank">lara.co.in</a>
+        </div>
+
+    </form>
+    </div>
+    <div *ngIf="formSubmitted">
+        Thank you for sumitting your data.  Please wait a day or two to get back to you.
+    </div>
+</div>

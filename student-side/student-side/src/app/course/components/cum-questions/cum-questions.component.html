@@ -1,0 +1,286 @@
+<!-- Button trigger modal -->
+<!-- <button id="openTestResultModalButton" [hidden]="true" data-toggle="modal" data-target="#testResultModal">Open
+  Modal</button> -->
+
+<!-- Modal -->
+<!-- <div class="modal fade" id="testResultModal" tabindex="-1" role="dialog" aria-labelledby="testResultModal"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-ff3547">
+        <h5 class="modal-title" id="videoEndAlertLabel">Total Score: {{marks}} out of
+          {{totalMarks}}</h5>
+        <button style="color:#FFFFFF" type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        {{testScoreMsg}}
+
+        <div style="margin-top:10px;">You can see your pending exam details by navigating to My Exams section on your
+          dashboard.</div>
+      </div>
+      <div class="modal-footer">
+        <button id="viewCumExamDetailsBtn" type="button" class="btn btn-primary bg-ff3547" data-dismiss="modal"><a
+            [routerLink]="['/cumqdetails',cumExamRecordId]">View Details</a></button>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+<!-- Modal -->
+
+
+<div class="container-fluid">
+  <div class="container form-bnr-sec">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 pd-t40 pd-b50 form-bnr">
+        <div class="row">
+          <div class="col-lg-11 col-md-12 col-sm-12 div-center">
+            <div>
+              <h1>Simple Questions </h1>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--courses header end-->
+
+<div class="container-fluid">
+  <div class="container">
+    <div class="testResult" #testResultModal id="exampleModalCenter" tabindex="-1" role="dialog"
+      aria-labelledby="exampleModalCenterTitle" aria-hidden="true"
+      [ngStyle]="{'display': testResult ? 'block' : 'none' }">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header bg-ff3547">
+            <h5 class="modal-title" id="exampleModalCenterTitle">Total Score: {{marks}} out of
+              {{totalMarks}}
+            </h5>
+          </div>
+          <div class="modal-body">
+            {{testScoreMsg}}
+
+            <div style="margin-top:10px;">You can see your pending exam details by navigating to My Exams section on
+              your
+              dashboard.</div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary bg-ff354" [routerLink]="['/cumqdetails',cumExamRecordId]">View
+              Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" *ngIf="!exError">
+      <div class="col-lg-12 col-md-12 col-sm-12 pd-t30 pd-b30">
+        <!-- <div class="row">
+              <div class="col-lg-12 col-md-12 col-sm-12 pd-t30 pd-b30">
+                  <div class="pd-l10 pd-b5"><a [routerLink]="['/score']" [queryParams]="{exRecId:examRecordId}"><span class="blue-btn2 mr-r10">Back</span></a> </div>
+              </div>
+          </div>    -->
+        <div class="row">
+          <div class="col-lg-7 col-md-7 col-sm-7" style="margin-left:40px;">
+            <div class="acco-inner-sec">
+              <div *ngIf="!testStarted">
+                <div style="margin-bottom:20px;margin-top:30px;">
+                  <h5>Micro Topic Details</h5>
+                  <div style="overflow-y:scroll;height:100px;background-color: #F4F4F4;padding:10px 15px">
+                    <div *ngFor="let microTopic of microTopics" style="background-color: #F4F4F4;">
+                      <div style="padding:3px;">{{microTopic.microTopicName}}</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="course-table">
+
+                  <h5>Instruction:</h5>
+                </div>
+                <div class="qs-section" style="min-height: 200px;">
+                  <div class="qs-head">
+                    <h5>Java Programming</h5>
+                  </div>
+                  <div style="float:left;">
+                    <ul class="qs-left">
+                      <li><a href="javascript:void(0)" class="no-current">Total number of questions :
+                          {{totalQuestions}}</a></li>
+                      <li><a href="javascript:void(0)">Time alloted : {{totalQuestions}} minutes</a></li>
+                      <li><a href="javascript:void(0)">Each question carry 1 mark, no negative marks.</a></li>
+                      <li><a href="javascript:void(0)">DO NOT refresh the page.</a></li>
+                      <li><a href="javascript:void(0)">All the best :-)</a></li>
+                    </ul>
+                  </div>
+
+
+                </div>
+                <div class="mr-t10">
+                  <button (click)="startTest()" class="btn btn-primary">Start Test</button>
+                </div>
+              </div>
+              <div *ngIf="testStarted">
+                <span>Please do not refresh the page</span>
+                <span id="timerclock" class="tme"></span>
+                <form [formGroup]="cumTestForm" novalidate (ngSubmit)="save(cumTestForm)" class="form-horizontal">
+                  <div class="qs-div" formArrayName="data"
+                    *ngFor="let item of cumTestForm.get('data').controls; let j=index;">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tbody [formGroupName]="j">
+                        <tr>
+                          <td style="width:2%;background:#d8e4f3;vertical-align:text-top;padding:10px;"><b>{{j+1}}.</b>
+                          </td>
+                          <td style="width:98%;background:#d8e4f3;padding:10px;"><a
+                              [attr.id]="'qid'+item.get('questionId').value"></a>
+                            <pre>{{item.get('questionDesc').value}}<span style="float:right;color:#25a79b">Q{{item.get('questionId').value}}</span></pre>
+                            <input type="hidden" [id]="item.get('questionId').value" formControlName="questionDesc"
+                              class="">
+                          </td>
+                        </tr>
+                        <tr>
+                          <td colspan="3" class="pd-l20 pd-t10">
+                            <table formArrayName="options"
+                              *ngFor="let options of item.get('options').controls; let i=index" width="auto" border="0"
+                              cellspacing="0" cellpadding="0">
+                              <tbody>
+                                <tr [formGroupName]="i">
+                                  <span class="pd-r10" style="text-transform: uppercase;float:left">
+                                    {{options.get('optionAbbr').value}}.</span>
+                                  <span style="float:left;padding-top:3px;"><input
+                                      [attr.questionId]="item.get('questionId').value" checked="checked"
+                                      (change)="toggleQuestionData($event)" type="checkbox"
+                                      [id]="options.get('optionId').value" formControlName="optionCheckedValue"
+                                      class="">
+                                  </span>
+                                  <pre class="pd-l10">{{options.get('optionDesc').value}}</pre>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+                      </tbody>
+
+                    </table>
+                  </div><br />
+                  <div class="margin-20">
+                    <input type="submit" class="btn btn-primary" value="Submit" />
+                  </div>
+                </form>
+              </div>
+
+
+
+
+              <!-- <div class="mr-t30"><span class="blue-btn mr-r5"><a href="">PREV</a></span> <span
+                  class="blue-btn mr-r5"><a href="">SUBMIT</a></span> <span class="blue-btn"><a href="">NEXT</a></span>
+              </div> -->
+            </div>
+
+
+
+
+
+
+
+
+          </div>
+
+          <div class="col-lg-4 col-md-4 col-sm-4" style="padding:20px;position: sticky; top:30px;">
+            <div class="fxd-div">
+              <h5>Course Details</h5>
+              <table class="qd-table" width="100%">
+                <tr class="qd-tr">
+                  <td class="qd-td">Course Package</td>
+                  <td class="qd-td">{{coursePackDetails.coursePackageName}}</td>
+                </tr>
+                <tr class="qd-tr">
+                  <td class="qd-td">Course </td>
+                  <td class="qd-td">{{coursePackDetails.courseName}}</td>
+                </tr>
+                <!-- <tr class="qd-tr">
+                <td class="qd-td">Topic</td>
+                <td class="qd-td">{{coursePackDetails.topicName}}</td>
+              </tr>
+              <tr class="qd-tr">
+                <td class="qd-td">SubTopic</td>
+                <td class="qd-td">{{coursePackDetails.subTopicName}}</td>
+              </tr>
+              <tr class="qd-tr">
+                <td class="qd-td">Micro Topic</td>
+                <td class="qd-td">{{coursePackDetails.microTopicName}}</td>
+              </tr> -->
+              </table>
+
+              <div *ngIf="testStarted">
+                <div class="qpagehead">
+                  <div>
+                    <span class="attq">0</span>&nbsp;&nbsp;&nbsp;<span>Attempted Questions </span>
+                  </div>
+                  <div style="margin-top:5px;">
+                    <span class="unattq">0</span>&nbsp;&nbsp;&nbsp;<span>Un-Attempted Questions </span>
+                  </div>
+                </div>
+                <div class="qtab" *ngFor="let quesDetail of questionIds">
+                  <span class="qtab-un" [attr.id]="'qref'+quesDetail.questionId">
+                    <a class="ques-anc" [attr.href]="'#qid'+quesDetail.questionId">{{quesDetail.questionRef}}</a>
+                  </span>
+                </div>
+                <div style="float:left;margin-top:37px;">
+                  <button (click)="save(cumTestForm)" class="btn btn-primary" type="submit">Submit</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" *ngIf="exError">
+      <div class="col-sm-12">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 pd-t30 pd-b30">
+            <div class="pd-l10 pd-b5"><a [routerLink]="['/dashboard']"><span class="blue-btn2 mr-r10">Back</span></a>
+            </div>
+          </div>
+        </div>
+        <h3 style="text-align: center;color:red;">{{exErrorMsg}}</h3><br><br>
+        <div class="div2">
+          <p style="text-align: center;">You have choosen some micro topic for which questions are not available.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--back to top-->
+<div class="container-fluid">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12"> <a id="back-to-top" href="#" class="btn btn-info back-to-top"
+          role="button" title="Click to return on the top page" data-toggle="tooltip" data-placement="left"><i
+            class="material-icons">expand_less</i></a> </div>
+    </div>
+  </div>
+</div>
+<!--back to top end-->
+
+<button style="display:none;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#pgRefAlertModal"
+  id="pageRefreshAlertBtn">
+  Launch demo modal
+</button>
+<!-- Modal -->
+<div class="modal fade" id="pgRefAlertModal" tabindex="-1" role="dialog" aria-labelledby="pgRefAlertModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-ff3547">
+        <h5 class="modal-title" id="">Exam in progress.</h5>
+        <button style="color:#FFFFFF" type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-title" id="no" style="text-align:center;">Please do not refresh the page.</p>
+      </div>
+    </div>
+  </div>
+</div>

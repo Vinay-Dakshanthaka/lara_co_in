@@ -1,0 +1,83 @@
+<div class="container m-0">
+    <div class="row justify-content-around" *ngIf="orderState === '' && !emptyCart">
+        <div class="col-12 col-md-6 col-lg-5 mx-lg-5">
+            <app-buy-courses [packageList]="userPackages" [cartDetails]="true" (deleteEvent)="deleteFromCart($event)"
+                #coursePackages></app-buy-courses>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+            <app-bill-summary></app-bill-summary>
+        </div>
+    </div>
+    <div *ngIf="    emptyCart && orderState === ''">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card" style="border: none;">
+                    <div class="card-body cart">
+                        <div class="col-sm-12 text-center">
+                            <img src="https://i.imgur.com/dCdflKN.png" width="130" height="130"
+                                class="img-fluid mb-4 mr-3">
+                            <h3><strong>Your Cart is Empty</strong></h3>
+                            <h4>Add something to make me happy :)</h4>
+                            <a href="#" class="btn btn-primary cart-btn-transform m-3" routerLink="/buyCourses">continue
+                                shopping</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container py-5 d-flex flex-column align-items-center justify-content-center"
+        *ngIf="orderState === 'confirmed'" style="height: 500px;">
+        <img src="../../../assets/images/gifs/order-complete.gif" alt="Order Placed">
+        <h2 class="text-success">Congratulations !</h2>
+        <h3>Happy learning. <a href="#" routerLink="/dashboard"> &nbsp;&nbsp; Go To Dashboard -></a></h3>
+    </div>
+    <div class="container py-5 d-flex flex-column align-items-center justify-content-center"
+        *ngIf="orderState === 'initiated' && !orderClosed" style="height: 500px;">
+        <img src="./assets/images/gifs/warning.gif" alt="Order Placed">
+        <h2 class="text-success">Order {{orderState}}!</h2>
+        <h5 class="px-5 py-3" style="text-align: center;">It Seems your order is initiated, but not confirmed. If you
+            have done the payment please
+            don't
+            worry, please
+            referesh the page or try going to dashboard and check in some time.
+        </h5>
+        <a href="#" routerLink="/dashboard" class="text-center">Go To Dashboard -></a>
+        <p class="text-center">If not try support.</p>
+    </div>
+    <div class="container py-5 d-flex flex-column align-items-center justify-content-center"
+        *ngIf="orderState === 'pending' && !orderClosed" style="height: 500px;">
+        <img src="./assets/images/gifs/warning.gif" alt="Order Placed">
+        <h2 class="text-success">Order {{orderState}}!</h2>
+        <h5 class="px-5 py-3" style="text-align: center;">It Seems your order is pending, and not yet confirmed. If you
+            have done the payment please
+            don't
+            worry, please
+            referesh the page or copy this link(<a
+                href="javascript(void)">https://lara.co.in/#/cartDetails?orderId={{orderId}}</a>) and try later.
+        </h5>
+        <a href="#" routerLink="/dashboard" class="text-center">Go To Dashboard -></a>
+        <p class="text-center">If not try support.</p>
+    </div>
+    <div class="container py-5 d-flex flex-column align-items-center justify-content-center"
+        *ngIf="orderState === 'initiated' && orderClosed && paymentStatus === 'FALIURE'" style="height: 500px;">
+        <img src="./assets/images/gifs/warning.gif" alt="Order Placed">
+        <h2 class="text-danger">Order {{orderState}}! Payment Status {{paymentStatus}}</h2>
+        <h5 class="px-5 py-3" style="text-align: center;">It Seems your order is initiated, but not confirmed. If you
+            seems somthing went wrong on our end or the payment was a faliure or the order is closed. Please try making
+            a new payment.
+        </h5>
+        <a href="#" routerLink="/dashboard" class="text-center">Go To Dashboard -></a>
+        <p class="text-center">If payment is done try contacting support.</p>
+    </div>
+    <div class="container py-5 d-flex flex-column align-items-center justify-content-center"
+        *ngIf="orderState === 'initiated' && orderClosed && paymentStatus === 'COMPLETED'" style="height: 500px;">
+        <img src="./assets/images/gifs/warning.gif" alt="Order Placed">
+        <h2 class="text-danger">Order {{orderState}}! Payment Status {{paymentStatus}}</h2>
+        <h5 class="px-5 py-3" style="text-align: center;">It Seems your order is initiated, but not confirmed. If you
+            seems somthing went wrong on our end or the order is closed.
+        </h5>
+        <a href="#" routerLink="/dashboard" class="text-center">Go To Dashboard -></a>
+        <p class="text-center">If payment is done try contacting support.</p>
+    </div>
+</div>

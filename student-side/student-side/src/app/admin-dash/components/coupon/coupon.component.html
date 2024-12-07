@@ -1,0 +1,32 @@
+<form [formGroup]="couponForm" (ngSubmit)="save()">
+    Coupon Code: <input type="text" formControlName="couponCode"/> <br/>
+    Coupon Desc: <textarea cols="15" rows = "5" formControlName="couponDesc"></textarea> <br/>
+    Coupon Start Date: <input type="datetime-local" formControlName="startDate"/> <br/>
+    Coupon End Date: <input type="datetime-local" formControlName="endDate"/> <br/>
+    Reduction Percentage: <input type="text" formControlName="reductionPercentage"/> <br/>
+    tele caller or bda name to whom we are assigning this coupon
+    <input type="text" formControlName="cusomerGroup"/> <br/>
+    <input type="submit" value="submit"/>
+</form>
+
+<div *ngIf="coupons.length != 0">
+    <table border='1'>
+        <tr>
+            <th>ID</th>
+            <th>Code</th>
+            <th>Desc</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Percentage</th>
+            <th>Assigned To</th>
+        </tr>
+        <tr *ngFor="let coupon of coupons">
+            <td> {{ coupon.id }} </td>
+            <td> {{ coupon.couponCode }} </td>
+            <td> {{ coupon.startDate }} </td>
+            <td> {{ coupon.endDate }} </td>
+            <td> {{ coupon.reductionPercentage }} </td>
+            <td> {{ coupon.cusomerGroup }} </td>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,10 @@
+package com.lara.c2c.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.lara.c2c.model.Orders_1;
+
+public interface Orders_1Repository extends JpaRepository<Orders_1, Long>{
+	
+	
+}

@@ -1,0 +1,9 @@
+table{border:1px solid #0040a0; padding:8px;color:#666666;}
+td{padding:4px;border-bottom:1px solid #0040a0;color:#666666; border-right: 1px solid #0040a0;}
+
+.accordion>.card:first-of-type {border-bottom: 1px;}
+.accordion>.card .card-header {
+    margin-bottom: 1px;
+}
+.card-body {
+    border-bottom: 1px solid rgba(0,0,0,.125);}

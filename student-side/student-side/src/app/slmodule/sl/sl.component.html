@@ -1,0 +1,47 @@
+<div class="container d-flex justify-content-center align-items-center py-3 py-sm-5">
+    <form class="form hidden-left login" [ngClass]="{'hidden-left' : hideLogin}">
+        <h3 class="text-center mb-3">Login</h3>
+        <div class="position-relative field">
+            <input type="text" name="" id="username" placeholder="Username" class="input">
+            <label for="username"> Username</label>
+            <fa-icon [icon]="user"></fa-icon>
+        </div>
+        <div class="position-relative field">
+            <input type="password" name="" id="password" placeholder="Password" class="input">
+            <label for="password"> Password</label>
+            <fa-icon [icon]="password"></fa-icon>
+        </div>
+        <button type="submit" class="btn btn-primary mb-2" style="width: 100%;">submit</button>
+        <div class="d-flex justify-content-center align-items-center flex-column">
+            <a href="" class="">Forgot password</a>
+            <br>
+            <div>
+                <span>Do not have a account?</span><a href="">create one</a>
+            </div>
+        </div>
+    </form>
+    <form class="form hidden-right signin" [ngClass]="{'hidden-right' : !hideLogin}">
+        <h3 class="text-center mb-3">Sign In</h3>
+        <div class="position-relative field">
+            <input type="text" name="" id="fullname" placeholder="Fullname" class="input">
+            <label for="fullName">Fullname</label>
+            <fa-icon [icon]="user"></fa-icon>
+        </div>
+        <div class="position-relative field">
+            <input type="text" name="" id="email" placeholder="Email" class="input">
+            <label for="email">Email</label>
+            <fa-icon [icon]="email"></fa-icon>
+        </div>
+        <div class="position-relative field">
+            <input type="password" name="" id="password" placeholder="Password" class="input">
+            <label for="password"> Password</label>
+            <fa-icon [icon]="password"></fa-icon>
+        </div>
+        <button type="submit" class="btn btn-primary mb-2" style="width: 100%;">submit</button>
+        <div class="d-flex justify-content-center align-items-center flex-column">
+            <div>
+                <span>Already have a account?</span><a href="">login</a>
+            </div>
+        </div>
+    </form>
+</div>

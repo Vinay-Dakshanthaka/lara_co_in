@@ -1,0 +1,41 @@
+
+<div *ngIf="liveClasses.length == 0">
+    <div class="cpg-det">
+        <h5> No classes scheduled for your course package. </h5>
+    </div>
+</div>
+
+<div *ngIf="liveClasses.length != 0">
+    <div class="cpg-det">
+        <h5>Scheduled classes for your course package </h5>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>SNO</th>
+                <th>Date</th>                
+                <th>Topic</th>
+                <th>Dependent Topics</th>
+                <th>Live URL</th>
+                <th>Password</th>
+                <th>Is It Public class?</th>
+                <th>Note</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let liveClass of liveClasses;index as i">
+                <td> {{ i + 1 }} </td>
+                <td> {{ getDate(liveClass.dateAndTime) }} </td>
+                <!-- <td> {{ getTime(liveClass.dateAndTime) }} </td> -->
+                <td> {{ liveClass.topic }} </td>
+                <td> {{ liveClass.dependents }}</td>
+                <td> <a href='{{ liveClass.liveUrl }}' target='_blank'>Go to Live class</a> </td>
+                <td> {{ liveClass.password }} </td>
+                <td> {{ liveClass.isPublic ? 'Yes' : 'No' }}</td>
+                <td> {{ liveClass.note }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+

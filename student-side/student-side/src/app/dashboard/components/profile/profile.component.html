@@ -1,0 +1,486 @@
+<div [@simpleFadeAnimation]="'in'" *ngIf="updateRespAlert" class="alert alert-success fade in alert-dismissible show"
+  role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true" style="font-size:20px">×</span>
+  </button>
+  {{updateRespAlertText}}
+</div>
+<!-- Tab links -->
+
+<div class="row">
+  <div class="col-sm-12 mt-20">
+    <ul class="pd-0">
+      <li class="tablinks active" (click)="openCity($event, 'tb-sec1')"><span
+          class="fa fa-user s8 pd-r10"></span>Personal info</li>
+      <li class="tablinks" (click)="openCity($event, 'tb-sec2')"><span
+          class="fa fa-graduation-cap s8 pd-r10"></span>Education</li>
+      <li class="tablinks" (click)="openCity($event, 'tb-sec3')"><span class="fa fa-language s8 pd-r10"></span>Technical
+        Skills</li>
+      <li class="tablinks" (click)="openCity($event, 'tb-sec4')"><span class="fa fa-podcast s8 pd-r10"></span>Work
+        Experience</li>
+    </ul>
+  </div>
+</div>
+
+<!-- <div class="hoz-tab">
+  <button class="tablinks active" (click)="openCity($event, 'tb-sec1')">Personal info</button>
+  <button class="tablinks" (click)="openCity($event, 'tb-sec2')">Education </button>
+  <button class="tablinks" (click)="openCity($event, 'tb-sec3')">Technical Skills </button>
+  <button class="tablinks" (click)="openCity($event, 'tb-sec4')">Work Experience</button>
+</div> -->
+
+<!-- Tab content -->
+<div id="tb-sec1" class="hoztabcnt" style="display: block;">
+
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="row">
+        <div class="col-sm-12">
+          <form [formGroup]="profileDetailForm" (ngSubmit)="updateProfile()">
+          <div class="row">
+            <div class="col-sm-3">
+              <div class="user-prof-lft">
+                <div class="card-block text-center text-white">
+                  <img src="./assets/images/user.png" />
+                  <h5 class="mr-t10">{{firstName}} {{lastName}}</h5>
+                </div>
+
+              </div>
+            </div>
+            <div class="col-sm-8 profile profile-form">
+                <div class="row">
+                  <div class="col-sm-1 pd-t20">
+                      <span class="fa fa-info-circle s9"></span>
+                  </div>
+                  <div class="col-sm-11 mr-l-42">
+                      <h4 class= "pd-t20">Information</h4>
+                  </div>
+                </div>                              
+                <hr>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <span class="fa fa-user-o s9 pd-r10"></span>
+                    <input type="text" class="placeholder-fix" id="inputFirstname" placeholder="First Name"
+                      formControlName='firstName' />
+                  </div>
+                  <div class="col-sm-6">
+                    <input type="text" class="placeholder-fix" id="inputLastname" placeholder="Last Name"
+                      formControlName='lastName'>
+                  </div>
+                </div>
+                <div class="row mt-20">
+                  <div class="col-sm-6">
+                    <span class="far fa-envelope s9 pd-r10"></span>
+                    <input type="text" readonly="true" class="placeholder-fix" id="email" placeholder="Email"
+                      formControlName='email'>
+                  </div>
+                  <div class="col-sm-5">
+                    <div class="sl-box">
+                      <select formControlName="gender" class="form-control">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="row mt-20">
+                  <div class="col-sm-6">
+                    <div class="row">
+                      <div class="col-sm-1 mr-t10">
+                          <span class="far fa-envelope s9 pd-r10"></span>
+                      </div>
+                      <div class="col-sm-3">                         
+                          <input type="text" class="placeholder-fix" id="mobilecode" placeholder="+91">
+                      </div>
+                      <div class="col-sm-8">
+                          <input type="text" class="placeholder-fix" id="mobile" placeholder="Contact Number" formControlName='mobileNo'>
+                      </div>
+                    </div>                                        
+                  </div>
+                  <div class="col-sm-6 dtp">
+                      <span class="cal-icn">
+                          <input type="date" name="dateofbirth" placeholder="dd/mm/yyyy" id="datepicker"
+                            formControlName='dateOfBirth'></span>
+                  </div>
+                </div>              
+            </div>
+          </div>
+          <div class="row">
+              <div class="col-sm-3">
+                <div class="user-prof-lft">
+                  <div class="card-block text-center text-white">
+                    <div class="user-info">
+                    <div class="pd-t10 pd-b10">Course Packages:</div>
+                    <!-- <div class="pd-t10 pd-b10">Total Exams Attended: NA</div>
+                    <div class="pd-t10 pd-b10">Total Videos Watched: NA</div> -->
+                    </div>
+                  </div>
+  
+                </div>
+              </div>
+              <div class="col-sm-8 profile profile-form mr-t40">
+                  <div id="currentAddress">
+                      <div formArrayName="learnerAddress">
+                        <div *ngFor="let learnerAdd of learnerAddress.controls let pointIndex=index" [formGroupName]="pointIndex">
+                          <div class="row">
+                            <div class="col-lg-12 mr-t20 mr-b10"><i class="material-icons micon-block mr-l28">location_on</i>
+                              <h4 class="mr-l28" *ngIf="pointIndex == 0">Current Address</h4>
+                              <h4 class="mr-l28" *ngIf="pointIndex == 1">Permanent Address</h4>
+                            </div>
+                          </div>
+                          <div class="row" *ngIf="pointIndex == 1">
+                            <div class="col-sm-1 mr-b10">
+                                <input id="addressChkBox" type="checkbox" name="sameAddr" (change)="copyAddress($event)" />
+                            </div>
+                            <div class="col-lg-4 mr-b10" style="margin-left:-35px;">
+                              Same as Current Address 
+                            </div>                            
+                          </div>
+                          <div id="currentAddress">
+                            <div class="row mr-b25">
+                              <div class="col-sm-6 col-md-6 col-lg-6">
+                                <input type="text" class="placeholder-fix" class="inputHouseno" placeholder="House Number"
+                                  formControlName="houseNo" (keyup)="uncheckAddressCheckBox($event)"></div>
+                              <div class="col-sm-6 col-md-6 col-lg-6">
+                                <input type="text" class="placeholder-fix" class="inputStreetname" placeholder="Street"
+                                  formControlName="street" (keyup)="uncheckAddressCheckBox($event)"></div>
+                            </div>
+          
+                            <div class="row mr-b25">
+                              <div class="col-sm-12">
+                                <div class="row">
+                                  <div class="col-sm-5">
+                                      <div class="sl-box">
+                                          <select formControlName="countryId">
+                                            <option value="" disabled>Select Country</option>
+                                            <option value="1">India</option>
+                                          </select>
+                                        </div>
+                                  </div>
+                                  <div class="col-sm-1">&nbsp;</div>
+                                  <div class="col-sm-5">
+                                      <div class="sl-box">
+                                          <select formControlName="stateId" (change)="uncheckAddressCheckBox($event)">
+                                            <option value="" disabled>Select State</option>
+                                            <option value="1">Andhra Pradesh</option>
+                                            <option value="2">Andaman and Nicobar Islands</option>
+                                            <option value="3">Arunachal Pradesh</option>
+                                            <option value="4">Assam</option>
+                                            <option value="5">Bihar</option>
+                                            <option value="6">Chandigarh</option>
+                                            <option value="7">Chhattisgarh</option>
+                                            <option value="8">Dadar and Nagar Haveli</option>
+                                            <option value="9">Daman and Diu</option>
+                                            <option value="10">Delhi</option>
+                                            <option value="11">Goa</option>
+                                            <option value="12">Gujarat</option>
+                                            <option value="13">Haryana</option>
+                                            <option value="14">Himachal Pradesh</option>
+                                            <option value="15">Jammu and Kashmir</option>
+                                            <option value="16">Jharkhand</option>
+                                            <option value="17">Karnataka</option>
+                                            <option value="18">Kerala</option>
+                                            <option value="19">Lakshadweep</option>
+                                            <option value="20">Madhya Pradesh</option>
+                                            <option value="21">Maharashtra</option>
+                                            <option value="22">Manipur</option>
+                                            <option value="23">Meghalaya</option>
+                                            <option value="24">Mizoram</option>
+                                            <option value="25">Nagaland</option>
+                                            <option value="26">Odisha</option>
+                                            <option value="27">Pondicherry</option>
+                                            <option value="28">Punjab</option>
+                                            <option value="29">Rajasthan</option>
+                                            <option value="30">Sikkim</option>
+                                            <option value="31">Tamil Nadu</option>
+                                            <option value="32">Telangana</option>
+                                            <option value="33">Tripura</option>
+                                            <option value="34">Uttar Pradesh</option>
+                                            <option value="35">Uttarakhand</option>
+                                            <option value="36">West Bengal</option>
+                                          </select>
+                                        </div>
+                                  </div>
+                                </div>
+                              </div>
+                              
+                            </div>
+          
+          
+                            <div class="row mr-b25">
+                              <div class="col-sm-6 col-md-6 col-lg-6">
+                                <input type="text" formControlName="city" class="placeholder-fix" class="inputCity"
+                                  placeholder="City" (keyup)="uncheckAddressCheckBox($event)">
+                              </div>
+                              <div class="col-sm-6 col-md-6 col-lg-6">
+                                <input type="text" formControlName="zipcode" class="placeholder-fix" class="inputZipcode"
+                                  placeholder="Zip Code" (keyup)="uncheckAddressCheckBox($event)"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>                              
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-5"></div>
+              <div class="col-lg-3 mr-t40 mr-b10 text-center">
+                <div class="form-btn" (click)="updateProfile()">UPDATE</div>
+              </div>
+              <div class="col-sm-4"></div>
+            </div>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="tb-sec2" class="hoztabcnt">
+  <h4>Education Details:</h4>
+  <!-- education -->
+  <div style="margin-top:20px;">
+
+    <div class="row" style="margin-top:30px;">
+      <div class="col-sm-2">
+        <div class="form-group">
+          <label for="educationId">Education</label>
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <div class="form-group">
+          <label for="eduSpecId">Education Spec</label>
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <div class="form-group">
+          <label for="percentage">Percentage</label>
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <div class="form-group">
+          <label for="Passing Year">Passing Year</label>
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <div class="form-group">
+          <label for="boardName">Board/University</label>
+        </div>
+      </div>
+    </div>
+    <form [formGroup]="educationForm" (ngSubmit)="updateLearnerEdu()">
+      <div formArrayName="educationFormRows">
+        <div class="row" *ngFor="let item of educationFormRows.controls; let eduPointIndex=index"
+          [formGroupName]="eduPointIndex">
+          <div class="col-sm-2">
+            <div class="formErr" *ngIf="isEduFormSubmitted && educationFormRows.controls[eduPointIndex].get('educationId').errors?.required">Please Select Education</div>
+            <div class="form-group">
+              <select (change)="getEduSpecListByEduId($event.target.value, eduPointIndex)" id="selectEducation"
+                formControlName="educationId" class="form-control">
+                <option value="" disabled>Select</option>
+                <option *ngFor="let education of educationList" value="{{education.educationId}}">
+                  {{education.educationName}}
+                </option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col-sm-2">
+            <div class="formErr" *ngIf="isEduFormSubmitted && educationFormRows.controls[eduPointIndex].get('eduSpecId').errors?.required">Please Select Education Specialization</div>
+            <div class="form-group">
+              <select formControlName="eduSpecId" class="form-control"
+                (change)="getEduSpecListFiltered(educationForm.value.educationFormRows[eduPointIndex].educationId, eduPointIndex)">
+                <option value="" disabled>Select</option>
+                <option *ngFor="let eduSpec of educationForm.value.educationFormRows[eduPointIndex].filterdEdArray"
+                  value="{{eduSpec.eduSpecId}}">
+                  {{eduSpec.eduSpecName}}
+                </option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col-sm-2">
+            <div class="formErr" *ngIf="isEduFormSubmitted && educationFormRows.controls[eduPointIndex].get('percentage').errors?.required">Please Enter Percentage</div>
+            <div class="form-group">
+              <input formControlName="percentage" class="form-control"
+                (keyup)="getEduSpecListFiltered(educationForm.value.educationFormRows[eduPointIndex].educationId, eduPointIndex)" />
+            </div>
+          </div>
+
+          <div class="col-sm-2">
+            <div class="formErr" *ngIf="isEduFormSubmitted && educationFormRows.controls[eduPointIndex].get('yearOfPassOut').errors?.required">Please Enter Passing Year</div>
+            <div class="form-group">
+              <input type="text" formControlName="yearOfPassOut" class="form-control"
+                (keyup)="getEduSpecListFiltered(educationForm.value.educationFormRows[eduPointIndex].educationId, eduPointIndex)" />
+            </div>
+          </div>
+
+          <div class="col-sm-2">
+            <div class="formErr" *ngIf="isEduFormSubmitted && educationFormRows.controls[eduPointIndex].get('boardName').errors?.required">Please Enter Board Name</div>
+            <div class="form-group">
+              <input formControlName="boardName" class="form-control"
+                (keyup)="getEduSpecListFiltered(educationForm.value.educationFormRows[eduPointIndex].educationId, eduPointIndex)" />
+            </div>
+          </div>
+
+          <div class="col-sm-2" *ngIf="eduPointIndex>0">
+            <a href="javascript:void()" (click)="deleteEducationFormRow(eduPointIndex)">Delete</a>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-3" id=""><a href="javascript:void()" (click)="addEducationFormRow()">Add More Education</a>
+        </div>
+        <div class="col-sm-2">
+          <input type="submit" value="Update" class="btn btn-primary btn-group-sm" />&nbsp;
+        </div>
+      </div>
+    </form>
+    <div class="row">
+      &nbsp;
+    </div>
+  </div>
+</div>
+
+
+<div id="tb-sec3" class="hoztabcnt">
+  <h4>Technical Skills</h4>
+  <div class="row" style="margin-top:30px;">
+    <div class="col-sm-4">
+      <div class="form-group">
+        <label for="skillId">Skill</label>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-group">
+        <label for="skillLevelId">Skill Level</label>
+      </div>
+    </div>
+  </div>
+  <form [formGroup]="learnerSkillForm" (ngSubmit)="updateLearnerSkills()">
+    <div formArrayName="learnerSkillFormRows">
+      <div class="row" *ngFor="let item of learnerSkillFormRows.controls; let skPointIndex=index"
+        [formGroupName]="skPointIndex">
+        <div class="col-sm-4">
+          <div class="formErr" *ngIf="islrSkillFormSubmitted && learnerSkillFormRows.controls[skPointIndex].get('skillId').errors?.required">Please Select Skill</div>
+          <div class="form-group">
+            <select formControlName="skillId" class="form-control">
+              <option *ngFor="let skill of skillsList" value={{skill.skillId}}>
+                {{skill.skillName}}
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="formErr" *ngIf="islrSkillFormSubmitted && learnerSkillFormRows.controls[skPointIndex].get('skillLevelId').errors?.required">Please Select Skill Level</div>
+          <div class="form-group">
+            <select formControlName="skillLevelId" class="form-control">
+              <option *ngFor="let skillLevel of skillLevelList" value="{{skillLevel.skillLevelId}}">
+                {{skillLevel.skillLevelName}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-4" *ngIf="skPointIndex>0">
+          <a href="javascript:void()" (click)="deleteLearnerSkillFormRow(skPointIndex)">Delete</a>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-2" id=""><a href="javascript:void()" (click)="addLearnerSkillFormRow()">Add More Skill</a>
+      </div>
+      <div class="col-sm-2"><input type="submit" value="Update" class="btn btn-primary btn-group-sm" />
+        &nbsp;
+
+      </div>
+    </div>
+  </form>
+
+  <div class="row">
+    &nbsp;
+  </div>
+</div>
+
+<div id="tb-sec4" class="hoztabcnt">
+  <h4>Work Experience</h4>
+  <div class="row" style="margin-top:30px;">
+    <div class="col-sm-2">
+      <div class="form-group">
+        <label for="educationId">Company Name</label>
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <div class="form-group">
+        <label for="eduSpecId">Joining Date</label>
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <div class="form-group">
+        <label for="percentage">Exit Date</label>
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <div class="form-group">
+        <label for="Passing Year">Joining Salary</label>
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <div class="form-group">
+        <label for="boardName">Exit Salary</label>
+      </div>
+    </div>
+  </div>
+  <form [formGroup]="learnerWorkExpForm" (ngSubmit)="updateLearnerWorkExp()">
+    <div formArrayName="learnerWorkExpFormRows">
+      <div class="row" *ngFor="let lwep of learnerWorkExpFormRows.controls; let wePointIndex=index"
+        [formGroupName]="wePointIndex">
+        <div class="col-sm-2">
+          <div class="formErr" *ngIf="isLrWkExpFormSubmitted && learnerWorkExpFormRows.controls[wePointIndex].get('companyName').errors?.required">Please Enter Company Name</div>
+          <div class="form-group">
+            <input formControlName="companyName" class="form-control" />
+          </div>
+        </div>
+
+        <div class="col-sm-2">
+          <div class="formErr" *ngIf="isLrWkExpFormSubmitted && learnerWorkExpFormRows.controls[wePointIndex].get('dateOfJoining').errors?.required">Please Enter Joining Date</div>
+          <div class="form-group">
+            <input formControlName="dateOfJoining" class="form-control doj datepicker" placeholder="dd/mm/yyyy" />
+          </div>
+        </div>
+
+        <div class="col-sm-2">
+          <div class="formErr" *ngIf="isLrWkExpFormSubmitted && learnerWorkExpFormRows.controls[wePointIndex].get('dateOfExit').errors?.required">Please Enter Exit Date</div>
+          <div class="form-group">
+            <input formControlName="dateOfExit" class="form-control doe datepicker" placeholder="dd/mm/yyyy" />
+          </div>
+        </div>
+
+        <div class="col-sm-2">
+          <div class="formErr" *ngIf="isLrWkExpFormSubmitted && learnerWorkExpFormRows.controls[wePointIndex].get('joiningSalary').errors?.required">Please Enter Exit Salary</div>
+          <div class="form-group">
+            <input formControlName="joiningSalary" class="form-control" />
+          </div>
+        </div>
+
+        <div class="col-sm-2">
+            <div class="formErr" *ngIf="isLrWkExpFormSubmitted && learnerWorkExpFormRows.controls[wePointIndex].get('exitSalary').errors?.required">Please Enter Joining Salary</div>
+          <div class="form-group">
+            <input formControlName="exitSalary" class="form-control" />
+          </div>
+        </div>
+
+        <div class="col-sm-2" *ngIf="wePointIndex>0">
+          <a href="javascript:void()" (click)="deleteLearnerExpFormRow(wePointIndex)">Delete</a>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3" id=""><a href="javascript:void()" (click)="addLearnerWorkExpFormRow()">Add More Work
+          Experience</a></div>
+      <div class="col-sm-2"><input type="submit" value="Update" class="btn btn-primary btn-group-sm" /></div>
+    </div>
+  </form>
+
+  <div class="row">
+    &nbsp;
+  </div>
+</div>

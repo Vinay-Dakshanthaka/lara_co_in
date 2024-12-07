@@ -1,0 +1,83 @@
+<div class="container-fluid cntfld-fw">
+  <div class="container form-bnr-sec">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 pd-t40 pd-b50 form-bnr">
+        <div class="row">
+          <div class="col-lg-11 col-md-12 col-sm-12 div-center">
+            <div>
+              <h1>Dashboard</h1>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--courses header end-->
+
+<div class="container-fluid cntfld-fw">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 pd-t30 pd-b30">
+        <div class="row">
+          <div class="col-lg-11 col-md-12 col-sm-12 div-center">
+            <div class="acco-inner-sec">
+              <div class="pd-l10 pd-b5"><span class="blue-btn2 mr-r10"><a [routerLink]="['/dashboard']" [queryParams]="{tab:'tab_e'}">Back</a></span> 
+               </div>
+              <div class="tbl-sec">
+                <div *ngFor="let cmp of compExamRecords;">
+                  <p>Course Package: {{cmp.coursePackageName}} | Course Name: {{cmp.courseName}} | Sub Topic Name:
+                    {{cmp.subTopicName}}</p>
+                  <p>Micro Topic Name: {{cmp.microTopicName}}</p>
+               
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tbody>
+                    <tr>
+                      <th>Completion Date</th>
+                      <th>Exam Record Id</th>
+                      <th>Marks</th>
+                      <th>Total Marks</th>
+                      <th>Actions</th>
+                    </tr>
+                    <tr class="td-bg " [className]="i % 2==0 ? 'td-bg' : ''" *ngFor="let cmpEx of cmp.compExams; let i = index;">
+                      <td>{{cmpEx.completedDate}}</td>
+                      <td class="w150">EX000{{cmpEx.examCompRecordId}}</td>
+                      <td class="w125">{{cmpEx.marksObtained}}</td>
+                      <td>{{cmpEx.totalMarks}}</td>
+                      <td class="w230">
+                        <div><a [routerLink]="['/qdetails',cmpEx.examCompRecordId]" [queryParams]="{exRecId:examRecordId}">Questionnaire</a></div>
+                      </td>
+                    </tr>                    
+                  </tbody>
+                </table>
+
+              </div>
+              </div>
+            </div>
+
+
+
+
+
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--back to top-->
+<div class="container-fluid">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12"> <a id="back-to-top" href="#" class="btn btn-info back-to-top"
+          role="button" title="Click to return on the top page" data-toggle="tooltip" data-placement="left"><i
+            class="material-icons">expand_less</i></a> </div>
+    </div>
+  </div>
+</div>
+<!--back to top end-->

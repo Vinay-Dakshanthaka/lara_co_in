@@ -1,0 +1,43 @@
+<div class="container-fluid cntfld-fw">
+  <div class="container sm-pd-l0 sm-pd-r0">
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 div-center">
+
+        <form [formGroup]="signUpForm" (ngSubmit)="signUp()">
+          <p class="hint-text">Fill in this form to create your account!</p>
+          <div class="form-group">
+            <div *ngIf="isRegSubmitted && signUpFormControls.firstName.errors">
+              <div *ngIf="signUpFormControls.firstName.errors.required" class="formErr">FirstName is required</div>
+            </div>
+            <input type="text" class="form-control" placeholder="FirstName" formControlName="firstName" />
+          </div>
+          <div class="form-group">
+            <div *ngIf="isRegSubmitted && signUpFormControls.email.errors">
+              <div *ngIf="signUpFormControls.email.errors.required" class="formErr">Email is required</div>
+            </div>
+            <input type="email" class="form-control" placeholder="Email" formControlName="email" />
+          </div>
+          <div class="form-group">
+            <div *ngIf="isRegSubmitted && signUpFormControls.mobileNo.errors">
+              <div *ngIf="signUpFormControls.mobileNo.errors.required" class="formErr">Mobile number is required</div>
+            </div>
+            <input type="text" class="form-control" placeholder="Mobile" formControlName="mobileNo" />
+          </div>
+          <div class="form-group">
+            <div *ngIf="isRegSubmitted && signUpFormControls.password.errors">
+              <div *ngIf="signUpFormControls.password.errors.required" class="formErr">Password is required
+              </div>
+            </div>
+            <input type="password" class="form-control" placeholder="Password" formControlName="password" />
+          </div>
+          <div class="form-group">
+            <label class="checkbox-inline">
+              <input type="checkbox" required="required">
+              I accept the <a href="#">Terms &amp; Conditions</a></label>
+          </div>
+          <input type="submit" class="btn btn-primary btn-block" value="Sign up">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+<div class="container-fluid">
+    <div class="container form-bnr-sec">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 pd-t40 pd-b50 form-bnr">
+          <div class="row">
+            <div class="col-lg-11 col-md-12 col-sm-12 div-center">
+              <div>
+                <h1>User UnSubscription</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  <div class="container-fluid">
+    <div class="container">
+      <div class="row div-center">
+      <div class="col-sm-3">&nbsp;</div>
+      <div class="col-sm-6 mr-t20" style="padding:20px;border:1px solid #ccc;">
+
+        
+      <div *ngIf="userUnsubscribed">
+      <!-- <div class="div2">
+      
+        <p style="text-align: center;">Your have been unsubscribed succesfully&nbsp;&nbsp;<img src="../../../../assets/images/ordercomp.png" style="height:20px;width:20px;"></p>
+      </div> -->
+      <p>Dear Learner,</p>
+      <p>We have unsubscribed your email id from daily mailing list, but whenever you wanted to subscribe for the daily mailing list, You are always welcome.</p>
+      <p><a href="{{subscriptionBaseUrl}}">Click here to subscribe</a></p>
+
+    </div>
+    <div *ngIf="exError">    
+        <p style="text-align: center;">There is some problem with your unsubscription request.</p>
+        <p style="text-align: center;">Please contact your administrator.</p>
+    </div>
+    </div>
+    </div>
+  
+  
+  </div>
+  </div>

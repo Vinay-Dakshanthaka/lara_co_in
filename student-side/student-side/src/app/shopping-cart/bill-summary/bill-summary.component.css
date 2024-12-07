@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.bill-card {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 10px;
+}
+
+.bill-head {
+    background: #e3d9d0;
+    text-align: center;
+    padding: 10px 0;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+.bill-sub-head {
+    background: #e3dfdc;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: 500;
+    /* box-shadow: 0 10px 15px -6px rgba(0, 0, 0, 0.42); */
+    /* transition: all 1s ease; */
+}
+
+.bill-body {
+    margin: 10px 0;
+    margin-top: 15px;
+}
+
+.shake{
+    animation: shake 1s ease infinite;
+}
+@keyframes shake {
+    0% {
+        transform: translateY(0);
+        box-shadow: 0 10px 15px -6px rgba(0, 0, 0, 0.42);
+    }
+
+    50% {
+        transform: translateY(3px);
+        box-shadow: 0 10px 15px -10px rgba(0, 0, 0, 0.42);
+    }
+
+    100% {
+        transform: translateY(0px);
+        box-shadow: 0 10px 15px -6px rgba(0, 0, 0, 0.42);
+    }
+}
+
+.bill-item {
+    background-color: #f6f4f4;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px 0;
+    display: grid;
+    grid: auto / auto auto;
+}
+
+.text-ellipse {
+    overflow: hidden;
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+    min-width: 120px;
+}
+
+.bill-price {
+    padding: 0 5px;
+}
+
+.bill-final {
+    background: #e3d9d0;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.fw-semi-bold {
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.bill-card button {
+    padding: 10px 15px;
+    background-color: #e3dfdc;
+    border-radius: 15px;
+    color: black;
+    border: none;
+    margin: 10px 0;
+    transition: all 0.5s linear;
+}
+
+
+.bill-card button:hover {
+    /* box-shadow: 1px 2px 5px 2px rgba(0, 0, 0, 0.5); */
+    background-color: #b4b0ad;
+    color: #fff;
+    /* transform: translateY(-2px); */
+}
+
+.bill-card button:active {
+    background-color: #b4b0ad;
+    border: 1px solid black;
+}

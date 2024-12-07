@@ -1,0 +1,75 @@
+<div class="container mt-2 p-2">
+    <div *ngIf="noPackage" class="d-flex justify-content-center flex-column align-items-center">
+        <h2>NO MORE PACAKGES TO SHOW</h2>
+        <div class="centered-card-container d-flex justify-content-center align-items-center" style="height: 100px;">
+            <div class="card-header rounded-3" style="display: inline;">
+                Come Again In a While ...
+            </div>
+        </div>
+    </div>
+    <div class="course-container">
+        <div *ngFor="let package of packageList; let i = index">
+            <div class="course-card d-flex justify-content-center flex-column">
+                <img src="../../../assets/images/laralogo.png" alt="Course Image" class="course-image" />
+                <div class="course-details">
+                    <h3 class="course-title text-center">{{package.coursePackageName}}</h3>
+                    <div>
+                        <h4>Description :</h4>
+                        <p class="description" [title]="package.coursePackageDesc" data-toggle="tooltip" tabindex="0">
+                            {{getNewLineFormattedString(package.coursePackageDesc)}}</p>
+                    </div>
+                    <div class="mb-1">
+                        <p>Duration : <span
+                                class="badge bg-secondary-subtle text-black fw-bold p-2">{{package.coursePackageDuration}}</span>
+                        </p>
+                    </div>
+                    <div class="d-flex align-items-center flex-column">
+                        <h4 class="text-center mb-2">Available Course(s)</h4>
+                        <div class="container courses">
+                            <span class="badge bg-secondary-subtle text-black me-2"
+                                *ngFor="let courseData of package.coursesUnderPackageList" style="height: max-content;">
+                                {{courseData.courses.courseName}}
+                            </span>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="price d-inline-block"><strong>&#x20B9;</strong> {{package.coursePackagePrice}}</p>
+                        <span class="mx-4 text-secondary" *ngIf="package.coursePackageOriginalPrice"><s><strong>&#x20B9;
+                                    {{package.coursePackageOriginalPrice}}</strong></s></span>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-around my-2 addOptions"
+                    *ngIf="!packageMatch(package.coursePackageId) && !cartDetails">
+                    <button class="btn btn-warning rounded-1" (click)="addToCart($event, package.coursePackageId)">🛒
+                        Add
+                        to
+                        cart</button>
+                    <a [href]="getPackageContentName(package)" target="_blank">
+                        <button class="btn btn-primary rounded-1">See course content</button>
+                    </a>
+                </div>
+                <div class="d-flex justify-content-around my-2 removeOptions"
+                    *ngIf="packageMatch(package.coursePackageId) || cartDetails">
+                    <button class="btn btn-danger rounded-1"
+                        (click)="deleteFromCart($event, package.coursePackageId, i)" *ngIf="cartDetails">Remove
+                        from
+                        cart</button>
+                    <a href="#" routerLink="/cartDetails" *ngIf="!cartDetails">
+                        <button class="btn btn-success rounded-1">
+                            Go to cart
+                        </button>
+                    </a>
+                    <a [href]="getPackageContentName(package)" target="_blank">
+                        <button class="btn btn-primary rounded-1">See course content</button>
+                    </a>
+                </div>
+                <div class="ribbon-wrap" *ngIf="package.coursePackageOriginalPrice">
+                    <div class="ribbon">
+                        {{package.coursePackageOfferText}} {{getOfferPercentage(package)}}%
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

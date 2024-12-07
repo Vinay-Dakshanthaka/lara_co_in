@@ -1,0 +1,136 @@
+
+
+
+<div class="grid-container mx-2"  >
+    <div class="container sub py-0 mt-2" >
+        <h3>QuestionRecords Management</h3>
+        <div style="width: 100%;" class="d-flex justify-content-evenly me-3">
+            <div style="width: 300px;" >
+               <form [formGroup]="searchByForm" class="d-flex">
+                    <label for="searchBy">Search By :</label>
+                    <select class="form-select" id="sortBy" formControlName="searchBy">
+                        <option selected value="">Search Everywhere</option>
+                        <option value="questionText">QuestionText</option>
+                        <option  value="option">Option</option>
+                        <option  value="correctAnswers">CorrectAnswers</option>
+                        <option  value="description">Description</option>
+                    </select>
+               </form>
+            </div>
+            <div>
+                <form class="d-flex" role="search" [formGroup]="searchForm">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" formControlName="search">
+                    <button class="btn btn-dark rounded-1 pt-0 pb-1"  type="submit" [disabled]="!searchForm.valid" (click)="getPageData($event, 0, 10)">Search</button>
+                </form>
+            </div>
+        </div>
+
+        <br>
+        <div style="max-height: 80vh; overflow-y: scroll;">
+            <table class="table table-striped ">
+                <thead class="p-1">
+                    <tr>
+                        <th style="min-width: 10px;" id="hash">#</th>
+            
+                    <th (click)="questionTextToggler($event)" class="user-select-none">Question </th>
+                    <th (click)="optionOneToggler($event)" class="user-select-none">OptionOne</th>
+
+                    <th (click)="optionTwoToggler($event)" class="user-select-none">OptionTwo</th>
+
+                    <th (click)="optionThreeToggler($event)" class="user-select-none">OptionThree </th>
+
+                    <th (click)="optionFourToggler($event)" class="user-select-none">OptionFour</th>
+
+                    <th (click)="correctAnswerOneToggler($event)" class="user-select-none">CorrectAanswer</th>
+
+                    <th (click)="descriptionToggler($event)" class="user-select-none">Description</th>
+                    <th>Action</th>
+                    <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                  <tr *ngFor="let question of fetchQuestionList; index as i">
+                    <th scope="row">{{i+1}} &nbsp;
+                    </th>
+                    <td>{{ question.questionText}}</td>
+                    <td>{{ question.option[0]?.optionText}}</td>
+                    <td>{{ question.option[1]?.optionText}}</td>
+                    <td>{{ question.option[2]?.optionText}}</td>
+                    <td>{{ question.option[3]?.optionText}}</td>
+                    <!-- Inside your <td> element for displaying correct answers -->
+                    <td>
+                        <span>
+                        {{ getCorrectAnswerOptionTexts(question) }}
+                        </span>
+                    </td>
+                    <td>{{ question.description.descriptionText}}</td>
+                    <td>
+                        <div><button type="button" class="btn btn-danger" (click)="deleteRecord(question.id)">Delete</button></div>
+                    </td>
+                    <!-- <td>
+                        <div><button type="button" class="btn btn-dark" (click)="update(i)">Manage</button></div>
+                    </td> -->
+                    <td id="edit">
+                        <div class="group" >
+                            <a type="button" class="btn btn-dark" data-bs-toggle="dropdown" aria-expanded="false" (click)="update(i)">Manage</a>
+                            <div class="dropdown-menu" style="width: 20%;margin-left: 20%;border-radius: 1%;">
+                                <div><h2>Update</h2></div>
+                                <form [formGroup]="updateForm" (ngSubmit)="submit(question.option)" style="width: 80%; margin-left: 10%;">
+                                    <label for="authority">QuestionText:</label>
+                                    <input type="text" formControlName="questionText" id="questionText" placeholder="QuestionText" class="form-control">
+                                    <label for="authority">OptionOne:</label>
+                                    <input type="text" formControlName="optionOne" id="optionOne" placeholder="OptionOne" class="form-control">
+                                    <label for="authority">OptionTwo:</label>
+                                    <input type="text" formControlName="optionTwo" id="optionTwo" placeholder="OptionTwo" class="form-control">
+                                    <label for="authority">OptionThree:</label>
+                                    <input type="text" formControlName="optionThree" id="optionThree" placeholder="OptionThree" class="form-control">
+                                    <label for="authority">OptionFour:</label>
+                                    <input type="text" formControlName="optionFour" id="optionFour" placeholder="OptionFour" class="form-control">
+                                    <label for="correctAnswer">CorrectAnswer:</label>
+                                    <input type="text" formControlName="correctAnswer" id="correctAnswer" placeholder="CorrectAnswer" class="form-control">
+                                    <label for="authority">Description:</label>
+                                    <input type="text" formControlName="description" id="description" placeholder="Description" class="form-control">
+                                    <button type="submit" class="btn btn-primary d-grid gap-2 col-6 mx-auto mt-4" >Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </td>
+
+                  </tr>
+                </tbody>
+            </table>
+        </div>
+        <br>
+        <div class="d-flex justify-content-around" style="width: 100%;">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item">
+                    <a class="page-link disabled" aria-label="Previous" (click)="getPageData($event, pageData.number-1, pageData.size)" [ngClass]="{disabled : pageData?.first}">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                    </li>
+                    <li class="page-item"><a class="page-link active" (click)="getPageData($event, pageTabs, pageData.size)" [ngClass]="{active: pageTabs == pageData?.number}">{{pageTabs + 1}}</a></li>
+                    <li class="page-item"><a class="page-link active" (click)="getPageData($event, pageTabs + 1, pageData.size)" [ngClass]="{active: pageTabs + 1 == pageData?.number}">{{pageTabs + 2}}</a></li>
+                    <li class="page-item"><a class="page-link active" (click)="getPageData($event, pageTabs + 2, pageData.size)" [ngClass]="{active: pageTabs + 2 == pageData?.number}">{{pageTabs + 3}}</a></li>
+                    <li class="page-item">
+                    <a class="page-link disabled" aria-label="Next" (click)="getPageData($event, pageData.number+1, pageData.size)" [ngClass]="{disabled : pageData?.last}">
+                        <span aria-hidden="true" class="user-select-none">&raquo;</span>
+                    </a>
+                    </li>
+                </ul>
+            </nav>
+            <div>
+                <form [formGroup]="pageSizeForm" class="d-flex">
+                    <label for="pageSize">Items per page : &nbsp;</label>
+                    <input type="number" formControlName="pageSize" class="form-control" id="pageSize" min="5" max="15">
+                    <button type="button" class="btn btn-dark m-0 p-1 ms-2 rounded-1 apply" (click)="applySize($event)">Apply</button> &nbsp;<span style="color: red;">*Min 5</span>
+                </form>
+            </div>
+        </div>
+        <div class="d-flex justify-content-evenly" style="width: 100%;">
+            <h6>Total Pages : {{pageData?.totalPages}}</h6>
+            <h6>Total Records : {{pageData?.totalElements}}</h6>
+        </div>
+    </div>
+  </div>  
+ 

@@ -1,0 +1,1272 @@
+<div class="loader-bg" *ngIf="loaderService.showLoader">
+  <div class="ploader-container"><span class="ploader"></span></div>
+</div>
+
+<!-- Application flow Modal -->
+<div class="modal fade" id="appFlowModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog " role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span
+            aria-hidden="true">&times;</span> </button>
+      </div>
+      <div class="modal-body">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe width="560" height="315" src="https://youtube.com/embed/m91BzH_Ym00" frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Application flow Modal end-->
+
+<!-- Testimonial Modal -->
+<div class="modal fade" id="testimonialModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog " role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span
+            aria-hidden="true">&times;</span> </button>
+      </div>
+      <div class="modal-body">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/Hc87WyKdVqo" frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="testimonialModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog " role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span
+            aria-hidden="true">&times;</span> </button>
+      </div>
+      <div class="modal-body">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/6N54r-F-d-A" frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="testimonialModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog " role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span
+            aria-hidden="true">&times;</span> </button>
+      </div>
+      <div class="modal-body">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/krDNrSXqstg" frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="testimonialModal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog " role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span
+            aria-hidden="true">&times;</span> </button>
+      </div>
+      <div class="modal-body">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/VbFAgnYQ6bI" frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="testimonialModal5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog " role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span
+            aria-hidden="true">&times;</span> </button>
+      </div>
+      <div class="modal-body">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/_zmil4U6xLM" frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="testimonialModal6" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog " role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span
+            aria-hidden="true">&times;</span> </button>
+      </div>
+      <div class="modal-body">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/PcH-L6Jzix8" frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="testimonialModal7" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog " role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span
+            aria-hidden="true">&times;</span> </button>
+      </div>
+      <div class="modal-body">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/Rh8ABlITGfE" frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="testimonialModal8" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog " role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span
+            aria-hidden="true">&times;</span> </button>
+      </div>
+      <div class="modal-body">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/RHrwJzj7VT4" frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="testimonialModal9" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog " role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span
+            aria-hidden="true">&times;</span> </button>
+      </div>
+      <div class="modal-body">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/AXK4tGMkczo" frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="testimonialModal10" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog " role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span
+            aria-hidden="true">&times;</span> </button>
+      </div>
+      <div class="modal-body">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/nDMPkyAVb8Q" frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="testimonialModal11" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog " role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span
+            aria-hidden="true">&times;</span> </button>
+      </div>
+      <div class="modal-body">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/m_gNz060JfU" frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="testimonialModal12" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog " role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span
+            aria-hidden="true">&times;</span> </button>
+      </div>
+      <div class="modal-body">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/zsuw8YFTefg" frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="testimonialModal13" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog " role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span
+            aria-hidden="true">&times;</span> </button>
+      </div>
+      <div class="modal-body">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/WA-Acfu5u9Y" frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="testimonialModal14" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog " role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span
+            aria-hidden="true">&times;</span> </button>
+      </div>
+      <div class="modal-body">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/oZYHZTZaGCA" frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="testimonialModal15" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog " role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span
+            aria-hidden="true">&times;</span> </button>
+      </div>
+      <div class="modal-body">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/AxMjrLa1pGo" frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="testimonialModal16" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog " role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span
+            aria-hidden="true">&times;</span> </button>
+      </div>
+      <div class="modal-body">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/m9y-oW9vlgs" frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="testimonialModal17" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog " role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span
+            aria-hidden="true">&times;</span> </button>
+      </div>
+      <div class="modal-body">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/VbCGSSRFAbY" frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="testimonialModal18" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog " role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span
+            aria-hidden="true">&times;</span> </button>
+      </div>
+      <div class="modal-body">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/_9DWB4y6JqU" frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="testimonialModal19" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog " role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span
+            aria-hidden="true">&times;</span> </button>
+      </div>
+      <div class="modal-body">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/FLPKPDl3ctU" frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="testimonialModal20" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog " role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span
+            aria-hidden="true">&times;</span> </button>
+      </div>
+      <div class="modal-body">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/fEq5cjXpyg0" frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Testimonial Modal end-->
+
+<!--new code starts from here-->
+<div class="container-fluid cntfld-fw">
+  <div class="container pd-l0 pd-r0">
+    <div class="row gradient-light-blue">
+      <div class="col-lg-6 welcome-left">
+        <h4 class="tittle-wthree mt-2 mb-3 main-tag">We make the Worlds not the Ads</h4>
+        <div class="main-tag-cnt">
+          <ul>
+            <li>
+              <div class="main-tag-pts">Self Paced online Learning, Evaluation and Hiring Platform</div>
+            </li>
+            <li>
+              <div class="main-tag-pts">Every topic in the practical approach right from the scratch</div>
+            </li>
+            <li>
+              <div class="main-tag-pts">While Learning Evaluate yourself and get tons of confidance</div>
+            </li>
+            <li>
+              <div class="main-tag-pts">Any Year of passout. Any Branch. Any Percentages.
+                Only required a subject to enter into the all time best profile/role "Java Full Stack"
+              </div>
+            </li>
+            <li>
+              <div class="main-tag-pts"> 100% chances of entering into Java full stack development
+              </div>
+            </li>
+            <li>
+              <div class="main-tag-pts">Do you have a confidance on you? then why are you waiting?
+                Just signup and login to see the best of best in Java full stack.
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-6 welcome-right text-center mt-lg-0 mt-5">
+        <div class="row" style="margin-left:1em;">
+
+          <div class="col-sm-3 service-1-w3ls serve-gd2">
+            <div class="serve-grid mt-4 sg1">
+              <i class="fas fa-running"></i>
+              <span class="fa fa-car s2"></span>
+              <p class="mt-2">Play @ Self Pace</p>
+            </div>
+            <div class="serve-grid mt-4">
+              <span class="fa fa-tachometer s3"></span>
+              <p class="mt-2">Earn Points</p>
+            </div>
+          </div>
+          <div class="col-sm-3 service-1-w3ls serve-gd3">
+            <div class="serve-grid mt-4">
+              <span class="fa fa-hourglass-half s4"></span>
+              <p class="mt-2">Video Wise Exam</p>
+            </div>
+            <div class="serve-grid mt-4">
+              <span class="fa fa-address-card-o s5"></span>
+              <p class="text-li mt-2">Recruiters Visibility</p>
+            </div>
+            <div class="serve-grid mt-4">
+              <span class="fa fa-paint-brush s6"></span>
+              <p class="mt-2">Online Compiler</p>
+            </div>
+          </div>
+          <div class="col-sm-3 service-1-w3ls serve-gd2">
+            <div class="serve-grid mt-4">
+              <span class="fa fa-podcast s1"></span>
+              <p class="mt-2">Cumilative Exam</p>
+            </div>
+            <div class="serve-grid mt-4">
+              <span class="fa fa-book s7"></span>
+              <p class="mt-2">Review Exam</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--new code ends here -->
+
+<!-- <div class="container cnt-spacer">&nbsp;</div> -->
+
+<!--call to action-->
+<div class="container cta text-center">
+  <div class="row cta" style="margin-left:4em;">
+    <div class="col-lg-7 col-sm-12 text-center mt-15">
+      <h3 style="color:#fff;">
+        Are you excited to see the complete application flow?
+      </h3>
+    </div>
+
+    <div class="col-lg-3 col-sm-12 text-center">
+      <div class="" data-toggle="modal" data-target="#appFlowModel">
+        <button class="btn btn-ghost">Watch Application Flow</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- call to action ends-->
+
+
+<!--stats starts from here-->
+<div class="container text-center stats-div">
+  <!-- <h2>
+          About Us
+      </h2>
+
+      <p>
+          Voluptua scripserit per ad, laudem viderer sit ex. Ex alia corrumpit voluptatibus usu, sed unum
+          convenire id. Ut cum nisl moderatius, per nihil dicant commodo an. Eum tacimates erroribus ad. Atqui
+          feugiat euripidis ea pri, sed veniam tacimates ex. Menandri
+          temporibus an duo.
+      </p> -->
+
+  <div class="row stats-row">
+    <div class="stats-col text-center col-md-3 col-sm-6">
+      <div class="circle">
+        <span class="stats-no" data-toggle="counter-up">2005</span> We Are Since
+      </div>
+    </div>
+
+    <div class="stats-col text-center col-md-3 col-sm-6">
+      <div class="circle">
+        <span class="stats-no" data-toggle="counter-up">50,000+</span> Students Trained Till Now
+      </div>
+    </div>
+
+    <div class="stats-col text-center col-md-3 col-sm-6">
+      <div class="circle">
+        <span class="stats-no" data-toggle="counter-up">170+</span>Total Batches Executed
+      </div>
+    </div>
+
+    <div class="stats-col text-center col-md-3 col-sm-6">
+      <div class="circle">
+        <span class="stats-no" data-toggle="counter-up">560+</span> Recruiters
+      </div>
+    </div>
+  </div>
+</div>
+<!--stats ends here-->
+
+<!--banner starts-->
+<!--banner end-->
+
+<!--band-->
+<!-- <section class="container-fluid cntfld-fw">
+  <div class="container bg0 news-band">
+    <div class="row">
+      <div class="col-lg-11 col-md-12 col-sm-12 div-center"> <span style="margin-left:20%;"
+          class="pull-left txt space">Only the place where you can learn JAVA FULL STACK skills right from the
+          scratch.</span>
+        <span class="pull-right space sm-device">
+         <a href="" class="btn"><span>View All Courses</span></a> 
+        </span>
+      </div>
+    </div>
+  </div>
+</section> -->
+<!--banner end-->
+
+<!--course package starts from here-->
+<div class="container">
+  <div class="row cpg-box-row">
+    <div class="col-sm-3">
+      <div class="columns">
+        <ul class="price">
+          <li class="header csa">
+            <h5>COLLEGE TO CORPORATE</h5>
+          </li>
+          <li class="grey">8 Courses</li>
+          <!--
+		  <li class="grey">Price Rs. 10,000/-</li>
+          <li class="grey">Discount : 100% </li>
+          <li class="fp"><span class="glow fprice">Final Price Rs. 0/-</span></li>
+		  -->
+          <li class="grey"><a href="javascript:void(0)" (click)="checkLoggedInUser(1)" class="button csa">View
+              Details</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="columns">
+        <ul class="price">
+          <li class="header csb">
+            <h5>CORE JAVA</h5>
+          </li>
+          <li class="grey">2 Courses</li>
+          <!--
+          <li class="grey">Price Rs. 5,000/-</li>
+          <li class="grey">Discount : 100%</li>
+          <li class="fp"><span class="glow fprice">Final Price Rs. 0/-</span></li>
+		  -->
+          <li class="grey"><a href="javascript:void(0)" (click)="checkLoggedInUser(2)" class="button csb">View
+              Details</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="columns">
+        <ul class="price">
+          <li class="header csc">
+            <h5>LOGICAL DEVELOPMENT</h5>
+          </li>
+          <li class="grey">3 Courses</li>
+          <!--
+          <li class="grey">Price Rs. 5,000/-</li>
+          <li class="grey">Discount : 100% </li>
+          <li class="fp"><span class="glow fprice">Final Price Rs. 0/-</span></li>
+		  -->
+          <li class="grey"><a href="javascript:void(0)" (click)="checkLoggedInUser(7)" class="button csc">View
+              Details</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="columns">
+        <ul class="price">
+          <li class="header cse">
+            <h5>WEB DEVELOPMENT</h5>
+          </li>
+          <li class="grey">2 Courses</li>
+          <!--
+          <li class="grey">Price Rs. 5,000/-</li>
+          <li class="grey">Discount : 100% </li>
+          <li class="fp"><span class="glow fprice">Final Price Rs. 0/-</span></li>
+		  -->
+          <li class="grey"><a href="javascript:void(0)" (click)="checkLoggedInUser(5)" class="button cse">View
+              Details</a></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!--course package ends here-->
+
+<!--J2ee course package starts here-->
+<div class="container">
+  <div class="row cpg-box-row-sam">
+    <div class="col-sm-12 bg-bl pd-t10 pd-b10">
+      <div class="row" style="padding:20px;">
+        <div class="col-sm-1">&nbsp;</div>
+        <div class="col-sm-3 text-right mt-55">
+          <img src="./assets/images/j2ee-icon.png" class="jee-icon">
+        </div>
+        <div class="col-sm-4">
+          <ul class="price">
+            <li class="grey">4 Courses</li>
+          <!--
+            <li class="grey">Price Rs.7,500/-</li>
+
+            <li class="grey">Discount : 100% </li>
+
+            <li class="fp"><span class="glow fprice">Final Price Rs. 0/-</span></li>
+		  -->
+          </ul>
+        </div>
+        <div class="col-sm-3 mt-106">
+          <button class="btn btn-ghost" (click)="checkLoggedInUser(3)">View Details</button>
+        </div>
+        <div class="col-sm-1">&nbsp;</div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12 text-center">
+          <!-- <a href="javascript:void(0)" (click)="checkLoggedInUser(3)" class="button cse">View Details</a> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--J2ee course package ends here-->
+
+<!--Text testimonial starts from here-->
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 mr-b30" style="background-color: #7383d5;box-shadow: 0px 8px 12px #f3efef;">
+      <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-md-10 mr-t20">
+          <h2 class="col-h text-center pb-2 text-uppercase text-dark">Text Testimonials</h2>
+          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <!-- <ol class="carousel-indicators">
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>  -->
+            <div class="carousel-inner mt-4">
+              <div *ngFor="let tt of textTestimonialList; let i= index;"
+                [ngClass]="i == 0 ? 'carousel-item text-center active': 'carousel-item text-center'">
+                <div class="row">
+                  <div class="col-sm-12 text-right">
+                    <div class="row">
+                      <div class="col-sm-2 mr-t20">
+                        <div class="img-box p-1 border rounded-circle m-auto">
+                          <img class="d-block w-100 rounded-circle" [attr.src]="tt.testimonialThubmPath"
+                            alt="First slide">
+                        </div>
+                      </div>
+                      <div class="col-sm-10 text-left">
+                        <div class="row">
+                          <div class="col-sm-12">
+                            <h5 class="mt-4 s8"><strong class="text-uppercase">{{tt.testimonialText}}</strong></h5>
+                          </div>
+                          <div *ngIf="tt.rating == '5'" class="col-sm-12">
+                            <span class="fa fa-star rating-chk"></span>
+                            <span class="fa fa-star rating-chk"></span>
+                            <span class="fa fa-star rating-chk"></span>
+                            <span class="fa fa-star rating-chk"></span>
+                            <span class="fa fa-star rating-chk"></span>
+                          </div>
+                          <div *ngIf="tt.rating == '4'" class="col-sm-12">
+                            <span class="fa fa-star rating-chk"></span>
+                            <span class="fa fa-star rating-chk"></span>
+                            <span class="fa fa-star rating-chk"></span>
+                            <span class="fa fa-star rating-chk"></span>
+                            <span class="fa fa-star rating-unchk"></span>
+                          </div>
+                          <div class="col-sm-12">
+                            <p class="m-0 pt-3 text-white">{{tt.testimonialDesc}}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                  <!-- <div class="col-sm-12 text-center">                              
+                  </div> -->
+                  <!-- <div class="col-sm-12">
+                    <span class="fa fa-star rating-chk"></span>
+                    <span class="fa fa-star rating-chk"></span>
+                    <span class="fa fa-star rating-chk"></span>
+                    <span class="fa fa-star rating-chk"></span>
+                    <span class="fa fa-star rating-chk"></span>
+                  </div> -->
+                  <!-- <div class="col-sm-12 text-center">
+                    
+                  </div> -->
+                </div>
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-2"></div>
+        <div class="col-sm-12 text-center mr-b20"><button class="btn btn-testimonial" (click)="showAllReviews()">View
+            All Reviews</button></div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Text testimonial ends here -->
+
+<!--Video testimonial starts from here -->
+<div class="container pd-l0 pd-r0">
+  <div class="row">
+    <div class="col-lg-11 col-md-12 col-sm-12 div-center">
+      <div class="row">
+        <div class="col-sm-12 text-center">
+          <h2 class="col-h">Video Testimonials</h2>
+        </div>
+        <div class="col-sm-12 text-center">
+          <p>Take a look below to learn what our students are saying about us:</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12 pd-t2=10 pd-b10">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12 col-sm-12">
+          <ul id="flexiselDemo3">
+            <li>
+              <div class=""><img class="testimonialIcon" src="./assets/images/testimonials/Sharma.jpg" /></div>
+              <h6 class="col-h">Sharma</h6>
+              <div class="">
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#testimonialModal1">
+                  Watch Video
+                </button>
+              </div>
+            </li>
+            <li>
+              <div class=""><img class="testimonialIcon" src="./assets/images/testimonials/Pradeep.jpg" /></div>
+              <h6 class="col-h">Pradeep</h6>
+              <div class="">
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#testimonialModal2">
+                  Watch Video
+                </button>
+              </div>
+            </li>
+            <li>
+              <div class=""><img class="testimonialIcon" src="./assets/images/testimonials/Ganesh-Kumar.jpg" /></div>
+              <h6 class="col-h">Ganesh Kumar</h6>
+              <div class="">
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#testimonialModal3">
+                  Watch Video
+                </button>
+              </div>
+            </li>
+            <li>
+              <div class=""><img class="testimonialIcon" src="./assets/images/testimonials/Kazza.jpg" /></div>
+              <h6 class="col-h">Kazza</h6>
+              <div class="">
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#testimonialModal4">
+                  Watch Video
+                </button>
+              </div>
+            </li>
+            <li>
+              <div class=""><img class="testimonialIcon" src="./assets/images/testimonials/Mounica.jpg" /></div>
+              <h6 class="col-h">Mounica</h6>
+              <div class="">
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#testimonialModal5">
+                  Watch Video
+                </button>
+              </div>
+            </li>
+            <li>
+              <div class=""><img class="testimonialIcon" src="./assets/images/testimonials/Vishwanath.jpg" /></div>
+              <h6 class="col-h">Vishwanath</h6>
+              <div class="">
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#testimonialModal6">
+                  Watch Video
+                </button>
+              </div>
+            </li>
+            <li>
+              <div class=""><img class="testimonialIcon" src="./assets/images/testimonials/Sachin.jpg" /></div>
+              <h6 class="col-h">Sachin</h6>
+              <div class="">
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#testimonialModal7">
+                  Watch Video
+                </button>
+              </div>
+            </li>
+            <li>
+              <div class=""><img class="testimonialIcon" src="./assets/images/testimonials/Prabanjan-borkath.jpg" />
+              </div>
+              <h6 class="col-h">Prabanjan Korkath</h6>
+              <div class="">
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#testimonialModal8">
+                  Watch Video
+                </button>
+              </div>
+            </li>
+
+            <li>
+              <div class=""><img class="testimonialIcon" src="./assets/images/testimonials/Srinivas.jpg" /></div>
+              <h6 class="col-h">Srinivas</h6>
+              <div class="">
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#testimonialModal9">
+                  Watch Video
+                </button>
+              </div>
+            </li>
+            <li>
+              <div class=""><img class="testimonialIcon"
+                  src="./assets/images/testimonials/Yougandar-sing-shakavath.jpg" /></div>
+              <h6 class="col-h">Yougandar Sing Shakavath</h6>
+              <div class="">
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#testimonialModal10">
+                  Watch Video
+                </button>
+              </div>
+            </li>
+            <li>
+              <div class=""><img class="testimonialIcon" src="./assets/images/testimonials/Nikila.jpg" /></div>
+              <h6 class="col-h">Nikila</h6>
+              <div class="">
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#testimonialModal11">
+                  Watch Video
+                </button>
+              </div>
+            </li>
+
+            <li>
+              <div class=""><img class="testimonialIcon" src="./assets/images/testimonials/Manohar-sing.jpg" /></div>
+              <h6 class="col-h">Manohar Sing</h6>
+              <div class="">
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#testimonialModal12">
+                  Watch Video
+                </button>
+              </div>
+            </li>
+            <li>
+              <div class=""><img class="testimonialIcon" src="./assets/images/testimonials/Delip-sagar.jpg" /></div>
+              <h6 class="col-h">Delip Sagar</h6>
+              <div class="">
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#testimonialModal13">
+                  Watch Video
+                </button>
+              </div>
+            </li>
+            <li>
+              <div class=""><img class="testimonialIcon" src="./assets/images/testimonials/Harit-thakur.jpg" /></div>
+              <h6 class="col-h">Harit Thakur</h6>
+              <div class="">
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#testimonialModal14">
+                  Watch Video
+                </button>
+              </div>
+            </li>
+            <li>
+              <div class=""><img class="testimonialIcon" src="./assets/images/testimonials/Ismail.jpg" /></div>
+              <h6 class="col-h">Ismail</h6>
+              <div class="">
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#testimonialModal15">
+                  Watch Video
+                </button>
+              </div>
+            </li>
+            <li>
+              <div class=""><img class="testimonialIcon" src="./assets/images/testimonials/Alok-kumar.jpg" /></div>
+              <h6 class="col-h">Alok Kumar</h6>
+              <div class="">
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#testimonialModal16">
+                  Watch Video
+                </button>
+              </div>
+            </li>
+            <li>
+              <div class=""><img class="testimonialIcon" src="./assets/images/testimonials/Rajesh.jpg" /></div>
+              <h6 class="col-h">Rajesh</h6>
+              <div class="">
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#testimonialModal17">
+                  Watch Video
+                </button>
+              </div>
+            </li>
+            <li>
+              <div class=""><img class="testimonialIcon" src="./assets/images/testimonials/laralogo.jpg" /></div>
+              <h6 class="col-h">Vignesh</h6>
+              <div class="">
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#testimonialModal19">
+                  Watch Video
+                </button>
+              </div>
+            </li>
+            <li>
+              <div class=""><img class="testimonialIcon" src="./assets/images/testimonials/Rakesh.jpg" /></div>
+              <h6 class="col-h">Rakesh</h6>
+              <div class="">
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#testimonialModal19">
+                  Watch Video
+                </button>
+              </div>
+            </li>
+            <li>
+              <div class=""><img class="testimonialIcon" src="./assets/images/testimonials/Alok-20.jpg" /></div>
+              <h6 class="col-h">Alok</h6>
+              <div class="">
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#testimonialModal20">
+                  Watch Video
+                </button>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Video testimonial ends here-->
+
+<div class="container cnt-spacer">&nbsp;</div>
+
+<!--courses-->
+<!-- <div class="container-fluid cntfld-fw">
+  <div class="container-fluid cntfld-fw">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 div-center">
+        <div class="row">
+          <div class="col-lg-12 pd-t20 pd-b10">
+            <h4>Course Packages</h4> 
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12" *ngFor="let coursePackage of coursePackages; let i= index;">
+            <div *ngIf="i == 0" class="div-center">
+              <a href="javascript:void(0)" (click)="checkLoggedInUser(coursePackage.coursePackageId)">
+                <img src="./assets/images/corporate.jpg" border="0" style="width:100%;" alt="college to corporate" />
+              </a>
+            </div>
+            <div *ngIf="i != 0 && role=='PG_TESTER'" style="padding:10px;" style="text-align:center;padding-top:10px;">
+              <a href="javascript:void(0)" (click)="checkLoggedInUser(coursePackage.coursePackageId)">
+                <button style="padding:8px;">{{coursePackage.coursePackageName}}</button>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="allPkgs" class="row" style="display:none;">
+          <div class="col-lg-12 mr-t30 mr-b30 text-center"><span (click)="showLessPkgs()" class="vm-btn">View Less
+              Packages</span></div>
+        </div>
+
+        <div *ngIf="pkgRow" class="row" style="display:none;">
+          <div class="col-lg-12 mr-t30 mr-b30 text-center"><span (click)="showAllPkgs()" class="vm-btn">View More
+              Packages</span></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div> -->
+<!--courses end-->
+
+<!--client-->
+<!-- <div class="container-fluid">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-11 col-md-12 col-sm-12 div-center">
+        <div class="row">
+          <div class="col-lg-12 pd-t20 pd-b10">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12 col-sm-12">
+             <ul id="flexiselDemo3">
+              <li><img src="./assets/images/Recruiters/2.jpg" /></li>
+              <li><img src="./assets/images/Recruiters/3.jpg" /></li>
+              <li><img src="./assets/images/Recruiters/4.jpg" /></li>
+              <li><img src="./assets/images/Recruiters/5.jpg" /></li>
+              <li><img src="./assets/images/Recruiters/6.jpg" /></li>
+              <li><img src="./assets/images/Recruiters/7.jpg" /></li>
+              <li><img src="./assets/images/Recruiters/8.jpg" /></li>
+              <li><img src="./assets/images/Recruiters/9.jpg" /></li>
+              <li><img src="./assets/images/Recruiters/10.jpg" /></li>
+              <li><img src="./assets/images/Recruiters/11.jpg" /></li>
+              <li><img src="./assets/images/Recruiters/12.jpg" /></li>
+              <li><img src="./assets/images/Recruiters/13.jpg" /></li>
+              <li><img src="./assets/images/Recruiters/14.jpg" /></li>
+              <li><img src="./assets/images/Recruiters/15.jpg" /></li>
+              <li><img src="./assets/images/Recruiters/16.jpg" /></li>
+              <li><img src="./assets/images/Recruiters/17.jpg" /></li>
+              <li><img src="./assets/images/Recruiters/18.jpg" /></li>
+              <li><img src="./assets/images/Recruiters/19.jpg" /></li>
+              <li><img src="./assets/images/Recruiters/20.jpg" /></li>
+              <li><img src="./assets/images/Recruiters/21.jpg" /></li>
+              <li><img src="./assets/images/Recruiters/22.jpg" /></li>
+              <li><img src="./assets/images/Recruiters/23.jpg" /></li>
+              <li><img src="./assets/images/Recruiters/24.jpg" /></li>
+              <li><img src="./assets/images/Recruiters/25.jpg" /></li>
+              <li><img src="./assets/images/Recruiters/26.jpg" /></li>
+              <li><img src="./assets/images/Recruiters/27.jpg" /></li>
+              <li><img src="./assets/images/Recruiters/28.jpg" /></li>
+              <li><img src="./assets/images/Recruiters/29.jpg" /></li>
+              <li><img src="./assets/images/Recruiters/30.jpg" /></li>
+              <li><img src="./assets/images/Recruiters/31.jpg" /></li>
+              <li><img src="./assets/images/Recruiters/32.jpg" /></li>
+              <li><img src="./assets/images/Recruiters/33.jpg" /></li>
+              <li><img src="./assets/images/Recruiters/34.jpg" /></li>
+              <li><img src="./assets/images/Recruiters/35.jpg" /></li>
+              <li><img src="./assets/images/Recruiters/36.jpg" /></li>
+              <li><img src="./assets/images/Recruiters/37.jpg" /></li>
+              <li><img src="./assets/images/Recruiters/38.jpg" /></li>
+              <li><img src="./assets/images/Recruiters/39.jpg" /></li>
+              <li><img src="./assets/images/Recruiters/40.jpg" /></li>
+              <li><img src="./assets/images/Recruiters/41.jpg" /></li>
+              <li><img src="./assets/images/Recruiters/42.jpg" /></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>  -->
+<!--client end-->
+
+
+<!-- <div class="container-fluid">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-11 col-md-12 col-sm-12 div-center">
+        <div class="row">
+          <div class="col-sm-12">
+            <h4>Our Recruiters</h4>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!--back to top-->
+<div class="container-fluid">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <a id="back-to-top" href="javascript:void(0)" class="btn btn-info back-to-top" role="button"
+          title="Click to return on the top page" data-toggle="tooltip" data-placement="left"><i
+            class="material-icons">expand_less</i></a>
+      </div>
+    </div>
+  </div>
+</div>
+<!--back to top end-->
+
+<button style="display:none;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#showLoginModel"
+  id="showLoginAlert">
+  Show Login
+</button>
+<!-- Modal -->
+<div class="modal fade" id="showLoginModel" tabindex="-1" role="dialog" aria-labelledby="courseContentLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-ff3547">
+        <h5 class="modal-title" id="">Could you please login to continue....</h5>
+        <button style="color:#FFFFFF" type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-lg-12">
+            <p>Once you login, then you will be able to see the demo videos and all the features of dashboard. If you
+              find any issues on sign up (or) in login, please mail us to support@lara.co.in</p>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="modal-footer">
+        <a [routerLink]="['/coursedetails', coursePackageId]">
+          <button type="button" data-dismiss="modal" class="btn btn-primary bg-ff3547">Subscribe Now</button></a>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+
+<!-- The Modal -->
+<div class="modal" id="showAllTxtTstmModal">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <div class="row">
+          <div class="col-sm-12 mr-l20 mr-t20">
+            <h4 class="modal-title">Lara Technologies</h4>
+          </div>
+          <div class="col-sm-12 mr-l20 mr-t20">
+            <p>152, 1st Cross Rd, Aicobo Nagar, 1st Stage, BTM Layout, Bengaluru, Karnataka</p>
+            <hr>
+          </div>
+          <div class="col-sm-12 mr-l20 mr-t15">
+            <span class="fn-30 col-666 pd-r10">4.4</span>
+            <span class="fn-30 fa fa-star rating-chk"></span>
+            <span class="fn-30 fa fa-star rating-chk"></span>
+            <span class="fn-30 fa fa-star rating-chk"></span>
+            <span class="fn-30 fa fa-star rating-chk"></span>
+            <i class="fn-30 fa fa-star-half-o rating-chk"></i>
+          </div>
+        </div>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-sm-12 pd-review" *ngFor="let tt of textTestimonialList; let i= index;">
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="row">
+                  <div class="col-sm-2 mr-t20">
+                    <div class="img-box-popup p-1 border rounded-circle m-auto">
+                      <img class="d-block w-100 rounded-circle" [attr.src]="tt.testimonialThubmPath" alt="First slide">
+                    </div>
+                  </div>
+                  <div class="col-sm-10">
+                    <div class="row">
+                      <div class="col-sm-12">
+                          <h5 class="mt-4"><strong class="text-uppercase">{{tt.testimonialText}}</strong></h5>
+                      </div>
+                      <div *ngIf="tt.rating == '5'" class="col-sm-12">
+                          <span class="fa fa-star rating-chk"></span>
+                          <span class="fa fa-star rating-chk"></span>
+                          <span class="fa fa-star rating-chk"></span>
+                          <span class="fa fa-star rating-chk"></span>
+                          <span class="fa fa-star rating-chk"></span>
+                        </div>
+                        <div *ngIf="tt.rating == '4'" class="col-sm-12">
+                          <span class="fa fa-star rating-chk"></span>
+                          <span class="fa fa-star rating-chk"></span>
+                          <span class="fa fa-star rating-chk"></span>
+                          <span class="fa fa-star rating-chk"></span>
+                          <span class="fa fa-star rating-unchk"></span>
+                        </div>
+                        <div class="col-sm-12">
+                          <p class="m-0 pt-3">{{tt.testimonialDesc}}</p><hr>
+                        </div>                        
+                    </div>                    
+                  </div>
+                </div>
+              </div>                            
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- Code given by Kamlesh-->
+
+
+<!--<div class="row mr-t25 mr-b25">
+  <div class="col-md-40 pd-25">
+
+<div class="col-md-2 col-sm-2 col-xs-2 col-lg-2 bgcj boxun">
+      <div class="footerbox"><h4>College to Corporate</h4></div>
+      <h6 class="txt-center">
+       
+	 <span style="text-align:left">  8 Courses </span> <br><br/>
+	  <span style="text-align:left;margin-left:45px">  Price Rs. 10,000/-  </span> <br/><br/>
+	   <span style="text-align:left;margin-left:68px">  Discount Rs. 8,000/-  </span> <br/><br/>
+	  <span style="text-align:left;margin-left:78px">  Final Price Rs. 2,000/-  </span>
+		
+        <br><br>
+        <button class="btn btn-light" (click)="checkLoggedInUser(1)">Details <i class="fa fa-arrow-right" aria-hidden="true"></i></button><br><br>
+      </h6>
+    </div>
+
+
+
+<div class="col-md-2 col-sm-2 col-xs-2 col-lg-2 bgcj boxun">
+      <div class="footerbox"><h4>Core Java</h4></div>
+      <h6 class="txt-center">
+       
+	 <span style="text-align:left">  2 Courses </span> <br><br/>
+	  <span style="text-align:left;margin-left:45px">  Price Rs. 5,000/-  </span> <br/><br/>
+	   <span style="text-align:left;margin-left:68px">  Discount Rs. 4,000/-  </span> <br/><br/>
+	  <span style="text-align:left;margin-left:78px">  Final Price Rs. 1,000/-  </span>
+		
+        <br><br>
+        <button class="btn btn-light" (click)="checkLoggedInUser(2)">Details <i class="fa fa-arrow-right" aria-hidden="true"></i></button><br><br>
+      </h6>
+    </div>
+<div class="col-md-2 col-sm-2 col-xs-2 col-lg-2 bgcj boxun">
+      <div class="footerbox"><h4>Logical Development</h4></div>
+      <h6 class="txt-center">
+       
+	 <span style="text-align:left">  3 Courses </span> <br><br/>
+	  <span style="text-align:left;margin-left:45px">  Price Rs. 5,000/-  </span> <br/><br/>
+	   <span style="text-align:left;margin-left:68px">  Discount Rs. 4,000/-  </span> <br/><br/>
+	  <span style="text-align:left;margin-left:78px">  Final Price Rs. 1,000/-  </span>
+		
+        <br><br>
+        <button class="btn btn-light" (click)="checkLoggedInUser(7)">Details <i class="fa fa-arrow-right" aria-hidden="true"></i></button><br><br>
+      </h6>
+    </div>
+<div class="col-md-2 col-sm-2 col-xs-2 col-lg-2 bgcj boxun">
+      <div class="footerbox"><h4>Web Development</h4></div>
+      <h6 class="txt-center">
+       
+	 <span style="text-align:left">  3 Courses </span> <br><br/>
+	  <span style="text-align:left;margin-left:45px">  Price Rs. 5,000/-  </span> <br/><br/>
+	   <span style="text-align:left;margin-left:68px">  Discount Rs. 4,000/-  </span> <br/><br/>
+	  <span style="text-align:left;margin-left:78px">  Final Price Rs. 1,000/-  </span>
+		
+        <br><br>
+        <button class="btn btn-light" (click)="checkLoggedInUser(5)">Details <i class="fa fa-arrow-right" aria-hidden="true"></i></button><br><br>
+      </h6>
+    </div>
+
+    
+
+     
+
+  </div>
+
+</div> -->

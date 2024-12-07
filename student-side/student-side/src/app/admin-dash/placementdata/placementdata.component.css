@@ -1,0 +1,186 @@
+input
+{
+    border : 1px solid black;
+    border-radius: 6px;
+    width: 250px;
+}
+
+
+
+  
+  .entry-box {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    text-indent: initial;
+    border-spacing: 2px;
+    color: #666;
+    border-color: gray;
+    box-shadow: 4px 3px 15px #362a4f;
+  }
+  
+  th,
+  td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #8e24aa;
+    color: #fff;
+    padding: 10px;
+    text-align: left;
+    display: table-cell;
+    vertical-align: inherit;
+    font-weight: bold;
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+  
+
+  
+  #update {
+    padding: 5px 10px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  #update:hover {
+    background-color: #45a049;
+  }
+
+.container {
+    display: flex;
+    justify-content: space-between; 
+    margin-top: 70px;
+
+    max-width: 100%;
+    overflow: auto; /* or overflow: scroll; */
+    margin: 0 auto;
+  }
+  
+
+  .form-container {
+    width: 320px;
+    padding: 8px; 
+    border-radius: 5px;
+  }
+  
+  .data-list-container {
+    width: fit-content;
+  }
+  
+  .bg-light {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .btn-primary {
+    margin-top: 10px;
+  }
+
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px; 
+    padding-right: 40px;
+    display: flex;
+    align-items: flex-start;
+    padding: 20px;
+  }
+  
+
+  .form-container {
+    width: 320px;
+    padding: 10px;
+    border-radius: 5px;
+    margin-left: 20px;
+  }
+  
+
+  .data-list-container {
+    width: fit-content;
+  }
+  
+
+  .bg-light {
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+
+
+.data-list-container {
+    flex: 1;
+    padding-right: 40px;
+}
+
+
+.selected-row {
+ background-color:cadetblue; 
+}
+
+
+input[type="checkbox"] {
+  appearance: none; 
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 3px solid black;
+  border-radius: 75px;
+  margin: 2px;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+}
+
+Style for checked checkbox
+input[type="checkbox"]:checked {
+  background-color:  #f8bf16; 
+}
+
+.selected-row {
+  background-color: burlywood;
+}
+
+.checkbox-selected {
+  background-color: lightslategrey ;
+}
+
+.checkbox-deselected {
+  background-color: white;
+}
+
+h2
+{
+  padding: 10px;
+  background: #2184be;
+  color: white;
+  border-radius: 5px;
+  height: 60px;
+  font-size: 20px;
+  box-shadow: 3px 4px 9px #151f51;
+
+
+}
+
+
+

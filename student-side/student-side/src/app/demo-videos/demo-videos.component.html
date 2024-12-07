@@ -1,0 +1,40 @@
+<div> 
+  <h2 class="display-6 text-center fw-200 mt-2" style="color: #F57C00;">Demo Videos of All Skills</h2>
+  <div class="row">
+    <div class="col-lg-9 col-md-8 col-sm-12">
+      <div class="video-container position-relative">
+        <div #loadingAnimation class="loading-animation" style="display: none;">
+          <div class="spinner-border text-primary" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+        <video #videoPlayer controls class="video-player" (waiting)="showLoading()" (canplay)="hideLoading()" [poster]="'corporate.jpg'">
+          <source [src]="selectedVideo?.url" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-sm-12 mt-3 accordion-list" style="height: 100%;">
+      <div class="accordion mt-3" id="videoAccordion">
+        <div *ngFor="let topic of topics" class="accordion-item">
+          <h2 class="accordion-header" [id]="'heading' + topic.id">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse' + topic.id" aria-expanded="false" [attr.aria-controls]="'collapse' + topic.id">
+              {{ topic.name }}
+            </button>
+          </h2>
+          <div [id]="'collapse' + topic.id" class="accordion-collapse collapse" [attr.aria-labelledby]="'heading' + topic.id" data-bs-parent="#videoAccordion">
+            <div class="accordion-body">
+              <ul class="list-group">
+                <li *ngFor="let video of topic.videos" class="list-group-item d-flex align-items-center" (click)="playVideo(video)">
+                  <i class="fas fa-play-circle"></i>
+                  <span class="video-title">{{ video.title }}</span>
+                  <span class="badge badge-primary badge-pill px-2" style="padding-left: 10px;">{{ video.duration }}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

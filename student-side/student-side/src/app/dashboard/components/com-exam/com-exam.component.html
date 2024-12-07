@@ -1,0 +1,138 @@
+<div class="loader-bg" *ngIf="loaderService.showLoader"><div class="ploader-container"><span class="ploader"></span></div></div>
+<div class="row">
+  <div class="col-sm-12 cpg-det" style="padding-top:25px; padding-left:20px;">
+    <h5>This exam will be based on the microtopics that you have already covered last week. </h5>
+    <p>You can also choose micro topics and number of questions as per your choice.</p>
+  </div>
+</div>
+
+<div class="row" style="background:#eee;margin-top:30px;">
+  <div class="col-sm-12 bx-shd">
+    <form [formGroup]="testSelectionForm" (ngSubmit)="submitTestSelectionForm()">
+      <div class="row" style="padding-top:10px;">
+        <div class="col-sm-5">
+          <label for="coursePackage">Select Course Package</label>
+          <select (change)="getCourseListByCpkgId($event.target.value)" class="form-control" id="coursePackage" formControlName="coursePackageId">
+            <option hidden [value]=""  selected>Select Course Package</option>
+            <option *ngFor="let coursePackage of coursePackageList" value="{{coursePackage.coursePackageId}}">
+              {{ coursePackage.coursePackageName }}
+            </option>
+          </select>
+        </div>
+        <div class="col-sm-5">
+          <label for="Course">Please Select Course</label>
+          <select (change)="findAllTopicsByCourseId($event.target.value)" class="form-control" id="courseSelector" formControlName="courseId">
+            <option hidden [value]=""  selected>Select Course</option>
+            <option *ngFor="let course of courseList" value="{{course.courseId}}">
+              {{course.courseName}}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="row" style="margin-top:20px;">
+        <div class="col-sm-10">            
+             <!-- <div id="accordion" class="accordion">
+                <div class="card mb-0" *ngFor="let subTopic of subTopicDetails">
+                  <div class="card-header collapsed" data-toggle="collapse" [attr.href]="'#sbt'+subTopic.subTopicId">
+                      <span><input type="checkbox" /></span>&nbsp;<span class="sp1"><a class="card-title">{{subTopic.subTopicName}}</a></span>
+                  </div>
+                  <div [attr.id]="'sbt'+subTopic.subTopicId" class="card-body collapse" data-parent="#accordion">
+                    <div class="acco-inner-sec">
+                      <div class="ac-wrapper" *ngFor="let microTopic of subTopic.microTopic; let $index = index">
+                        <div class="v-cnt-left">
+                          <input type="hidden">
+                          <span><input type="checkbox" /></span>&nbsp;<span class="span2">{{microTopic.microTopicName}}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+
+              <div *ngIf="microTopicFlag" id="accordion" class="accordion" style="margin-bottom:20px;">
+                <div style="margin-bottom:20px;">
+                  <div>Attended Micro Topics &nbsp;<span class="mark-g">&nbsp;</span>&nbsp;&nbsp;&nbsp; Unattended Micro Topics <span class="mark-b">&nbsp;</span></div>                  
+                </div>
+                <label for="exampleFormControlSelect1">Select Micro Topics</label>
+                <div class="card mb-0" formArrayName="subTopicsData" *ngFor="let item of testSelectionForm.get('subTopicsData').controls; let j=index;">
+                    <div [formGroupName]="j">
+                      <div *ngIf="j>0"class="card-header collapsed" >
+                          <span><input [attr.subTopicId]="item.get('subTopicId').value" checked="checked" type="checkbox" (change)="mtpAction($event)" formControlName="subTopicCheckedValue"></span>&nbsp;
+                          <span class="sp1" data-toggle="collapse" [attr.href]="'#sbt'+item.get('subTopicId').value">
+                            <a class="card-title">{{item.get('subTopicName').value}}</a>
+                          </span>
+                      </div>
+
+                      <div [attr.id]="'sbt'+item.get('subTopicId').value" class="card-body collapse" data-parent="#accordion">
+                          <div class="acco-inner-sec">
+                            <div class="ac-wrapper" formArrayName="microTopicsData" *ngFor="let microTopics of item.get('microTopicsData').controls; let i=index">
+                              <div [formGroupName]="i" class="v-cnt-left">                                
+                                <span><input class="mctp" [attr.dataSubTopicId]="item.get('subTopicId').value" [attr.microTopicId]="microTopics.get('microTopicId').value" checked="checked" (change)="stpAction($event)" type="checkbox" formControlName="microTopicCheckedValue"/></span>&nbsp;
+                                <span class="" [className]="microTopics.get('isWatchedFlag').value==true ? 'txt-green' : ''">{{microTopics.get('microTopicName').value}}</span> 
+                                  <span *ngFor="let microTopicDTO of questionsCount">
+                                      <span *ngIf="microTopicDTO.microTopicId == microTopics.get('microTopicId').value"> (Total available questions : {{microTopicDTO.questionsCount}})</span>
+                                  </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>                                    
+                </div>
+              </div>
+
+            <!-- <div formArrayName="subTopicsData" *ngFor="let item of testSelectionForm.get('subTopicsData').controls; let j=index;">
+              <div [formGroupName]="j">
+                {{item.get('subTopicId').value}}
+                <input type="text" [id]="item.get('subTopicId').value" formControlName="subTopicId"class="">
+                  <div formArrayName="microTopicsData" *ngFor="let microTopics of item.get('microTopicsData').controls; let i=index">
+                      <div [formGroupName]="i">
+                          <input [attr.microTopicId]="microTopics.get('microTopicId').value" checked="checked" (change)="toggleMicroTopicsData($event)" type="checkbox" [id]="microTopics.get('microTopicId').value"
+                          formControlName="microTopicCheckedValue" class="">
+                      </div>
+                  </div> 
+              </div>
+            </div> -->
+        </div>
+      </div>
+
+      <!-- <div class="row" style="margin-top:20px;">
+        <div class="col-sm-12">
+          <div>
+            <input (click)="showDateRange()" type="checkbox" /><label>&nbsp;&nbsp;Select microtopics with in a given
+              date range</label>
+          </div>
+        </div>
+      </div>
+      <div class="row" style="margin-top:0px;">
+        <div class="col-sm-5">
+          <input type="text" class="form-control datepicker" placeholder="From Date" />
+        </div>
+        <div class="col-sm-5">
+          <input type="text" class="form-control datepicker" placeholder="To Date" />
+        </div>
+      </div> -->
+      <div class="row" *ngIf="formErr" style="margin-top:20px;color:red;">
+        <div class="col-sm-12 mrt-20 mr-b10">
+          {{formErrMsg}}
+        </div>
+      </div>
+      <div class="row" style="padding-top:10px;">
+        <div class="col-sm-5">
+          <label for="noOfQuestions">Enter number of questions to write the test</label>
+          <input type="text" formControlName = "totalQuestions"/>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12 mr-t20 mr-b10">
+          <input type="submit" class="la-orange-btn" value="Continue" />         
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          &nbsp;
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

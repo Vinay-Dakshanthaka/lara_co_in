@@ -1,0 +1,38 @@
+<div class="container-fluid">
+    <div class="container form-bnr-sec">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 pd-t40 pd-b50 form-bnr">
+          <div class="row">
+            <div class="col-lg-11 col-md-12 col-sm-12 div-center">
+              <div>
+                <h1>User Subscription</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  <div class="container-fluid">
+    <div class="container"><br><br>
+      <div *ngIf="userSubscribed">
+      <div class="div2">
+      
+        <p style="text-align: center;">Your have been subscribed succesfully&nbsp;&nbsp;<img src="../../../../assets/images/ordercomp.png" style="height:20px;width:20px;"></p>
+      </div>
+    </div>
+    <div *ngIf="exError">    
+      <div class="div2">
+      
+        <p style="text-align: center;">There is some problem with your subscription request.</p>
+        <p style="text-align: center;">Please contact your administrator.</p>
+      </div>
+    </div>
+      <br><br><br><br><br><br><br>
+  
+  
+  </div>
+  </div>

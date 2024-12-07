@@ -1,0 +1,31 @@
+
+<div *ngIf="learnerNotifications.length == 0">
+    <div class="cpg-det">
+        <h5> No Notifications for your course package. </h5>
+    </div>
+</div>
+
+<div *ngIf="learnerNotifications.length != 0">    
+    <div class="cpg-det">
+        <h5> All Notifications for your course package in the past one week</h5>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>SNO</th>
+                <th>Date</th>                      
+                <th>Note</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let learnerNotification of learnerNotifications;index as i">
+                <td> {{ i + 1 }} </td>
+                <td> {{ getDate(learnerNotification.dateAndTime) }} </td>                
+                <td> {{ learnerNotification.note }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+

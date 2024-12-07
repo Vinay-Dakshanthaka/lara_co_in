@@ -1,0 +1,228 @@
+<!--breadcrumb-->
+<!-- <div class="container-fluid">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-11 col-md-12 col-sm-12 div-center">
+        <div class="row">
+          <div class="col-lg-12 pd-t20">
+            <nav>
+              <ol class="breadcrumb primary-color">
+                <li class="breadcrumb-item"><a [routerLink]="['/']">Home</a></li>
+                <li class="breadcrumb-item active">Course Package Details</li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+<!--breadcrumb end-->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog " role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span
+            aria-hidden="true">&times;</span> </button>
+      </div>
+      <div class="modal-body">
+        <div class="embed-responsive embed-responsive-16by9">          
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/PaTfQd0kmho" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Modal end-->
+
+<div class="container-fluid cntfld-fw">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 course-sec pd-t40 pd-b40 pd-l50">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 pd-l50">
+            <div>
+              <h1>Courses in {{coursePackageDetails.coursePackageName}} </h1>
+              <hr style="color:#fff;background:#fff;">
+               <!-- <h6>{{ coursePackageDetails.coursePackageDesc }}</h6>
+              <div style="margin-top:30px;">
+               <h3>{{coursePackageDetails.coursePackageName}}</h3>
+              <h6>In this package we are covering <b>{{noOfCourses}}</b> courses.</h6>
+              <hr style="color:#fff;background:#fff;">
+              </div>    -->                                    
+            </div>
+          </div>       
+
+          <!-- <div class="col-lg-3 col-md-3 col-sm-3" style="margin-top:80px;margin-left:-30px;">
+              <div class="" data-toggle="modal" data-target="#exampleModal"> 
+                  <button class="btn-grad"><b>View Course Package Description</b></button>   
+              </div> 
+          </div> -->
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 pd-l30">                       
+              <div class="row" style="margin-top:30px;">
+                <div style="padding-bottom:17px;" class="col-sm-3" *ngFor="let courseDetail of coursePackageDetails.coursesUnderPackageList; let cd=index;">
+                  <a *ngIf="courseDetail.courses.isActive == 'Y'" style="text-decoration:none;cursor:pointer;color:#fff;" [routerLink]="['/playlist', courseDetail.coursePackageId, courseDetail.courses.courseId]" class="cs-pk-link">
+                    <div class="cs-pk-dt"><b>{{cd+1}}. {{courseDetail.courses.courseName}}</b></div>
+                  </a>
+                  <a *ngIf="courseDetail.courses.isActive == 'N'" style="text-decoration:none;cursor:pointer;color:#fff;" (click)="showCoursePopup(courseDetail.courses.courseName)" class="cs-pk-link">
+                    <div class="cs-pk-dt"><b>{{cd+1}}. {{courseDetail.courses.courseName}}</b></div>
+                  </a>  
+                </div>                                                  
+              </div>   
+              <div *ngIf="!this.isSubscribed" class="row" style="margin-top:30px;">
+                <div class="col-sm-12">
+                   <!-- <a href="http://localhost:8080/c2c/api/orderp/processOrder/{{coursePackageDetails.coursePackageId}}"><button>Buy Now</button></a> -->
+          
+                  <!-- <a *ngIf="role === 'PG_TESTER'" [routerLink]= "['/orderrev', coursePackageDetails.coursePackageId]"><button class="btn btn-success">Buy Now</button></a> &nbsp;&nbsp;&nbsp; -->
+                
+                  
+                  <!-- <a href= "https://lara.co.in/assets/pdf/{{lara-java-self-paced-courses-desc.pdf}}" target="_blank">
+                    <button class="btn btn-success">Detailed Description on all Courses</button>
+                  </a>   &nbsp;&nbsp; 
+                  <a href= "https://lara.co.in/assets/pdf/lara_self_paced_java_full_stack_course_content.pdf" target="_blank">
+                    <button class="btn btn-success">Course Content for all Courses</button>
+                  </a>   &nbsp;&nbsp;   -->
+
+                  <a [routerLink]= "['/orderrev', coursePackageDetails.coursePackageId]">
+                    <button class="btn btn-success">Buy Now for 4 years Access at any time and any number of times.</button>
+                  </a>             
+                </div>
+              </div>     
+              <div *ngIf="this.isSubscribed" class="row" style="margin-top:30px;">
+                <div class="col-sm-12">
+                  You have already subscribed this package. You can see under your "My Courses" in your dashboard. <br/>
+                </div>
+              </div>    
+              <!--
+              <div class="row" style="margin-top:30px;">
+                <div class="col-sm-12">
+                  <a [routerLink]= "['/']"><button class="btn btn-success">See other packages</button></a>
+                </div>
+              </div>                 
+              -->             
+            </div>                
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!--courses header end-->
+
+<div class="container-fluid cntfld-fw">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-11 col-md-11 col-sm-11 pd-t30 div-center">
+        <div class="row">
+          <div class="col-lg-4 col-md-3 col-sm-3 mg-b30"
+            *ngFor="let courseDetail of coursePackageDetails.coursesUnderPackageList;">
+            <div class="col-lg-12 co-box">
+              <div class="text-center">
+                <img class="img-fluid" src="./assets/images/{{courseDetail.courses.courseThumbnail}}" alt="course image">
+                <!-- <h4 class="co-title">{{courseDetail.courses.courseName}}</h4> -->
+                <div class="co-text">{{courseDetail.courses.courseDesc1}}</div>
+                <a *ngIf="courseDetail.courses.isActive == 'Y'" [routerLink]="['/playlist', courseDetail.coursePackageId, courseDetail.courses.courseId]" class="btn">Go to Course</a>
+                <a *ngIf="courseDetail.courses.isActive == 'N'" style="color:#fff;cursor: pointer;" (click)="showCoursePopup(courseDetail.courses.courseName)" class="btn">Go to Course</a>
+              </div>
+            </div>
+          </div>                    
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="container-fluid cntfld-fw">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 pd-t30 pd-b30">
+        <div class="row">
+          <div class="col-lg-11 col-md-12 col-sm-12 div-center">
+            <div class="course-left-col">
+              <!-- <div class="pd-t30">
+                <h4>Review</h4>
+                <div class="container pd-l0 mr-t20 vd-review-sec">
+                  <div class="row">
+                    <div class="col-lg-1">
+                      <div class="r-avatar"><span style="">SS</span></div>
+                    </div>
+                    <div class="col-lg-4 star"><span class="fa fa-star checked"></span> <span
+                        class="fa fa-star checked"></span> <span class="fa fa-star checked"></span> <span
+                        class="fa fa-star"></span> <span class="fa fa-star"></span><span class="block pd-l20"> 3 out of
+                        5 star</span> <span><strong>Syam Sundar</strong></span> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-11 re-cnt-sp">
+                      <p> Lorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in
+                        place of English to emphasise design elements over content. It's also called placeholder</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="container pd-l0 mr-t20 vd-review-sec">
+                  <div class="row">
+                    <div class="col-lg-1">
+                      <div class="r-avatar"><span style="">DS</span></div>
+                    </div>
+                    <div class="col-lg-4 star"><span class="fa fa-star checked"></span> <span
+                        class="fa fa-star checked"></span> <span class="fa fa-star checked"></span> <span
+                        class="fa fa-star"></span> <span class="fa fa-star"></span><span class="block pd-l20"> 3 out of
+                        5 star</span> <span><strong>Darshan Shah</strong></span> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-11 re-cnt-sp">
+                      <p> Lorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in
+                        place of English to emphasise design elements over content. It's also called placeholder</p>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--back to top-->
+<div class="container-fluid cntfld-fw">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 pd-t30 pd-b30"> <a id="back-to-top" href="#"
+          class="btn btn-info back-to-top" role="button" title="Click to return on the top page" data-toggle="tooltip"
+          data-placement="left"><i class="material-icons">expand_less</i></a> </div>
+    </div>
+  </div>
+</div>
+<!--back to top end-->
+
+<button style="display:none;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#comingSoonModal"
+  id="comingSoonBtn">
+  Launch demo modal
+</button>
+<!-- Modal -->
+<div class="modal fade" id="comingSoonModal" tabindex="-1" role="dialog" aria-labelledby="comingSoonLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-ff3547">
+        <h5 class="modal-title" id="">{{currentCourseName}}</h5>        
+        <button style="color:#FFFFFF" type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <p class="modal-title" id="no" style="text-align:center;">This Course will be released very soon</p>
+      </div>      
+    </div>
+  </div>
+</div>

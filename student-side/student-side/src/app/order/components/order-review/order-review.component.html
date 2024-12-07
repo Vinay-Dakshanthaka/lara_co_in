@@ -1,0 +1,83 @@
+<div class="container-fluid cntfld-fw">
+    <div class="container form-bnr-sec">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 pd-t40 pd-b50 form-bnr">
+          <div class="row">
+            <div class="col-lg-11 col-md-12 col-sm-12 div-center">
+              <div>
+                <h1>Order Review</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="container-fluid cntfld-fw">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-11 col-md-12 col-sm-12 div-center">
+          <div class="row">
+              <div class="col-lg-7 pd-t20 pd-b10" style="margin-left:30px;margin-top:20px;">   
+                <!-- <img src="../../../../assets/images/icons-12.png">                             -->
+                <h6 *ngIf="!isSubscribed">Your are ordering {{coursePackageDetails.coursePackageName}} as a course package.</h6>
+                <P>This course package includes following {{noOfCourses}} courses:</P>
+                                <ol>
+									<li *ngFor = "let course of courseList; let i=index">{{course.courses.courseName}} </li>                    
+								</ol>
+                 <hr/>
+                 <div *ngIf="coursePackageId == 26">
+                    Do you have a Coupon Code?<br/>
+                    Coupon Code: <input type="text" #couponCode/>  <br/>
+                    <input type="button" (click)="getFinalPriceWithCouponCode(couponCode.value)" value="Get the Price with the Coupon Code"/><br/>
+                    <span *ngIf="invalidCouponCode">{{invalidCouponCode}}</span>
+                    <span *ngIf="reductionPercentage">Coupon code reduction : {{reductionPercentage}} %</span>
+                  </div>
+                <h6>Course Price: Rs {{(coursePackageDetails.coursePackagePrice  * 5)}}</h6>
+                <h6>Discount: 80% </h6>
+                
+                <h6>Price after discount: Rs {{coursePackageDetails.coursePackagePrice}} </h6> 
+                <h6>GST ({{ coursePackageDetails.gstPercentage }}%): {{ gstValue }} </h6>
+                <h6>Final Price: {{coursePackageDetails.coursePackagePrice +  gstValue}} </h6>
+                <hr/>
+                <button *ngIf="!isSubscribed" class="btn btn-primary cust-but"><a href="{{paymentBaseUrl}}/{{coursePackageDetails.coursePackageId}}/{{couponCode}}">Continue</a></button>                                
+                <p *ngIf="isSubscribed">You are already subscribed for this course package.</p>
+              </div>
+
+              <div class="col-sm-4 pd-t20 pd-b10" style="margin-top:20px;">
+                
+
+            
+                      <div class="course-box sm-mr-b20"> <a href="javascript:void(0)" [routerLink]="['/coursedetails', coursePackageDetails.coursePackageId]" class="cs-sdw">
+                        <div class="cs-header"> <i class="material-icons"> layers </i>
+                          <h3 class="cs-title">{{coursePackageDetails.coursePackageName}}</h3>
+                        </div>
+                        <div class="cs-content">
+                            <p><u><h5>{{coursePackageDetails.coursesUnderPackageList.length}} Courses</h5></u></p>
+                                 <ol>
+									<li *ngFor = "let course of courseList; let i=index">{{course.courses.courseName}} </li>                    
+								</ol>
+                        </div>
+                        <!--overlay textbox-->
+                        <div class="cs-overlay">
+                          <div class="cs-overlay-text">  
+								<p><u><h5>{{coursePackageDetails.coursesUnderPackageList.length}} Courses</h5></u></p>
+                                <ol>
+									<li *ngFor = "let course of courseList; let i=index">{{course.courses.courseName}} </li>                    
+								</ol>
+                          </div>
+                        </div>
+                        <!--overlay textbox end--> 
+                        </a> </div>
+              
+
+
+              </div>
+              
+            </div>
+      </div>
+    </div>
+  </div>
+</div>
+

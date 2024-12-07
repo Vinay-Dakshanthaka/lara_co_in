@@ -1,0 +1,149 @@
+<div class="container-fluid cntfld-fw">
+  <div class="container form-bnr-sec">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 pd-t40 pd-b50 form-bnr">
+        <div class="row">
+          <div class="col-lg-11 col-md-12 col-sm-12 div-center">
+            <div>
+              <h1>Simple Questions </h1>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid cntfld-fw">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 pd-t30 pd-b30">
+       <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 pd-t30 pd-b30">
+                <div class="pd-l10 pd-b5"><a [routerLink]="['/dashboard']"><span class="blue-btn2 mr-r10">Back</span></a> </div>
+            </div>
+        </div> 
+        <div class="row">
+          <!-- start modifi-->
+          <div class="col-lg-7 col-md-7 col-sm-7" style="margin-left:40px;">
+            <div style="background:red;color:#fff;"></div>
+            <div class="acco-inner-sec">
+
+              <!-- <form [formGroup]="cumTestForm" novalidate (ngSubmit)="save(cumTestForm)" class="form-horizontal"> -->
+              <form [formGroup]="cumTestForm" novalidate class="form-horizontal">
+                <div class="qs-div" formArrayName="data"
+                  *ngFor="let item of data.controls; let j=index;">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tbody [formGroupName]="j">
+                      <tr>
+                        <td style="width:2%;background:#d8e4f3;vertical-align:text-top;padding:10px;"><b>{{j+1}}.</b>
+                        </td>
+                        <td style="width:98%;background:#d8e4f3;padding:10px;"><a [attr.id]="'qid'+item.get('questionId').value"></a>
+                          <pre>{{item.get('questionDesc').value}}</pre>
+                          <input type="hidden" [id]="item.get('questionId').value" formControlName="questionDesc"
+                            class="">
+                        </td>
+                      </tr>
+                      <tr>
+                        <td colspan="3" class="pd-l20 pd-t10">
+                          <table formArrayName="options"
+                            *ngFor="let options of item.get('options').controls; let i=index" width="auto" border="0"
+                            cellspacing="0" cellpadding="0">
+                            <tbody>
+                              <tr [formGroupName]="i">
+                                  <span class="pd-r10" style="text-transform: uppercase;float:left">
+                                  {{options.get('optionAbbr').value}}.</span>
+                                  <span style="float:left;padding-top:3px;"><input checked="checked" type="checkbox" [id]="options.get('optionId').value"
+                                    formControlName="optionCheckedValue" class="">
+                                  </span>
+                                  <pre class="pd-l10">{{options.get('optionDesc').value}}&nbsp;
+                                  <i *ngIf="options.get('optionCorrect').value" style="color:green;" class="fa fa-check" aria-hidden="true"></i>
+                                  <i *ngIf="options.get('optionWrong').value" style="color:#dc3545;" class="fa fa-times" aria-hidden="true"></i>                              
+                                  </pre>
+                              </tr>
+                              <!-- <tr>                                
+                                <td class="pd-l10" *ngIf="options.get('isWrongAns').value">Correct answer:{{options.get('correctAnswers').value}}</td>
+                              </tr> -->
+                            </tbody>
+                          </table>                        
+                        </td>
+                      </tr>  
+                      <tr *ngIf="item.get('isWrongAns').value">                                             
+                        <td colspan="3" style="width:98%;padding-left:19px;padding-top:5px;color:green">
+                          <b>Correct Answer: <span style="text-transform: uppercase">{{item.get('correctAnswers').value}}</span></b>                          
+                        </td>
+                      </tr>                                          
+                    </tbody>
+                  </table>
+                </div>
+              </form>
+            </div>
+
+
+          </div>
+          
+          <div class="col-lg-4 col-md-4 col-sm-4" style="padding:20px;position: sticky; top:30px;">
+            <div class="fxd-div">
+            <h5>Exam Result</h5>
+            <table class="qd-table" width="100%">
+              <tr class="qd-tr">
+                <td class="qd-td">Total Questions</td>
+                <td class="qd-td">{{examResult.totalQuestions}}</td>
+              </tr>
+              <tr class="qd-tr">
+                <td class="qd-td">Attempted Questions</td>
+                <td class="qd-td">{{examResult.totalQuestions - totalUnAttemptedAns}}</td>
+              </tr>
+              <tr class="qd-tr">
+                <td class="qd-td">UnAttempted Questions</td>
+                <td class="qd-td">{{totalUnAttemptedAns}}</td>
+              </tr>
+              <tr class="qd-tr" style="background:#28a745;">
+                <td class="qd-td">Correct Answers</td>
+                <td class="qd-td">{{totalCorrAns}}</td>
+              </tr>
+              <tr class="qd-tr" style="background:#dc3545;">
+                <td class="qd-td">Wrong Answers</td>
+                <td class="qd-td">{{totalWrAns}}</td>
+              </tr>
+              <tr class="qd-tr">
+                <td class="qd-td">Marks Obtained</td>
+                <td class="qd-td">{{totalCorrAns}}</td>
+              </tr>
+              <tr class="qd-tr">
+                <td class="qd-td">Performance</td>
+                <td class="qd-td">
+                  <span *ngIf="((totalCorrAns)/examResult.totalQuestions)*100 == 100">Perfect</span>
+                  <span *ngIf="((totalCorrAns)/examResult.totalQuestions)*100 < 100 && ((totalCorrAns)/examResult.totalQuestions)*100 >= 90">Very Good</span>
+                  <span *ngIf="((totalCorrAns)/examResult.totalQuestions)*100 < 90 && ((totalCorrAns)/examResult.totalQuestions)*100 >= 70">Good</span>
+                  <span *ngIf="((totalCorrAns)/examResult.totalQuestions)*100 < 70">Try to improve</span>
+                </td>
+              </tr>
+            </table>
+            <div>
+                <div class="qpagehead">
+                    <div>
+                        <span class="cans">0</span>&nbsp;&nbsp;&nbsp;<span>Correct Answers </span>
+                      </div>
+                      <div style="margin-top:5px;">
+                          <span class="wans">0</span>&nbsp;&nbsp;&nbsp;<span>Wrong Answers </span>
+                      </div>
+                      <div style="margin-top:5px;">
+                          <span class="unattq">0</span>&nbsp;&nbsp;&nbsp;<span>Un-Attempted Questions </span>
+                      </div>
+                </div>
+              <div class="qtab" *ngFor="let quesDetail of resultQuesIdsArr">
+                <span [attr.class]="quesDetail.questionClass">
+                  <a [attr.href]="'#qid'+quesDetail.questionId">{{quesDetail.questionRef}}</a>
+                </span>
+              </div>
+            </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

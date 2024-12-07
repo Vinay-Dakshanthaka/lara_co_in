@@ -1,0 +1,36 @@
+.qd-tr {
+    padding:7px;
+    border-bottom: 1px solid #fff;
+}
+
+.qd-td{
+    padding:5px 0px 5px 13px;
+}
+
+.qd-td a{
+    color:#fff;
+    text-decoration: none;
+}
+
+.qd-td a :hover{
+    color:#ccc;
+    text-decoration: none;
+}
+
+.qd-table {
+    background:#17a2b8;
+    color:#fff;
+    margin-bottom:25px;
+}
+
+.cans-table{
+    background:#29af48;
+    color:#fff;
+    margin-bottom:25px;
+}
+
+.wans-table{
+    background:#dc3545;
+    color:#fff;
+    margin-bottom:25px;
+}

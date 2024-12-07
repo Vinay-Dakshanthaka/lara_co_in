@@ -1,0 +1,94 @@
+.container{
+    padding: 37px;
+    /* margin-top: 10%;
+    margin-bottom: 10%;
+    */
+    width: 100%; 
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 20px;
+    /* margin-left: 60%;
+    margin-right: 60%; */
+    /* transition: all 0.5s ease-out; */
+}
+
+.container:hover{
+    box-shadow: 1px 1px 10px 0 rgba(90, 87, 87, 0.5);
+}
+
+input{
+    padding: 5px 10px 5px 10px;
+    margin-bottom: 10px;
+    /* border-bottom: black; */
+}
+
+label{
+    padding: 0px;
+}
+button {
+    padding: 10px;
+    color: #ffffff;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    margin: 5px;
+    /* Add the following styles */
+    align-items: center;
+    width: 100px;
+}
+
+button:hover{
+    background-color:blue;
+}
+
+.view{
+    width: 100px;
+    padding: 5px;
+    /* height: 10px; */
+    background-color: rgb(16, 208, 48);
+    color: whitesmoke;
+    text-align: center;
+    box-shadow:  4px 4px 10px rgb(77, 73, 73,0.5), 0 1px 5px rgb(88, 82, 82,0.5);
+}
+
+.msg{
+    position: absolute;
+    left: 45%;
+    top: 0;
+    padding: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    transform: translateY(-520%);
+    transition: all 0.8s ease;
+    box-shadow: 1px 1px 10px 0 rgba(90, 87, 87, 0.5);
+}
+
+.msg p{
+    padding: 0;
+    margin: 0;
+}
+
+.show-msg{
+    transform: translateY(-195%);
+}
+
+.time-over {
+    color: red; /* Set the text color to red */
+    animation: blink 1s infinite; /* Apply a blinking animation */
+  }
+  
+  @keyframes blink {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  

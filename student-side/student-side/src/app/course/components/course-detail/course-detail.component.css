@@ -1,0 +1,50 @@
+.course-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    background-color: #ffffff;
+    margin: 10px;
+}
+
+.course-image {
+    width: auto;
+    height: 100px;
+    padding: 10px;
+    object-fit: contain;
+}
+
+.course-details {
+    padding: 20px;
+}
+
+.course-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.description {
+    color: #666;
+}
+
+.price {
+    color: #e44d26;
+    font-weight: bold;
+    width: fit-content;
+    padding: 5px 10px;
+}
+
+.courses {
+    display: grid;
+    grid-template-columns: 2;
+}
+
+@media (min-width: 992px) {
+    .course-card {
+        width: 60%;
+    }
+}

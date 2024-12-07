@@ -1,0 +1,40 @@
+<div class="container-fluid">
+  <div class="container form-bnr-sec">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 pd-t40 pd-b50 form-bnr">
+        <div class="row">
+          <div class="col-lg-11 col-md-12 col-sm-12 div-center">
+            <div>
+              <h1>User Account Activation</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="container-fluid">
+  <div class="container"><br><br>
+    <div *ngIf="userActivated">
+    <h3 style="text-align: center;">Account Activated</h3><br><br>
+    <div class="div2">
+    
+      <p style="text-align: center;">Your account has been activated succesfully&nbsp;&nbsp;<img src="../../../../assets/images/ordercomp.png" style="height:20px;width:20px;"></p>
+      <p style="text-align: center;">Please login to continue...You can find Learner Login in the top header</p>
+    </div>
+  </div>
+  <div *ngIf="exError">    
+    <div class="div2">
+    
+      <p style="text-align: center;">There is some problem with your account activation.</p>
+      <p style="text-align: center;">Please contact your administrator.</p>
+    </div>
+  </div>
+    <br><br><br><br><br><br><br>
+
+
+</div>
+</div>

@@ -1,0 +1,76 @@
+<!-- 
+<div class="entry-cards">
+  <h2>Upcoming Batches</h2>
+  <br>
+  <div class="card-container">
+    <div class="card" *ngFor="let data of selectedData; let i = index">
+      <div class="card-header" style="font-family: cursive;">{{ data.packageName }}</div>
+      <div class="card-content">
+        <div class="entry-details">
+          <div  class="detail"><strong>Course Start Date:</strong> {{ data.startDate | date: 'dd/MM/yyyy' }}</div>
+          <hr>
+          <div class="detail"><strong>Course Duration:</strong> {{ data.duration }}</div>
+          <hr>
+          <div class="detail"><strong>Demo Start Date:</strong> {{ data.demoStartDate | date : 'dd/MM/yyyy'}}</div>
+          <hr>
+          <div class="detail"><strong>Demo End Date:</strong> {{ data.demoEndDate | date : 'dd/MM/yyyy' }}</div>
+          <hr>
+          <div class="detail"><strong>Scholarship Test Date:</strong> {{ data.scholarshipDate | date: 'dd/MM/yyyy' }}</div>
+          <hr>
+          <div class="detail"><strong>Scholarship Test Time:</strong> {{ data.scholarshipDate | date: 'HH:mm' }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+
+<div class="entry-cards">
+  <h2>Upcoming Batches</h2>
+  <div class="centered-card-container" style="height: 200px;" *ngIf="selectedData.length === 0">
+    <div class="card-header rounded-3" style="display: inline;">
+      Comming Soon ...
+    </div>
+  </div>
+  <div class="centered-card-container" *ngIf="selectedData.length === 1">
+    <div class="card" *ngFor="let data of selectedData; let i = index">
+      <div class="card-header">{{ data.packageName }}</div>
+      <div class="card-content">
+        <div class="entry-details">
+          <div class="detail"><strong>Course Start Date:</strong> {{ data.startDate | date: 'dd/MM/yyyy' }}</div>
+          <hr>
+          <div class="detail"><strong>Course Duration:</strong> {{ data.duration }}</div>
+          <hr>
+          <div class="detail"><strong>Demo Start Date:</strong> {{ data.demoStartDate | date : 'dd/MM/yyyy'}}</div>
+          <hr>
+          <div class="detail"><strong>Demo End Date:</strong> {{ data.demoEndDate | date : 'dd/MM/yyyy' }}</div>
+          <hr>
+          <!-- <div class="detail"><strong>Scholarship Test Date:</strong> {{ data.scholarshipDate | date: 'dd/MM/yyyy' }}</div>
+          <hr>
+          <div class="detail"><strong>Scholarship Test Time:</strong> {{ data.scholarshipDate | date: 'HH:mm' }}</div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-container" *ngIf="selectedData.length > 1">
+    <div class="card" *ngFor="let data of selectedData; let i = index">
+      <div class="card-header" style="font-family: cursive;text-align: center;">{{ data.packageName }}</div>
+      <div class="card-content">
+        <div class="entry-details">
+          <div class="detail"><strong>Course Start Date:</strong> {{ data.startDate | date: 'dd/MM/yyyy' }}</div>
+          <hr>
+          <div class="detail"><strong>Course Duration:</strong> {{ data.duration }}</div>
+          <hr>
+          <div class="detail"><strong>Demo Start Date:</strong> {{ data.demoStartDate | date : 'dd/MM/yyyy'}}</div>
+          <hr>
+          <div class="detail"><strong>Demo End Date:</strong> {{ data.demoEndDate | date : 'dd/MM/yyyy' }}</div>
+          <hr>
+          <!-- <div class="detail"><strong>Scholarship Test Date:</strong> {{ data.scholarshipDate | date: 'dd/MM/yyyy' }}</div>
+          <hr>
+          <div class="detail"><strong>Scholarship Test Time:</strong> {{ data.scholarshipDate | date: 'HH:mm' }}</div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

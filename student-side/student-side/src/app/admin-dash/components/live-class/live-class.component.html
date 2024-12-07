@@ -1,0 +1,37 @@
+<form [formGroup]="liveClassForm" (ngSubmit)="save()">
+   
+    Date and Time: <input type="datetime-local" formControlName="dateAndTime"/> <br/>
+    Course Package :    
+    <select formControlName="coursePackageIds" multiple size="20">
+        <option *ngFor="let coursePackage of coursePackages" value="{{ coursePackage.coursePackageId }}">
+            {{ coursePackage.coursePackageName }}
+        </option>
+    </select><br/>
+    Live URL: <input type="text" formControlName="liveUrl" value="https://global.gotomeeting.com/join/910392941#s"/> <br/>
+    password: <input type="text" formControlName="password"/> <br/>
+    Topic: <input type="text" formControlName="topic" value="same link for the all the batches/topics"/> <br/>
+    Dependents: <input type="text" formControlName="dependents" value="basics"/> <br/>
+    Note: <input type="text" formControlName="note" value="na"/> <br/>
+    Is Public: 
+    <input type="radio" formControlName="isPublic" value="true"/> Yes &nbsp;&nbsp;
+    <input type="radio" formControlName="isPublic" value="false" checked/> No 
+    <br/>
+    <input type="submit" value="submit"/>
+</form>
+
+<div *ngIf="liveClasses.length != 0">
+    <table border='1'>
+        <tr>
+            <th>ID</th>
+            <th>Date-Time</th>
+            <th>URL</th>
+            <th>Course Package ID</th>
+        </tr>
+        <tr *ngFor="let liveClass of liveClasses">
+            <td> {{ liveClass.id }} </td>
+            <td> {{ liveClass.dateAndTime }} </td>
+            <td> {{ liveClass.liveUrl }} </td>
+            <td> {{ liveClass.coursePackageId }} </td>
+        </tr>
+    </table>
+</div>

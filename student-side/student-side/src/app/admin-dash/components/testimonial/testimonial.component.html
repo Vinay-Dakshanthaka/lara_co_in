@@ -1,0 +1,159 @@
+
+
+<div class="row">
+    <div class="col-sm-12">
+        <div [@simpleFadeAnimation]="'in'" *ngIf="updateRespAlert" class="alert alert-success fade in alert-dismissible show"
+        role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true" style="font-size:20px">×</span>
+        </button>
+        {{updateRespAlertText}}
+        </div>
+    </div>
+</div>
+
+<!--Add Section-->
+<div class="row" *ngIf="addTestimonialFormDiv">
+    <div class="col-sm-12 mr-b15">
+        <h5>Add new Testimonial</h5></div>
+    <div class="col-sm-12 text-center">        
+        <form [formGroup]="testimonialForm" (ngSubmit)="addTestimonial()">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <div class="form-group">                   
+                        <select formControlName="testimonialType" class="form-control">
+                            <option value="" disabled>Select Testimonial Type</option>
+                            <option value="Video">Video</option>
+                            <option value="Text">Text</option>                            
+                        </select>                   
+                    </div>
+                </div>
+                <div class="col-sm-12 text-center">
+                    <div class="form-group">
+                        <input type="text" formControlName="testimonialText" class="form-control"
+                        placeholder="Testimonial Text">
+                    </div>
+                </div>
+                <div class="col-sm-12 text-center">
+                    <div class="form-group">
+                        <textarea rows="5" cols="100" formControlName="testimonialDesc" class="form-control"
+                        placeholder="Testimonial Description"></textarea>
+                    </div>
+                </div>
+                <div class="col-sm-12 text-center">
+                    <div class="form-group">
+                        <input type="text" formControlName="testimonialVideoUrl" class="form-control"
+                        placeholder="Testimonial Video Url">
+                    </div>
+                </div>
+                <div class="col-sm-12 text-center">
+                        <div class="form-group">
+                            <input type="text" formControlName="rating" class="form-control"
+                            placeholder="Rating">
+                        </div>
+                    </div>
+                <div class="col-sm-12 text-center">
+                    <div class="form-group">
+                        <input type="text" formControlName="testimonialThubmPath" class="form-control"
+                        placeholder="Testimonial Thumbnail Path">
+                    </div>
+                </div>
+                <div class="col-sm-12 text-center">
+                    <div class="form-group">
+                        <input type="submit" value="Submit" class="btn btn-success" />
+                        <button type="button" (click)="switchAction('list')" class="btn btn-danger ml-10" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>  
+        </form>
+    </div>
+</div>
+
+<!--Edit Section-->
+<div class="row" *ngIf="editTestimonialFormDiv">
+    <div class="col-sm-12 mr-b15">
+        <h5>Update Testimonial</h5></div>
+    <div class="col-sm-12 text-center">        
+        <form [formGroup]="testimonialForm" (ngSubmit)="addTestimonial()">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <div class="form-group">                   
+                        <select formControlName="testimonialType" class="form-control">
+                            <option value="" disabled>Select Testimonial Type</option>
+                            <option value="Video">Video</option>
+                            <option value="Text">Text</option>                            
+                        </select>                   
+                    </div>
+                </div>
+                <div class="col-sm-12 text-center">
+                    <div class="form-group">
+                        <input type="hidden" formControlName="testimonialId" />
+                        <input type="text" formControlName="testimonialText" class="form-control"
+                        placeholder="Testimonial Text" />
+                    </div>
+                </div>
+                <div class="col-sm-12 text-center">
+                    <div class="form-group">
+                        <textarea rows="5" cols="100" formControlName="testimonialDesc" class="form-control"
+                        placeholder="Testimonial Description"></textarea>
+                    </div>
+                </div>
+                <div class="col-sm-12 text-center">
+                    <div class="form-group">
+                        <input type="text" formControlName="testimonialVideoUrl" class="form-control"
+                        placeholder="Testimonial Video Url" />
+                    </div>
+                </div>
+                <div class="col-sm-12 text-center">
+                        <div class="form-group">
+                            <input type="text" formControlName="rating" class="form-control"
+                            placeholder="Rating">
+                        </div>
+                    </div>
+                <div class="col-sm-12 text-center">
+                    <div class="form-group">
+                        <input type="text" formControlName="testimonialThubmPath" class="form-control"
+                        placeholder="Testimonial Thumbnail Path" />
+                    </div>
+                </div>
+                <div class="col-sm-12 text-center">
+                    <div class="form-group">
+                        <input type="submit" value="Update" class="btn btn-success" />
+                        <button type="button" (click)="switchAction('list')" class="btn btn-danger ml-10" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>  
+        </form>
+    </div>
+</div>
+
+<!--List Section-->
+<div class="row" *ngIf="testimonialListDiv">
+    <div class="col-sm-12">
+        <div class="row">
+            <div class="col-sm-6"><h4>Testimonial List</h4></div>
+            <div class="col-sm-6 pd-t7 text-right cp" (click)="switchAction('add')"><span class="fa-admin fa-plus s3"></span>&nbsp;Add New Testimonial</div>
+        </div>        
+    </div>
+    <div class="col-sm-12 mr-t20">
+        <table class="admin-tbl" width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="admin-tr admin-tr-hd">
+                <th>Testimonial Id</th>
+                <th>Testimonial Text</th>
+                <th>Testimonial Type</th>
+                <th>Video Url</th>
+                <th>Action</th>
+              </tr>  
+              <tr  class="admin-tr" *ngFor="let testimonial of testimonialsList;let i=index;">
+                <td>{{testimonial.testimonialId}}</td>
+                <td>{{testimonial.testimonialText}}</td>
+                <td>{{testimonial.testimonialType}}</td>
+                <td>{{testimonial.testimonialVideoUrl}}</td>
+                <td><span (click)="switchAction('edit',testimonial.testimonialId)" class="fa-admin fa-pencil-square-o s4 edit-icon cp" aria-hidden="true"></span>&nbsp;
+                    <span (click)="deleteTestimonial(testimonial.testimonialId)" class="fa-admin fa-trash-o s1 cp" aria-hidden="true"></span>
+                </td>
+              </tr>              
+        </table>
+    </div>
+</div>
+

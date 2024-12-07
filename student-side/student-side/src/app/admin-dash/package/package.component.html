@@ -1,0 +1,71 @@
+<div class="container">
+    <div class="data-list-container">
+      <h2>Package Data</h2>
+      <br>
+      <table>
+        <thead>
+          <tr>
+            <th>Entry</th>
+            <th>Package Name</th>
+            <th>Starting Date</th>
+            <th>Duration</th>
+            <th>Demo Start Date</th>
+            <th>Demo End Date</th>
+            <th>Scholarship Test Date</th>
+            <th>Scholarship Test Time</th>
+            <th>Action</th>
+            <th>Display Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of packagedata; let i = index"  [ngClass]="{ 'selected-row': i === selectedRowIndex }">
+            <td>{{ i + 1 }}</td>
+            <td>{{ data.packageName }}</td>
+            <td>{{ data.startDate | date: 'dd/MM/yyyy'}}</td>
+            <td>{{ data.duration }}</td>
+            <td>{{data.demoStartDate | date : 'dd/MM/yyyy'}}</td>
+            <td>{{data.demoEndDate | date : 'dd/MM/yyyy'}}</td>
+            <td>{{data.scholarshipDate | date: "dd/MM/yyyy"}}</td>
+            <td>{{data.scholarshipDate | date: "HH:mm"}}</td>
+            <td><button (click)="updateEntry(i); selectedRowIndex=i;" id="update">Update</button></td>
+            <td>
+              <input type="checkbox" id="select" (change)="select(i)" [ngClass]="{ 'checkbox-selected': data.selected, 'checkbox-deselected': !data.selected }">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+<div style="margin-left: 30px;margin-top: 0;">
+    <h2 id="input">Package Data Form</h2>
+    <form class="bg-light py-3" [formGroup]="packageForm" (ngSubmit)="save(packageForm)" style="box-shadow: 4px 3px 15px #362a4f;">
+      <label for="courseName">Course Name:</label><br>
+      <input type="text" id="packageName" formControlName="packageName" ><br><br>
+  
+      <label for="startDate">Course Starting Date:</label><br>
+      <input type="date" id="StartDate" formControlName="startDate" ><br><br>
+  
+      <label for="demoStartDate">Demo Starting Date:</label><br>
+      <input type="date" formControlName="demoStartDate" id="demoStartDate" ><br><br>
+  
+      <label for="demoEndDate">Demo Ending Date:</label><br>
+      <input type="date" id="demoEndDate" formControlName="demoEndDate" ><br><br>
+
+      <label for="duration">Course Duration:</label><br>
+      <input type="text"  id="duration" formControlName="duration" ><br><br>
+
+      <label for="scholarshipDate">Scholarship Details:</label><br>
+     <input type="datetime-local" id="scholarshipDate" formControlName="scholarshipDate"><br><br>
+
+  
+      {{ saveMessage }} {{updateMessage}}
+      <br>
+      <button [hidden]="hiddens" style="height: 35px; width: 60px;border-radius: 6px;" type="submit"   class="btn btn-primary" id="submit">Submit</button>
+      <br><br>
+      <button [hidden]="hiddenu" style="margin-top: -67px;height: 35px;
+      width: 60px;
+      border-radius: 6px;
+  " type="button" class="btn btn-primary overlap-button" (click)="changes()">Update</button>
+  
+    </form>
+  </div>

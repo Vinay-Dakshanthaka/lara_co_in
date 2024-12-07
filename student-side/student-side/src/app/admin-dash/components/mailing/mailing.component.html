@@ -1,0 +1,93 @@
+<!-- <div class="loader-bg" *ngIf="loaderService.showLoader">
+  <div class="ploader-container"><span class="ploader"></span></div>
+</div> -->
+<div class="row">
+  <div class="col-sm-12">
+    <div class="hoz-tab">
+      <button id="defaultShow" class="tablinks active" (click)="openTab($event, 'tab-mailSubs')">Mail Subscribed
+        Learners</button>
+      <button class="tablinks" (click)="openTab($event, 'tab-mailUnsubs')">Mail Un Subscribed Learners</button>
+    </div>
+  </div>
+</div>
+
+
+<div id="tab-mailSubs" class="row hoztabcnt" style="display: block;padding-top:20px;">
+  <div class="row">
+    <div class="col-sm-12">
+      <div [@simpleFadeAnimation]="'in'" *ngIf="successAlert" class="alert alert-success fade in alert-dismissible show"
+        role="alert">
+        <button style="outline:none;" type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true" style="font-size:20px">×</span>
+        </button>
+        {{successMsg}}
+      </div>
+    </div>
+  </div>
+  <form [formGroup]="sendBulkEmailForm" (ngSubmit)="sendBulkEmail()">
+  <div class="row">   
+      <div class="col-sm-6">                
+          <h4>Mail Subscribed Learners List</h4>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <thead>
+                  <tr class="td-bg">
+                    <th class=""><input type="checkbox" (change)="chkUnchkAllEmails($event)" id="checkAllEmails" /></th>
+                    <th class="">Email</th>
+                  </tr>
+                </thead>
+          </table>
+          <div class="tbl-sec" style="overflow-y:scroll;height:300px;">
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">            
+            <tbody>
+              <tr class="td-bg" [className]="i % 2==0 ? 'td-bg' : 'td-bg-none'"
+                *ngFor="let learner of subLearnersList;let i=index;">
+                <td style="padding:8px;color:#666666; border-left:1px solid #eee"><input type="checkbox"
+                    class="emailCheckBox" [attr.id]="learner.email+':'+learner.activationCode" (change)="pushUserEmail($event)" /></td>
+                <td style="padding:8px;color:#666666; border-left:1px solid #eee">{{learner.email}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+  </div>
+  <div class="row" style="margin-top:20px;">
+    <div class="col-sm-6">
+      <input type="text" class="form-control" placeholder="Subject" formControlName="mailSubject" />
+    </div>
+  </div>
+  <div class="row" style="margin-top:20px;">
+    <div class="col-sm-12">
+      <!-- <input type="textarea" class="form-control" placeholder="Content" formControlName="mailContent" /> -->
+      <!-- <textarea id="mailContentBox" rows="15" cols="100" name="mailContentText" value=""></textarea> -->
+      <ckeditor formControlName="mailContent"></ckeditor>
+    </div>
+  </div>
+  <div class="row" style="margin-top:20px;">
+    <div class="col-sm-2">
+      <input type="submit" value="send" class="btn btn-primary btn-block" />
+    </div>
+  </div>
+  </form>
+</div>
+
+<div id="tab-mailUnsubs" class="row hoztabcnt" style="padding-top:20px;">
+  <div class="col-sm-6">
+    <div class="tbl-sec mt-20" style="overflow-y:scroll;height:300px;">
+      <h4>Mail UnSubscribed Learners List</h4>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <thead>
+          <tr class="td-bg">
+            <th class="">First Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="td-bg" [className]="i % 2==0 ? 'td-bg' : 'td-bg-none'"
+            *ngFor="let ulearner of unSubLearnersList;let i=index;">
+            <td style="padding:8px;color:#666666; border-left:1px solid #eee">{{ulearner.email}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

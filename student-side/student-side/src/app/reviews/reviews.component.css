@@ -1,0 +1,107 @@
+/* body {
+    background-color: #eee;
+}
+
+.card {
+
+    border: none;
+}
+
+.user-content {
+    height: 180px;
+  
+}
+
+.user-content p {
+    margin-top: 5px;
+    font-size: 12px;
+    overflow: none;
+}
+
+
+.ratings i {
+    color: blue;
+}
+
+.container {
+    position: relative;
+} */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:weight@100;200;300;400;500;600;700;800&display=swap");
+
+
+/* body {
+    background-color: #fff;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+  } */
+  
+  .height {
+    height: auto; /* Adjust height to auto */
+  }
+  
+  .card {
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 40px rgba(51, 51, 51, .1);
+    transition: background-color 0.3s; /* Add transition for smooth hover effect */
+  }
+  
+  .card:hover {
+    background-color: #F57C00;
+  }
+  
+  .ratings i {
+    color: orange;
+  }
+  
+  .testimonial-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .testimonial-list li {
+    margin-bottom: 10px; /* Reduce margin-bottom */
+  }
+  
+  .testimonials-margin {
+    margin-top: 0; /* Remove negative margin */
+  }
+  
+  .btn-next, .btn-prev {
+    font-size: 2rem;
+    width: 50px; /* Adjust width */
+    border: none;
+  }
+
+  button {
+    border: none;
+    background-color: transparent;
+  }
+
+  .reviews-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto; /* Adjust height to auto */
+    font-size: 1.2rem;
+  }
+
+  .review-section {
+    padding: 0.5rem 0; /* Adjust padding */
+  }
+
+  .review-title {
+    margin-top: 2rem; /* Adjust margin-top */
+  }
+
+  @media (max-width: 767px) {
+    .review-section {
+      margin-top: 1rem; /* Adjust margin-top for mobile */
+      padding-bottom: 1rem; /* Adjust padding-bottom for mobile */
+    }
+
+    .review-title {
+      margin-top: 4rem; /* Adjust margin-top for mobile */
+    }
+  }

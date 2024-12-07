@@ -1,0 +1,25 @@
+
+update lara_video_tutorials set src = 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4' where micro_topic_id = '1';
+update lara_video_tutorials set src = 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4' where micro_topic_id = '2';
+update lara_video_tutorials set src = 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4' where micro_topic_id = '3';
+update lara_video_tutorials set src = 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4' where micro_topic_id = '4';
+update lara_video_tutorials set src = 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4' where micro_topic_id = '5';
+update lara_video_tutorials set src = 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4' where micro_topic_id = '6';
+update lara_video_tutorials set src = 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4' where micro_topic_id = '7';
+update lara_video_tutorials set src = 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4' where micro_topic_id = '8';
+update lara_video_tutorials set src = 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4' where micro_topic_id = '9';
+update lara_video_tutorials set src = 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4' where micro_topic_id = '10';
+update lara_video_tutorials set src = 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4' where micro_topic_id = '11';
+update lara_video_tutorials set src = 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4' where micro_topic_id = '12';
+update lara_video_tutorials set src = 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4' where micro_topic_id = '13';
+update lara_video_tutorials set src = 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4' where micro_topic_id = '14';
+update lara_video_tutorials set src = 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4' where micro_topic_id = '15';
+update lara_video_tutorials set src = 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4' where micro_topic_id = '16';
+update lara_video_tutorials set src = 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4' where micro_topic_id = '17';
+update lara_video_tutorials set src = 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4' where micro_topic_id = '18';
+update lara_video_tutorials set src = 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4' where micro_topic_id = '19';
+update lara_video_tutorials set src = 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4' where micro_topic_id = '20';
+update lara_video_tutorials set src = 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4' where micro_topic_id = '21';
+update lara_video_tutorials set src = 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4' where micro_topic_id = '22';
+update lara_video_tutorials set src = 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4' where micro_topic_id = '23';
+update lara_video_tutorials set src = 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4' where micro_topic_id = '24';

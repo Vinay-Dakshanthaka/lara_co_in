@@ -1,0 +1,31 @@
+insert into lov_topics (course_id, topic_name, topic_duration) values ('1', 'Java', '20h:10min');
+insert into lov_sub_topics (topic_id, sub_topic_name, sub_topic_duration) values ('1', 'Getting Started', '1h:20min');
+insert into lov_sub_topics (topic_id, sub_topic_name, sub_topic_duration) values ('1', 'Langauge basics', '1h:20min');
+insert into lov_sub_topics (topic_id, sub_topic_name, sub_topic_duration) values ('1', 'Command line arguments', '1h:20min');
+insert into lov_sub_topics (topic_id, sub_topic_name, sub_topic_duration) values ('1', 'Conditional statements', '1h:20min');
+insert into lov_sub_topics (topic_id, sub_topic_name, sub_topic_duration) values ('1', 'Loops', '1h:20min');
+insert into lov_sub_topics (topic_id, sub_topic_name, sub_topic_duration) values ('1', 'Class members', '1h:20min');
+insert into lov_sub_topics (topic_id, sub_topic_name, sub_topic_duration) values ('1', 'Non static', '1h:20min');
+insert into lov_sub_topics (topic_id, sub_topic_name, sub_topic_duration) values ('1', 'Object Oriented', '1h:20min');
+insert into lov_sub_topics (topic_id, sub_topic_name, sub_topic_duration) values ('1', 'Final key word', '1h:20min');
+insert into lov_sub_topics (topic_id, sub_topic_name, sub_topic_duration) values ('1', 'classpath', '1h:20min');
+insert into lov_sub_topics (topic_id, sub_topic_name, sub_topic_duration) values ('1', 'Important commands', '1h:20min');
+insert into lov_sub_topics (topic_id, sub_topic_name, sub_topic_duration) values ('1', 'Scanner class', '1h:20min');
+insert into lov_sub_topics (topic_id, sub_topic_name, sub_topic_duration) values ('1', 'Eclipse', '1h:20min');
+
+
+insert into lov_sub_topics (topic_id, sub_topic_name, sub_topic_duration) values ('2', 'Wrapper classes', '1h:20min');
+insert into lov_sub_topics (topic_id, sub_topic_name, sub_topic_duration) values ('2', 'Exception Handling', '1h:20min');
+insert into lov_sub_topics (topic_id, sub_topic_name, sub_topic_duration) values ('2', 'Assertions', '1h:20min');
+insert into lov_sub_topics (topic_id, sub_topic_name, sub_topic_duration) values ('2', 'Object class', '1h:20min');
+insert into lov_sub_topics (topic_id, sub_topic_name, sub_topic_duration) values ('2', 'Enums', '1h:20min');
+insert into lov_sub_topics (topic_id, sub_topic_name, sub_topic_duration) values ('2', 'Annotations', '1h:20min');
+insert into lov_sub_topics (topic_id, sub_topic_name, sub_topic_duration) values ('2', 'Static imports', '1h:20min');
+insert into lov_sub_topics (topic_id, sub_topic_name, sub_topic_duration) values ('2', 'Inner classes', '1h:20min');
+insert into lov_sub_topics (topic_id, sub_topic_name, sub_topic_duration) values ('2', 'Threads', '1h:20min');
+insert into lov_sub_topics (topic_id, sub_topic_name, sub_topic_duration) values ('2', 'Strings', '1h:20min');
+insert into lov_sub_topics (topic_id, sub_topic_name, sub_topic_duration) values ('2', 'Arrays', '1h:20min');
+insert into lov_sub_topics (topic_id, sub_topic_name, sub_topic_duration) values ('2', 'Collection API', '1h:20min');
+insert into lov_sub_topics (topic_id, sub_topic_name, sub_topic_duration) values ('2', 'Generics', '1h:20min');
+insert into lov_sub_topics (topic_id, sub_topic_name, sub_topic_duration) values ('2', 'File Handling', '1h:20min');
+insert into lov_sub_topics (topic_id, sub_topic_name, sub_topic_duration) values ('2', 'JDK8.0 Features', '1h:20min');

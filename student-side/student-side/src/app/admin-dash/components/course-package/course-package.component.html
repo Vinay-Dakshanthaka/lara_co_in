@@ -1,0 +1,96 @@
+<div class="container overflow-x-scroll">
+    <div class="one">
+        <h2>Course packages</h2>
+    </div>
+    <table class="table table-striped ">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Package Name</th>
+                <th>Package Desc</th>
+                <th>Package Price</th>
+                <th>Package Original Price</th>
+                <th>Offer Text</th>
+                <th>Package Duration</th>
+                <th>Active Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let coursePackage of packageList; let i = index">
+                <td>{{coursePackage?.coursePackageId}}</td>
+                <td class="desc">{{coursePackage?.coursePackageName}}</td>
+                <td>{{coursePackage?.coursePackageDesc}}</td>
+                <td>{{coursePackage?.coursePackagePrice}}</td>
+                <td>{{coursePackage?.coursePackageOriginalPrice}}</td>
+                <td>{{coursePackage?.coursePackageOfferText}}</td>
+                <td>{{coursePackage?.coursePackageDuration}}</td>
+                <td>
+                    <button *ngIf="!coursePackage?.isActive" class="btn btn-danger">
+                        Deactivated
+                    </button>
+                    <button *ngIf="coursePackage?.isActive" class="btn btn-success">
+                        Activated
+                    </button>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop" (click)="openModal(i)">
+                        <fa-icon [icon]="editIcon"></fa-icon>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Update Package</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form [formGroup]="packageForm">
+                <div class="modal-body">
+                    <div>
+                        <label for="coursePackageId">Id</label>
+                        <input type="text" formControlName="coursePackageId" class="form-control">
+                    </div>
+                    <div>
+                        <label for="coursePackageName">Course Package Name</label>
+                        <input type="text" formControlName="coursePackageName" class="form-control">
+                    </div>
+                    <div>
+                        <label for="coursePackageDesc">Course Package Desc</label>
+                        <textarea formControlName="coursePackageDesc" class="form-control" rows="10"></textarea>
+                    </div>
+                    <div>
+                        <label for="coursePackageDuration">Course Package Duration</label>
+                        <input type="text" formControlName="coursePackageDuration" class="form-control">
+                    </div>
+                    <div>
+                        <label for="coursePackagePrice">Course Package Price</label>
+                        <input type="text" formControlName="coursePackagePrice" class="form-control">
+                    </div>
+                    <div>
+                        <label for="coursePackageOriginalPrice">Course Package Original Price</label>
+                        <input type="number" formControlName="coursePackageOriginalPrice" class="form-control">
+                    </div>
+                    <div>
+                        <label for="coursePackageOfferText">Course Package Offer Text</label>
+                        <input type="text" formControlName="coursePackageOfferText" class="form-control">
+                    </div>
+                    <div>
+                        <label for="isActive">Active Status</label>
+                        <input type="number" formControlName="isActive" class="form-control">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" (click)="savePackage()">Save changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

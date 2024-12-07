@@ -1,0 +1,36 @@
+<div class="container" >
+
+  <div class="data-list-container">
+    <h2 style="font-weight: bold;">Class Schedule</h2>
+    <br>
+    <br>
+    <h3 style="font-weight: bold;">Date :{{fetchList[0]?.date | date : 'dd/MM/yyyy'}}</h3>
+
+    <div style="overflow-x: scroll;">
+      <table>
+        <thead>
+          <tr>
+            <th>SNo</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th>Batch Name</th>
+            <th>Class Type</th>
+            <th>Topic</th>
+            <th>Instructor</th>
+            <th>Place</th>
+          </tr>
+        </thead>
+        <tbody style="background-color: #fff;">
+          <tr *ngFor="let data of fetchList; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ data.startTime }}</td>
+            <td>{{ data.endTime }}</td>
+            <td>{{ data.batchName }}</td>
+            <td>{{ data.classType }}</td>
+            <td>{{ data.topic }}</td>
+            <td>{{ data.instructor }}</td>
+            <td>{{ data.place }}</td>
+          </tr>
+        </tbody>
+      </table></div>
+  </div>

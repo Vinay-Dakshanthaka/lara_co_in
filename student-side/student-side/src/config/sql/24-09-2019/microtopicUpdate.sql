@@ -1,0 +1,17 @@
+update lov_micro_topics set micro_topic_duration = '35 min' where micro_topic_id = '1';
+update lov_micro_topics set micro_topic_duration = '12 min' where micro_topic_id = '2';
+update lov_micro_topics set micro_topic_duration = '32 min' where micro_topic_id = '3';
+update lov_micro_topics set micro_topic_duration = '45 min' where micro_topic_id = '44';
+update lov_micro_topics set micro_topic_duration = '54 min' where micro_topic_id = '45';
+update lov_micro_topics set micro_topic_duration = '22 min' where micro_topic_id = '46';
+update lov_micro_topics set micro_topic_duration = '32 min' where micro_topic_id = '47';
+update lov_micro_topics set micro_topic_duration = '23 min' where micro_topic_id = '48';
+update lov_micro_topics set micro_topic_duration = '22 min' where micro_topic_id = '49';
+update lov_micro_topics set micro_topic_duration = '45 min' where micro_topic_id = '106';
+update lov_micro_topics set micro_topic_duration = '55 min' where micro_topic_id = '109';
+update lov_micro_topics set micro_topic_duration = '18 min' where micro_topic_id = '129';
+update lov_micro_topics set micro_topic_duration = '10 min' where micro_topic_id = '130';
+update lov_micro_topics set micro_topic_duration = '9 min' where micro_topic_id = '131';
+update lov_micro_topics set micro_topic_duration = '54 min' where micro_topic_id = '132';
+update lov_micro_topics set micro_topic_duration = '70 min' where micro_topic_id = '133';
+update lov_micro_topics set micro_topic_duration = '42 min' where micro_topic_id = '134';

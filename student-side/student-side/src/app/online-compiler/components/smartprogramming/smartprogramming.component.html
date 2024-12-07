@@ -1,0 +1,110 @@
+
+<div class="row m-0">
+  <div class="col-sm-9 pt-4">
+  <form [formGroup]="compilerForm">
+  <div class="editor-holder">
+  	 <h3 *ngIf = "programDescription  == null">
+  		Select Program from the right side drop downs
+	 </h3>
+  	 <h3 *ngIf = "programDescription  != null">
+  		Selected Program : {{programDescription}}
+	 </h3>
+	 
+    <div class="scroller">
+      <textarea [disabled]="disableexecution" formControlName="source_code" placeholder="Enter Source Code"  value='{{compilerForm.value.source_code}}' class="editor allow-tabs" onkeydown="if(event.keyCode===9){var v=this.value,s=this.selectionStart,e=this.selectionEnd;this.value=v.substring(0, s)+'\t'+v.substring(e);this.selectionStart=this.selectionEnd=s+1;return false;}"></textarea>
+      <pre><code class="syntax-highight html"></code></pre>
+    </div>
+  </div>
+  <div class="text-center">
+  <button type="button" class="btn btn-primary" [disabled]="disableexecution" (click)="compile(compilerForm.value)">Execute</button>
+  </div>
+  <input type="hidden" formControlName="questionId" value="{{compilerForm.value.questionId}}"/>
+  </form> 
+  <div class=" pt-4 pb-4">
+      
+      <div class="output-actions">
+          <h4 class="float-left">Result</h4>
+          <!-- <div *ngIf="showButton" class="float-right">
+          <button type="button" data-target="#notesWindow" data-toggle="modal"  class="btn btn-success btn-sm mr-2">Save Code</button>
+          <button type="button" (click)="reset(compilerForm.value);" class="btn btn-danger btn-sm">Discard</button>
+          </div>   -->
+      </div>
+  
+  <div class="output-holder">
+      <h5><b>Output: {{output}}</b></h5> 
+      <h5><b>Time: {{time}}</b></h5> 
+      <h5><b>Memory: {{memory}}</b></h5>
+  </div>     
+  </div>
+  </div>
+  
+  <div class="col-sm-3 pr-0 pl-0 bg-grey">
+    <div class="pl-4 pr-4  pt-4">
+        <h3 class="text-center">Selections</h3>
+        <form [formGroup]="smartForm" (ngSubmit)="submit()">
+          <div class="form-group">
+            <label for="topic">Topics</label>
+            <select (change)="ontopicChange($event.target.value)" formControlName="topics" class="form-control" id="topic">
+                <option value="" disabled selected>
+                   Select Topic
+                  </option>
+              <option [ngValue]="topic.id" *ngFor="let topic of topics">
+                {{topic.name}}
+              </option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="level">Levels</label>
+            <select (change)="onlevelChange($event.target.value)" formControlName="levels" class="form-control" id="level">
+                <option value="" disabled selected>
+                    Select level
+                   </option>
+              <option [ngValue]="level.id" *ngFor="let level of levels">
+                {{level.name}}
+              </option>
+            </select>
+          </div>
+          </form>
+    </div>
+    
+  <div class="list-group notes-container">
+      <h3 class="text-center">Questions</h3>
+      <a (click)="openPrograms(item)" *ngFor="let item of questions;"  class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">{{item.id}}. {{item.programDescription}}</h5>
+          <!-- <small>3 days ago</small> -->
+          <!-- <small>{{item.dateTime | timeAgo}}</small> -->
+        </div>
+        <!-- <p class="mb-1">{{item.note}}</p> -->
+       
+      </a>
+      
+    </div>
+  </div>
+  </div>
+  
+  <!-- <div class="modal" id="notesWindow" tabindex="-1" role="dialog">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Notes</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+              <form [formGroup]="saveForm">
+                      <div class="form-group">
+                              <label for="exampleInputEmail1">Title</label>
+                              <input formControlName="title" type="input" value='{{saveForm.value.title}' class="form-control">
+                      </div>
+                <textarea formControlName="notes" placeholder="Enter Source Code"  value='{{saveForm.value.notes}' class="notes-textarea"></textarea>
+              </form>  
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" (click)='saveFormValues(saveForm.value)' class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div> -->

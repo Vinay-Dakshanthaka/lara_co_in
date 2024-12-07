@@ -1,0 +1,66 @@
+<section
+  class="discover-section bg-light py-5"
+  id="discover"
+  [@fadeIn]="'in'"
+>
+  <div class="container py-lg-4">
+    <div class="row">
+      <!-- First column -->
+      <div class="col-md-4">
+        <div
+          class="card text-center mb-4"
+          (mouseenter)="onMouseEnter($event)"
+          (mouseleave)="onMouseLeave($event)"
+        >
+          <div class="card-body">
+            <h2 class="card-title display-4">{{ counter2005 }}</h2>
+            <p class="card-text">
+              Lara Technologies has been a pioneer in Java Full Stack training
+              <span class="highlight-text">since 2005</span>, committed to
+              providing top-quality education.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Second column -->
+      <div class="col-md-4">
+        <div
+          class="card text-center mb-4"
+          (mouseenter)="onMouseEnter($event)"
+          (mouseleave)="onMouseLeave($event)"
+        >
+          <div class="card-body">
+            <h2 class="card-title display-4">
+              {{ counter100k | number: '1.0-0' }}+
+            </h2>
+            <p class="card-text">
+              Our institute has successfully trained
+              <span class="highlight-text">over 1,00,000</span> students,
+              empowering them with the skills needed to excel in the tech
+              industry.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Third column -->
+      <div class="col-md-4">
+        <div
+          class="card text-center mb-4"
+          (mouseenter)="onMouseEnter($event)"
+          (mouseleave)="onMouseLeave($event)"
+        >
+          <div class="card-body">
+            <h2 class="card-title display-4">{{ counter250 }}+</h2>
+            <p class="card-text">
+              With more than <span class="highlight-text">250 batches</span>
+              completed, our structured training programs ensure comprehensive
+              learning and practical experience.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,6 @@
+.accordion>.card:first-of-type {border-bottom: 1px;}
+.accordion>.card .card-header {
+    margin-bottom: 1px;
+}
+.card-body {
+    border-bottom: 1px solid rgba(0,0,0,.125);}

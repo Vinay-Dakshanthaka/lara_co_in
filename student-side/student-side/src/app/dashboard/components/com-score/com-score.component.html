@@ -1,0 +1,85 @@
+<div *ngIf="noRecords">
+    <h2>No cumulative exams available for you.</h2>
+    <hr>
+    <div class="row noAttemptDiv">
+      <div class="col-sm-12">
+        <!-- <h6>You can play the videos  and start writing the exams.</h6> -->
+      </div>
+    </div>  
+  </div>
+<div class="row" *ngFor="let cumExamRecord of cumExamRecords">
+  <div class="col-sm-12" style="padding-left:20px;">
+    
+    <div class="row">
+      <div class="col-sm-12 cpg-det">
+        <h5>Course Package: {{cumExamRecord.coursePackageName}} &nbsp;&nbsp;&nbsp;&nbsp;</h5>
+      </div>
+    </div> 
+    
+    <div class="row" *ngFor="let course of cumExamRecord.courses" style="margin-top:20px;">
+      <p>Course Name: {{course.courseName}}</p>
+      
+          <div class="col-sm-12 bx-shd pd-l0 pd-r0">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr>
+                  <th style="padding:10px;background-color: #8e24aa;color:#fff;">Completion Date</th>         
+                  <th style="padding:10px;background-color: #8e24aa;color:#fff;">Marks</th>
+                  <th style="padding:10px;background-color: #8e24aa;color:#fff;">Total Marks</th>
+                  <th colspan="2" style="padding:10px;background-color: #8e24aa;color:#fff;">Actions</th>
+                </tr>
+                 <tr class="td-bg" [className]="i % 2==0 ? 'td-bg' : 'td-bg-none'" *ngFor="let cumEx of course.compExams; let i = index;">
+                  <td style="padding:8px;color:#666666">{{cumEx.completedDate}}</td>
+                  <td style="padding:8px;color:#666666">{{cumEx.marksObtained}}</td>
+                  <td style="padding:8px;color:#666666">{{cumEx.totalMarks}}</td>
+                  <td colspan="2" style="padding:8px;">
+                    <div>
+                      <a href="javascript:void(0)" (click)="getMiTListByCumExRecId(cumEx.cumExamRecordId)" >View Details</a>&nbsp;&nbsp; 
+                      <a [routerLink]="['/cumqdetails',cumEx.cumExamRecordId]">Questionnaire</a>                   
+                    </div>
+                  </td>
+                </tr>                                              
+              </tbody>
+            </table>
+          </div>
+          
+       
+
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- Button to Open the Modal -->
+<button id="mctDetailBtn"  style="display:none;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#microTopicDetail">
+    Open modal
+  </button>
+  
+  <!-- The Modal -->
+  <div class="modal" id="microTopicDetail">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h6 class="modal-title">This exam includes following micro topics</h6>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body">
+          <div *ngFor="let microTopic of microTopics">
+            <p>{{microTopic.microTopicName}}</p>
+          </div>
+        </div>
+  
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+  
+      </div>
+    </div>
+  </div>

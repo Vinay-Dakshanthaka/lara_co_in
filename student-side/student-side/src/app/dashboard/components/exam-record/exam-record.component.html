@@ -1,0 +1,62 @@
+<div *ngIf="noDueExam">
+  <h2>No exams attempted.</h2>
+  <hr>
+  <div class="row noAttemptDiv">
+    <div class="col-sm-12">
+        <h6>You can play the videos  and start writing the exams.</h6>
+    </div>
+  </div>
+  
+</div>
+<div *ngFor="let cpgDetail of dueExRecordsList">
+  <div class="cpg-det">
+    <h5>Course Package: {{cpgDetail.coursePackageName}}</h5>
+  </div>
+
+  <div *ngFor="let cxDetail of cpgDetail.courses">
+    <p class="avl-course-p">Topic Name: {{cxDetail.courseName}}</p>
+
+    <div class="course-table bx-shd" *ngFor="let topicDetails of cxDetail.topics">
+      <div id="accordion" class="accordion">
+        <div class="card mb-0" *ngFor="let subTopic of topicDetails.subTopics">
+          <div class="card-header collapsed" data-toggle="collapse" [attr.href]="'#sbt'+subTopic.subTopicId"> <a
+              class="card-title">{{subTopic.subTopicName}}</a><span class="pull-right txt-red">
+                  Total Due Exams: <b>{{subTopic.microTopics.length}}</b></span> </div>
+          <div [attr.id]="'sbt'+subTopic.subTopicId" class="card-body collapse" data-parent="#accordion">
+            <div class="acco-inner-sec">
+              <div class="tbl-sec">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tbody>
+                    <tr>
+                      <th>Exam Id</th>
+                      <th>Micro Topic</th>
+                      <th>Due Date</th>
+                      <th>Actions</th>
+                    </tr>
+                    <tr class="td-bg " [className]="$index % 2==0 ? 'td-bg' : ''" *ngFor="let microTopic of subTopic.microTopics; let $index = index">
+                      <td class="w125">{{microTopic.examRecordId}}</td>
+                      <td class="w200">{{microTopic.microTopicName}}</td>
+                      <td>{{microTopic.dueDate}}</td>
+                      <td >
+                        <a href="javascript:void(0)" [routerLink]="['/questions']" [queryParams]="{videoId:microTopic.microTopicId, microTopicId:microTopic.microTopicId, examRecordId:microTopic.examRecordId}">Start Test</a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+

@@ -1,0 +1,341 @@
+<!-- <div class="container-fluid">
+  <div class="container">
+    <div class="row" style="margin-left:150px;">
+      <div class="col-lg-12">
+          <form [formGroup]="videoSearchForm" (ngSubmit)="submitVideoSearch()">
+            <div class="row">
+              <div class="col-sm-6">
+                  <div class="form-group">                
+                      <input type="text" class="form-control" placeholder=""
+                        formControlName="microTopicName" />               
+                    </div>                   
+              </div>
+              <div class="col-sm-2">
+                  <input type="submit" class="btn btn-secondary btn-block" value="Submit">
+              </div>
+            </div>
+                      
+          </form>
+      </div>
+    </div>
+  </div>
+</div>  -->
+
+<button style="display:none;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#courseContentModel"
+  id="courseContentButton">
+  Launch demo modal
+</button>
+<!-- Modal -->
+<div class="modal fade" id="courseContentModel" tabindex="-1" role="dialog" aria-labelledby="courseContentLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-ff3547">
+        <h5 class="modal-title" id="no">Course Content</h5>
+        <button style="color:#FFFFFF" type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+           <div class="row">
+              <div class="col-lg-12">
+                <iframe [attr.src]="pdfUrl" width="100%" height="500px" background-color="0xFF525659"
+                  top-toolbar-height="56" javascript="allow">
+                </iframe>
+              </div>
+            </div>             
+      </div>
+      <!-- <div class="modal-footer">
+        <a [routerLink]="['/coursedetails', coursePackageId]">
+          <button type="button" data-dismiss="modal" class="btn btn-primary bg-ff3547">Subscribe Now</button></a>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+
+<div class="container-fluid cntfld-fw" (contextmenu)="onRightClick()">
+  <div class="container bgc-black">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 div-center">
+        <div class="row">
+          <div class="col-lg-8 col-md-8 col-sm-8 pd-r0">
+            <vg-player (onPlayerReady)="onPlayerReady($event)">
+              <vg-buffering></vg-buffering>
+
+              <vg-controls>
+                <vg-play-pause></vg-play-pause>
+                <vg-playback-button></vg-playback-button>
+
+                <vg-time-display vgProperty="current" vgFormat="hh:mm:ss"></vg-time-display>
+                <vg-scrub-bar>
+                  <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                  <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
+                </vg-scrub-bar>
+
+                <vg-time-display vgProperty="total" vgFormat="hh:mm:ss"></vg-time-display>
+
+                <vg-mute></vg-mute>
+                <vg-volume></vg-volume>
+
+                <vg-fullscreen></vg-fullscreen>
+              </vg-controls>
+               <!-- <vg-overlay-play></vg-overlay-play>
+              <vg-poster vg-url=""></vg-poster>  -->
+              <video #media [vgMedia]="media" [src]="currentItem.src" id="singleVideo" [poster]="'./assets/images/corporate.jpg'" 
+                [attr.microTopicId]="currentItem.microTopicId" [attr.microTopicName]="currentItem.microTopicName"
+                [attr.videoId]="currentItem.videoId" crossorigin controls>
+              </video>
+            </vg-player>
+          </div>
+
+          <div class="col-lg-4 col-md-4 col-sm-4 pd-r0">
+            <div class="vd-right-panel mCustomScrollbar">
+              <h4>{{courseDetails.courseName}}</h4>
+
+
+              <div id="accordion" class="accordion">
+                <div class="card mb-0" *ngFor="let subTopic of subTopicDetails">
+                  <div class="card-header collapsed" data-toggle="collapse" [attr.href]="'#sbt'+subTopic.subTopicId">
+                    <span class="sp1">
+                      <a class="card-title"><span [ngClass]="subTopic.className">{{subTopic.subTopicName}}</span>&nbsp;<i *ngIf="subTopic.className == 'watchedSbt'" style="color:green;" class="fa fa-check-circle" aria-hidden="true"></i></a>
+                    </span>
+                    <span class="sp2">{{subTopic.subTopicDuration}}</span>
+                  </div>
+                  <div [attr.id]="'sbt'+subTopic.subTopicId" class="card-body collapse" data-parent="#accordion">
+                    <div class="acco-inner-sec">
+                      <div class="ac-wrapper" *ngFor="let microTopic of subTopic.microTopic; let $index = index">
+                        <div class="v-cnt-left"><span><i [attr.id]="'mctIcon'+microTopic.microTopicId" [ngClass]="'material-icons mcts '+microTopic.className">play_circle_outline</i></span><span
+                            class="span2"><a href="javascript:void(0)"
+                              (click)="onClickPlaylistItem(microTopic.videoDetail, $index)"><span [attr.id]="'mct'+microTopic.microTopicId" [ngClass]="'mcts '+ microTopic.className">{{microTopic.microTopicName}}</span></a></span><br />
+                          <span class="span3">{{microTopic.microTopicDuration}}</span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <ul>
+  <li *ngFor="let item of playlist; let $index = index"
+      (click)="onClickPlaylistItem(item, $index)"
+      [class.selected]="item === currentItem">
+      {{ item.title }}
+  </li>
+</ul> -->
+
+<!-- Button trigger modal -->
+<!-- <button style="display:none;" type="button" class="btn btn-primary" data-toggle="modal"
+  data-target="#videoEndAlertModal" id="videoEndAlert">
+  Launch demo modal
+</button> -->
+
+<!-- Modal -->
+<div class="modal fade" id="videoEndAlertModal" tabindex="-1" role="dialog" aria-labelledby="videoEndAlertLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-ff3547">
+        <h5 class="modal-title" id="videoEndAlertLabel">Exam Reminder</h5>
+        <button style="color:#FFFFFF" type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        You have completed a video on <span class="mct">{{mctName}}</span>. Please complete the test. It will be very
+        helpful in your score calculation.Your total score will be visible to employers.
+
+        <div style="margin-top:10px;">You can see your pending exam details by navigating to My Exams section on your
+          dashboard.</div>
+      </div>
+      <div class="modal-footer">
+        <a [routerLink]="['/questions']"
+          [queryParams]="{videoId:currentVideoId, microTopicId:currentMicroTopicId, examRecordId:examRecordId}"><button
+            type="button" data-dismiss="modal" class="btn btn-primary bg-ff3547">Attend Exam</button></a>
+        <button (click)="continue()" type="button" class="btn btn-primary bg-ff3547" data-dismiss="modal">Continue
+          Watching Videos</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<button style="display:none;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#noVideoAvlModal"
+  id="noVideoAvl">
+  Launch demo modal
+</button>
+<!-- Modal -->
+<div class="modal fade" id="noVideoAvlModal" tabindex="-1" role="dialog" aria-labelledby="noVideoAvlLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-ff3547">
+        <h5 class="modal-title" id="no">{{noVideoTitle}}</h5>
+        <button style="color:#FFFFFF" type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        {{noVideoMsg}}
+      </div>
+	
+	<!--
+	  commenting this portion by Ramesh on Dec 6th 2019.
+	  <div *ngIf="noVideoFlag" class="modal-footer">
+        <a [routerLink]="['/coursedetails', coursePackageId]">
+          <button type="button" data-dismiss="modal" class="btn btn-primary bg-ff3547">Subscribe Now</button></a>
+      </div>
+	-->
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid cntfld-fw" *ngIf="courseId != 24">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 pd-t30 pd-b30">
+        <div class="row">
+          <div class="col-lg-11 col-md-11 col-sm-11 div-center">
+            <a [attr.href]="pdfUrl" target="_blank">
+              <button class="btn btn-primary bg-ff3547">View Course Content</button></a>&nbsp;&nbsp;
+            <a [routerLink] = "['/dashboard']" *ngIf="isSubscribed"><button class="btn btn-primary bg-ff3547">My Courses</button></a>
+            
+            <a [routerLink] = "['/coursedetails', coursePackageId]" *ngIf="!isSubscribed">
+              <button class="btn btn-primary bg-ff3547" >Go Back To Package</button></a> &nbsp;&nbsp;
+              <a [routerLink] = "['/coursedetails', coursePackageId]" *ngIf="!isSubscribed">
+                <button class="btn btn-primary bg-ff3547" >
+                  You can play all the videos after subscribing to this package. Go to Buy
+                </button></a>   
+              
+
+
+			<!-- <button class="btn btn-primary bg-ff3547" (click)="showCourseContent()">View Course Content</button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container-fluid cntfld-fw">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 pd-t30 pd-b30">
+        <div class="row">
+          <div class="col-lg-11 col-md-11 col-sm-11 div-center">
+
+
+            <div class="vd-cnt-div">
+              <div class="pd-t10">
+                <h3><u>Course Title:</u></h3>
+                
+                <p>{{courseDetails.courseDesc1}}</p>
+              </div>
+              
+              <div class="pd-t10">
+                <h3><u>Description:</u></h3>
+                <p>{{courseDetails.courseDesc2}}</p>
+              </div>
+              <div class="pd-t10 req">
+                <h3><u>Pre Requirements:</u></h3>
+                <ul>
+                  <div *ngFor="let courseReq of courseDetails.courseRequirements">
+                    <li>{{courseReq.courseRequirementDesc}}</li>
+                  </div>
+                </ul>
+                <p></p>
+              </div>
+              <div class="pd-t10 req" *ngIf="courseId != 24">
+                <h3><u> Programmatic Materials</u></h3>
+                <h3>Whatever programs developed while explaining the topics are available for download. You can download and play around all the programs. </h3>
+                <h3>
+                      <button class="btn btn-primary bg-ff3547" (click)="downloadMaterial()">
+                        Download All the Source Progarms in the form of a ZIP file
+                      </button>
+                  </h3>
+                <p></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid cntfld-fw">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 pd-t30 pd-b30">
+        <div class="row">
+          <div class="col-lg-11 col-md-12 col-sm-12 div-center">
+            <div class="course-left-col">
+              <!-- <div class="pd-t30">
+                <h4>Review</h4>
+                <div class="container pd-l0 mr-t20 vd-review-sec">
+                  <div class="row">
+                    <div class="col-lg-1">
+                      <div class="r-avatar"><span style="">SS</span></div>
+                    </div>
+                    <div class="col-lg-4 star"><span class="fa fa-star checked"></span> <span
+                        class="fa fa-star checked"></span> <span class="fa fa-star checked"></span> <span
+                        class="fa fa-star"></span> <span class="fa fa-star"></span><span class="block pd-l20"> 3 out of
+                        5 star</span> <span><strong>Syam Sundar</strong></span> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-11 re-cnt-sp">
+                      <p> Lorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in
+                        place of English to emphasise design elements over content. It's also called placeholder</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="container pd-l0 mr-t20 vd-review-sec">
+                  <div class="row">
+                    <div class="col-lg-1">
+                      <div class="r-avatar"><span style="">DS</span></div>
+                    </div>
+                    <div class="col-lg-4 star"><span class="fa fa-star checked"></span> <span
+                        class="fa fa-star checked"></span> <span class="fa fa-star checked"></span> <span
+                        class="fa fa-star"></span> <span class="fa fa-star"></span><span class="block pd-l20"> 3 out of
+                        5 star</span> <span><strong>Darshan Shah</strong></span> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-11 re-cnt-sp">
+                      <p> Lorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in
+                        place of English to emphasise design elements over content. It's also called placeholder</p>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--back to top-->
+<div class="container-fluid">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12"> <a id="back-to-top" href="#" class="btn btn-info back-to-top"
+          role="button" title="Click to return on the top page" data-toggle="tooltip" data-placement="left"><i
+            class="material-icons">expand_less</i></a> </div>
+    </div>
+  </div>
+</div>
+<!--back to top end-->
+
+<!-- javascript -->
+
+
+<!-- end of js -->

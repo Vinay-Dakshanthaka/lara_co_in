@@ -1,0 +1,151 @@
+/* 
+.loader-gif { margin-top:10%; margin-left:50%; position: relative;} */
+
+
+
+/* .header {
+    top: 0;
+    left: 0;
+    width: 100%;
+  } */
+
+.nav-item {
+  font-size: medium;
+  color: black;
+}
+
+/* Define the blinking animation */
+/* @keyframes blinking {
+
+  0%,
+  100% {
+    color: darkcyan;
+  }
+
+  25% {
+    color: red;
+  }
+
+  50% {
+    color: green;
+  }
+
+  75% {
+    color: lawngreen;
+  }
+} */
+
+/* Apply the animation to the element */
+/* .blink {
+  animation: blinking 0.5s infinite;
+} */
+
+.bg-orange{
+  background-color: #004AAD !important;
+}
+ 
+#navbarsExample09 {
+  justify-content: start;
+}
+
+#list {
+  display: contents;
+}
+
+#submit {
+  background-color: #004AAD;
+}
+
+#signUpDiv {
+  box-shadow: 0px 8px 16px 0px black;
+}
+
+#log {
+  background-color: #004AAD;
+}
+
+#login {
+  box-shadow: 0px 8px 16px 0px black;
+}
+
+.dropdown-item {
+  font-size: 14px;
+}
+
+#home {
+  font-size: medium;
+}
+
+
+#placement,
+#batch,
+#navbarDropdown,
+#home,
+#Schedule,
+#assessment,
+#signup,
+#user {
+  color: #fff;
+}
+
+#home #home:active,
+.nav-item #home:focus {
+  color: #fff;
+}
+
+#placement #placement:active,
+.nav-item #placement:focus {
+  color: #fff;
+}
+
+#batch #batch:active,
+.nav-item #batch:focus {
+  color: #fff;
+}
+
+#course #course:active,
+.nav-item #navbarDropdown:focus {
+  color: #fff;
+}
+
+#Schedule #Schedule:active,
+.nav-item #Schedule:focus {
+  color: #fff;
+}
+
+#assessment #assessment:active,
+.nav-item #assessment:focus {
+  color: #fff;
+}
+
+#signup #signup:active,
+.nav-item #signup:focus {
+  color: #fff;
+}
+
+#user #user:active,
+.nav-item #user:focus {
+  color: #fff;
+}
+
+li,
+a {
+  margin: 0 !important;
+  margin-right: 10px !important;
+  /* padding: 0 !important; */
+  color: #fff !important;
+}
+
+.form-footer{
+  color: black !important;
+}
+
+@media (max-width: 768px) {
+  .spacer {
+    flex: 1;
+  }
+
+  .nav-item {
+    margin-bottom: 30px !important;
+  }
+}

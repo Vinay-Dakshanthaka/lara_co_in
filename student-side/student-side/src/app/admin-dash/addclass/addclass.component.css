@@ -1,0 +1,137 @@
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 4px 3px 15px #362a4f;
+}
+
+.table th {
+  border: 1px solid #ccc;
+  padding: 8px;
+  background-color: #8e24aa;
+  text-align: center;
+  align-items: center;
+  color: whitesmoke;
+}
+
+.table td {
+  border: 1px solid #ccc;
+  padding: 5px;
+  align-items: center;
+  text-align: center;
+}
+
+.table td:hover {
+  box-shadow: 1px 1px 5px rgb(22, 1, 1, 0.5);
+}
+
+.table input {
+  width: 80%;
+  border: none;
+  box-sizing: border-box;
+  outline: none;
+  text-align: right;
+  align-items: baseline;
+
+}
+
+.table select {
+  width: 80px;
+}
+
+.submit-container {
+  width: 80%;
+  padding: 20%;
+  align-items: center;
+  margin-left: 40%;
+}
+
+.container table {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 4px 3px 15px #362a4f;
+}
+
+.container table th {
+  border: 1px solid #ccc;
+  padding: 8px;
+  background-color: #8e24aa;
+  text-align: center;
+  align-items: center;
+  color: whitesmoke;
+
+}
+
+
+.container table td {
+  border: 1px solid #ccc;
+  padding: 5px;
+  align-items: center;
+  text-align: center;
+}
+
+.container table td:hover {
+  box-shadow: 1px 1px 5px rgb(22, 1, 1, 0.5);
+}
+
+.container submit-container {
+  width: 80%;
+  padding: 20%;
+  align-items: center;
+  margin-left: 40%;
+}
+
+h2 {
+  padding: 10px;
+  background: #2184be;
+  color: white;
+  border-radius: 5px;
+  height: 60px;
+  font-size: 20px;
+  box-shadow: 3px 4px 9px #151f51;
+}
+
+.input-bg {
+  background-color: rgb(188, 183, 183, 0.5);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  min-height: max-content;
+  background: rgb(15, 15, 15, 0.4);
+  z-index: 20;
+  backdrop-filter: blur(3px);
+  overflow-y: scroll;
+}
+
+@media (max-width: 768px) {
+  .data-list-container {
+    overflow-x: scroll;
+  }
+}
+
+@media (max-width: 576px) {
+  .upload-container {
+    width: 100%;
+  }
+
+  #date {
+    height: 30px;
+  }
+
+}
+
+@media (min-width: 576px) and (max-width: 992px) {
+  .upload-container {
+    width: 70%;
+  }
+}
+
+@media (min-width: 992px) {
+  .upload-container {
+    width: 60%;
+  }
+}

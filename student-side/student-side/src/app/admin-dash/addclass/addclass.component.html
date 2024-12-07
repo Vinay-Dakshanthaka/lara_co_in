@@ -1,0 +1,285 @@
+<div class="position-relative">
+    <div class="overlay d-none" id="overlay">
+        <div>
+            <div class="updateModal" tabindex="-1" role="dialog" style="z-index: 20 !important;">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Update Schedule</h5>
+                            <button type="button" class="close" data-dismiss="modal" (click)="hideUpdateModal($event)"
+                                aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form [formGroup]="updateForm" (ngSubmit)="submit()">
+                                <label for="id">Id:</label>
+                                <input type="text" formControlName="id" id="id" placeholder="id" class="form-control">
+
+                                <label for="date">Date:</label>
+                                <input type="date" formControlName="date" id="date" placeholder="Date"
+                                    class="form-control  p-0">
+
+                                <label for="time">Start Time:</label><br>
+                                <input type="text" id="time" name="time" required formControlName="startTime"
+                                    class="form-control" style="width: 130px;" />
+
+                                <label for="time">End Time:</label><br>
+                                <input type="text" id="time" name="time" min="00:00" max="12:00" required
+                                    formControlName="endTime" class="form-control" style="width: 130px;" />
+
+                                <label for="batchName">Batch Name:</label>
+                                <input type="text" formControlName="batchName" id="batchName" placeholder="Batch Name"
+                                    class="form-control">
+
+                                <label for="instructor">Instructor:</label>
+                                <input type="text" formControlName="instructor" id="instructor" placeholder="Instructor"
+                                    class="form-control">
+
+                                <label for="classType">ClassType:</label><br>
+                                <input type="text" formControlName="classType" class="form-control"
+                                    style="width: 130px;">
+
+                                <label for="topic">Topic:</label>
+                                <input type="text" formControlName="topic" id="topic" placeholder="Topic"
+                                    class="form-control">
+
+                                <label for="place">Place :</label>
+                                <input type="text" formControlName="place" id="place" placeholder="Place"
+                                    class="form-control">
+
+                                <div class="msgBox" *ngIf="msgBox">
+                                    <div *ngIf="msgOkOne" style="color: green; text-align: center;">
+                                        <span *ngIf="msgOkOne">{{msgOne}}</span>
+                                    </div><br>
+                                    <div *ngIf="msgDangerOne" style="color:red; text-align: center;">
+                                        <span *ngIf="msgDangerOne">{{msgOne}}</span>
+                                    </div><br>
+
+                                    <div *ngIf="msgOkTwo" style="color: green; text-align: center;">
+                                        <span *ngIf="msgOkTwo">{{msgTwo}}</span>
+                                    </div><br>
+                                    <div *ngIf="msgDangerTwo" style="color:red; text-align: center;">
+                                        <span *ngIf="msgDangerTwo">{{msgTwo}}</span>
+                                    </div><br>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" (click)="deleteRecord($event)"
+                                        class="btn btn-danger">Remove</button>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button class="btn btn-dark" (click)="hideUpdateModal($event)">Close</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div>
+            <div class="container upload-container py-3 pt-4 mx-auto mb-5 rounded-5 shadow bg-primary-subtle">
+                <div class="pt-2 py-3 text-center">
+                    <h3>Please upload the Excel sheet here !</h3>
+                </div>
+                <form [formGroup]="scheduleForm" (ngSubmit)="scheduleFormUpload()">
+                    <div class="row gx-0">
+                        <div class="col col-md-6 mb-2 mb-md-0 d-flex justify-content-center">
+                            <div>
+                                <label for="Date">Date : &nbsp;</label>
+                                <input type="date" formControlName="date" class="form-control d-inline-block"
+                                    style="inline-size: 200px;" required>
+                            </div>
+                        </div>
+                        <div class="col col-md-6 mb-2 mb-md-0 d-flex justify-content-center">
+                            <div>
+                                <input type="file" class="form-control" (change)="upload($event)" style="width: 200px;"
+                                    accept=".xlsx">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center mt-2 pt-3">
+                        <button type="submit" class="btn btn-primary rounded-4 btn-lg"
+                            [disabled]="!scheduleForm.valid">Upload</button>
+                    </div>
+                    <div class="mt-3 p-1" *ngIf="showUploadStatus">
+                        <h4 class="text-center">{{msgContent}}</h4>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- <h2>Add Schedule</h2><br> -->
+        <!-- <form [formGroup]="websiteContent" style="width: 85%;" class="mb-3">
+            <label for="Date">Date : &nbsp;</label>
+            <input type="date" formControlName="currentDate" style="inline-size: 200px;" required>
+            <br>
+            <br>
+            <table class="table" id="table">
+                <thead>
+                    <tr>
+                        <th>S.No</th>
+                        <th>Start Time</th>
+                        <th>End Time</th>
+                        <th>Batch Name</th>
+                        <th>Instructor</th>
+                        <th>Class Type</th>
+                        <th>Topic</th>
+                        <th>Action</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody formArrayName="classList" class="submit-container">
+                    <tr *ngFor="let record of allrecords.controls; let i = index" [formGroupName]="i">
+                        <td>{{i+1}}</td>
+                        <td><input type="time" id="time" name="time" min="00:00" max="12:00" required
+                                formControlName="startTime" style="width: 130px;" />
+                        </td>
+                        <td><input type="time" id="time" name="time" min="00:00" max="12:00" required
+                                formControlName="endTime" style="width: 130px;" />
+                        </td>
+    
+                        <td><input type="text" formControlName="batchName" class="input-bg" required /></td>
+                        <td><input type="text" formControlName="instructor" class="input-bg" required /></td>
+                        <td>
+                            <select id="classType" class="form-control" formControlName="classType" required>
+                                <option value="aptitude">Aptitude</option>
+                                <option value="technical">Technical</option>
+                                <option value="softSkill">SoftSkill</option>
+                            </select>
+                        </td>
+                        <td><input type="text" formControlName="topic" class="input-bg" /></td>
+    
+                        <td>
+                            <button type="button" style="height: 30px;
+                            width: 50px;
+                            border-radius: 6px;" (click)="addRecord()" class="btn btn-success">Add</button>
+    
+                        </td>
+                        <td>
+                            <button type="button" style="height: 30px;
+                            width: 50px;
+                            border-radius: 6px;" (click)="removeRecord($event,i)" class="btn btn-danger">remove</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div *ngIf="msgOk" style="color: green; text-align: center;"><span>{{content}}</span></div><br>
+            <button type="button" (click)="submitAllRecords()" style="align-items: center; margin-left: 47%;
+            height: 35px;
+            width: 80px;
+            border-radius: 8px;" class="submit" class="btn btn-primary" [disabled]="!websiteContent.valid">Submit</button>
+        </form> -->
+        <div class="">
+            <div class="container px-0 mx-0 mx-lg-auto d-flex flex-column justify-content-center"
+                style="padding-bottom: 10%;">
+                <h2 class="text-center">Class Schedule Manage</h2><br>
+                <div class="data-list-container" style="width: 100%;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>S.No</th>
+                                <th>Start Time</th>
+                                <th>End Time</th>
+                                <th>Date</th>
+                                <th>Batch Name</th>
+                                <th>Instructor</th>
+                                <th>Class Type</th>
+                                <th>Topic</th>
+                                <th>place</th>
+                                <th>Action</th>
+                                <!-- <th>Action</th> -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let data of fetchList; let i = index">
+                                <td>{{ i + 1 }}</td>
+                                <td>{{ data.startTime }}</td>
+                                <td>{{ data.endTime }}</td>
+                                <td>{{ data.date}}</td>
+                                <td>{{ data.batchName }}</td>
+                                <td>{{ data.instructor }}</td>
+                                <td>{{ data.classType }}</td>
+                                <td>{{ data.topic }}</td>
+                                <td>{{ data.place }}</td>
+                                <td (click)="showUpdateModal($event, i)"><button class="btn btn-dark">Manage</button>
+                                </td>
+                                <!-- <td id="edit">
+                                    <div class="btn-group">
+                                        <a type="button" class="btn btn-dark" data-bs-toggle="dropdown"
+                                            aria-expanded="false" style="border-radius: 3px;"
+                                            (click)="showUpdateModal($event, i)">Manage</a>
+
+                                        <div class="dropdown-menu dropdown-menu-left" style="left: -100% !important;">
+                                            <div>
+                                                <h2>Update</h2>
+                                            </div>
+                                            <form [formGroup]="updateForm" (ngSubmit)="submit()"
+                                                style="width: 80%; margin-left: 10%;">
+                                                <label for="id">Id:</label>
+                                                <input type="text" formControlName="id" id="id" placeholder="id"
+                                                    class="form-control">
+
+                                                <label for="date">Date:</label>
+                                                <input type="date" formControlName="date" id="date" placeholder="Date"
+                                                    class="form-control">
+
+                                                <label for="time">Start Time:</label><br>
+                                                <input type="text" id="time" name="time" required
+                                                    formControlName="startTime" class="form-control"
+                                                    style="width: 130px;" />
+
+                                                <label for="time">End Time:</label><br>
+                                                <input type="text" id="time" name="time" min="00:00" max="12:00"
+                                                    required formControlName="endTime" class="form-control"
+                                                    style="width: 130px;" />
+
+                                                <label for="batchName">Batch Name:</label>
+                                                <input type="text" formControlName="batchName" id="batchName"
+                                                    placeholder="Batch Name" class="form-control">
+
+                                                <label for="instructor">Instructor:</label>
+                                                <input type="text" formControlName="instructor" id="instructor"
+                                                    placeholder="Instructor" class="form-control">
+
+                                                <label for="classType">ClassType:</label><br>
+                                                <input type="text" formControlName="classType" class="form-control"
+                                                    style="width: 130px;">
+
+                                                <label for="topic">Topic:</label>
+                                                <input type="text" formControlName="topic" id="topic"
+                                                    placeholder="Topic" class="form-control">
+
+                                                <label for="place">Place :</label>
+                                                <input type="text" formControlName="place" id="place"
+                                                    placeholder="Place" class="form-control">
+
+                                                <button type="button" (click)="deleteRecord($event)"
+                                                    class="btn btn-danger">Remove</button>
+                                                <div *ngIf="msgOkOne" style="color: green; text-align: center;">
+                                                    <span>{{msgOne}}</span>
+                                                </div><br>
+                                                <div *ngIf="msgDangerOne" style="color:red; text-align: center;">
+                                                    <span>{{msgOne}}</span>
+                                                </div><br>
+
+                                                <button type="submit"
+                                                    class="btn btn-primary d-grid gap-2 col-6 mx-auto mt-4">Submit</button>
+                                                <div *ngIf="msgOkTwo" style="color: green; text-align: center;">
+                                                    <span>{{msgTwo}}</span>
+                                                </div><br>
+                                                <div *ngIf="msgDangerTwo" style="color:red; text-align: center;">
+                                                    <span>{{msgTwo}}</span>
+                                                </div><br>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </td> -->
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

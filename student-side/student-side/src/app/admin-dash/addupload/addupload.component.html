@@ -1,0 +1,13 @@
+<div class="file-upload-container">
+    <h2>Upload Questions File</h2>
+    <input type="file" (change)="onFileSelected($event)" class="file-upload-button"><br><br>
+    <button (click)="onUpload()" style="height: 35px; width: 60px;border-radius: 6px;" class="btn btn-primary">Upload</button><br><br>
+
+
+    <div class="file-upload-content">
+        <p><span *ngIf="msgOk" style="color: green;">{{ content }}</span></p>
+        <p><span *ngIf="msgDanger" style="color: red;">{{ content }}</span></p>
+    </div>
+  </div>
+
+

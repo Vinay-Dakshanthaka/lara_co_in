@@ -1,0 +1,485 @@
+<!-- Navigation-->
+<div class="header">
+  <div class="loader-bg" *ngIf="loaderService.showLoader">
+    <div class="ploader-container"><span class="ploader"></span></div>
+  </div>
+
+  <div class="container fluid cntfld-fw bg-orange">
+    <div class="container bg-orange">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 div-center nav-div sticky">
+          <nav class="navbar navbar-expand-lg navbar-light bg-orange">
+            <a class="navbar- mr-0 mb-0 pb-0" href="#" style="background-color: white; border-radius: 100px;"><img src="./assets/images/laralogo.png"
+                class="logo-img mt-2 mb-0 pb-0" alt="Logo"></a>
+            <div class="spacer"></div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09"
+              aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation" id="navbutton">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarsExample09">
+              <ul class="navbar-nav ml-auto" id="list">
+                <li class="nav-item">
+                  <a class="nav-link" href="#" id="home">Home</a>
+                </li>
+                <!-- <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Our Courses
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" routerLink="java">JAVA FULL STACK MODULE</a>
+                  </div>
+                </li> -->
+                <!-- <li class="nav-item">
+                  <a class="nav-link" routerLink="placementDataShow" id="placement">Placements</a>
+                </li> -->
+                <!-- <li class="nav-item">
+                  <a class="nav-link blink" routerLink="batchDataShow" id="batch">Upcoming Batches</a>
+                </li> -->
+                <!-- <li class="nav-item">
+                  <a class="nav-link" routerLink="scheduleShow" id="Schedule">Today's Schedule</a>
+                </li> -->
+                <li class="nav-item">
+                  <!-- <a class="nav-link blink" routerLink="buyCourses">Buy Self Paced Online Packages</a> -->
+                  <a class="nav-link blink" routerLink="buyCourses">E-Learning Packages</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link blink" href="https://www.youtube.com/@Faang-academy" target="_blank">
+                    <i class="fab fa-youtube fa-lg" style="color: red; font-size: 1.4rem;"></i>
+                    Faang Academy</a>
+                </li>
+                
+                <!-- <li class="nav-item">
+                  <a class="nav-link" routerLink="testinfo" id="assessment">Take Assessment</a>
+                </li> -->
+                <li style="flex: 1"></li>
+                <li class="nav-item me-4">
+                  
+                  <a class="nav-link d-inline-block" routerLink="cartDetails">
+                    <div class="d-flex">
+                      <span class="mx-2 fw-bold">Cart</span><app-cart></app-cart>
+                    </div>
+                  </a>
+                </li>
+                <li *ngIf="!isLoggedIn;" class="nav-item"> <a (click)="getFormBox()" data-toggle="dropdown"
+                    class="nav-link dropdown-toggle" href="#" id="user">Login</a>
+                  <ul class="dropdown-menu form-wrapper" id="login">
+                    <li>
+                      <div>
+                        <div *ngIf="showLoginForm" class="loginFormDiv">
+                          <form [formGroup]="loginForm" (ngSubmit)="login()">
+                            <p class="hint-text">Sign in with your account</p>
+                            <div class="form-group">
+                              <div *ngIf="exError" class="formErr">{{exErrorMsg}}</div>
+                              <div *ngIf="isLoginSubmitted && loginFormControls.email.errors">
+                                <div *ngIf="loginFormControls.email.errors.required" class="formErr">Email is required
+                                </div>
+                              </div>
+                              <input type="email" class="form-control" placeholder="email" formControlName="email" />
+                            </div>
+                            <div class="form-group">
+                              <div *ngIf="isLoginSubmitted && loginFormControls.password.errors">
+                                <div *ngIf="loginFormControls.password.errors.required" class="formErr">Password is
+                                  required
+                                </div>
+                              </div>
+                              <input type="password" class="form-control" placeholder="Password"
+                                formControlName="password" />
+                            </div>
+                            <input type="submit" id="log" class="btn btn-primary btn-block" value="Login">
+                            <div class="form-footer"> <a href="#" [routerLink]="['/forgotpwd']" style="color: black !important;">Forgot Your
+                                password?</a>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+                <li *ngIf="!isLoggedIn;" class="nav-item" [class.open]="isSignupDropdownOpen">
+                  <a (click)="signupDropdownService.openDropdown()" (click)="getFormBox()" href="#"
+                    data-toggle="dropdown" class="nav-link dropdown-toggle" id="signup">Sign up</a>
+                  <ul class="dropdown-menu form-wrapper signup" id="signUpDiv">
+                    <li>
+                      <div *ngIf="!isSignUpFormValid">
+                        <form [formGroup]="signUpForm" (ngSubmit)="signUp()">
+                          <p class="hint-text">Fill in this form to create your account!</p>
+                          <div *ngIf="exError" class="formErr"> {{ exErrorMsg }} </div>
+                          <div class="form-group">
+                            <div *ngIf="isRegSubmitted && signUpFormControls.firstName.errors">
+                              <div *ngIf="signUpFormControls.firstName.errors.required" class="formErr">FirstName is
+                                required</div>
+                              <div *ngIf="signUpFormControls.firstName.errors.minlength" class="formErr">Firstname
+                                should
+                                be minimum three characters</div>
+                            </div>
+                            <input type="text" class="form-control" placeholder="FirstName" formControlName="firstName"
+                              minlength="3" />
+                          </div>
+                          <div class="form-group">
+                            <div *ngIf="isRegSubmitted && signUpFormControls.email.errors">
+                              <div *ngIf="signUpFormControls.email.errors.required" class="formErr">Email is required
+                              </div>
+                              <div *ngIf="signUpFormControls.email.errors.email" class="formErr">Please enter a valid
+                                email address</div>
+
+                            </div>
+                            <input type="email" class="form-control" placeholder="Email" formControlName="email" />
+                          </div>
+                          <div class="form-group">
+                            <div *ngIf="isRegSubmitted && signUpFormControls.password.errors">
+                              <div *ngIf="signUpFormControls.password.errors.required" class="formErr">
+                                Password is required
+                              </div>
+                              <div *ngIf="signUpFormControls.password.errors.minlength" class="formErr">
+                                Password should be of minimum 6 characters
+                              </div>
+                            </div>
+                            <input type="password" class="form-control" placeholder="Password"
+                              formControlName="password" />
+                          </div>
+                          <input type="submit" id="submit" class="btn btn-primary btn-block" value="Sign up">
+                        </form>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+
+              <!-- 
+
+
+                      <a class="nav-link blink" routerLink="batchDataShow">Upcoming Batches</a>
+
+                      <a class="nav-link" routerLink="scheduleShow" style="color: black;cursor: pointer;">Today's Schedule</a>
+
+                      <a class="nav-link" routerLink="usersave" style="color:black;cursor:pointer;">Take Assesment</a> -->
+
+
+
+
+              <ul class="nav navbar-nav nav-align"><br>
+
+
+                <li *ngIf="isLoggedIn && (role=='ROLE_LEARNER' || role=='ROLE_ADMIN' || role=='PG_TESTER')"
+                  class="nav-item"><a href="javascript:void(0)" [routerLink]="['/dashboard']"
+                    [queryParams]="{ uid:uid}">Dashboard</a></li>
+                <li *ngIf="isLoggedIn && role=='ROLE_TPO'" class="nav-item"><a href="javascript:void(0)"
+                    [routerLink]="['/tdashboard']" [queryParams]="{ uid:uid}">Dashboard</a></li>
+                <!-- <li *ngIf="isLoggedIn;" class="nav-item">Welcome {{info.username}}|</li> -->
+                <li *ngIf="isLoggedIn;" class="nav-item"><a href="javascript:void(0)" (click)="logout()">Log Out</a>
+                </li>
+
+                <li *ngIf="!isLoggedIn;" class="nav-item">
+
+                  <ul class="dropdown-menu form-wrapper">
+                    <li>
+                      <div>
+                        <div *ngIf="showLoginForm" class="loginFormDiv">
+                          <form [formGroup]="tpoLoginForm" (ngSubmit)="tpoLogin()">
+                            <p class="hint-text">Sign in with your account</p>
+
+                            <div class="form-group">
+                              <div *ngIf="exError" class="formErr">{{exErrorMsg}}</div>
+                              <div *ngIf="isTpoLoginSubmitted && tpoLoginFormControls.email.errors">
+                                <div *ngIf="tpoLoginFormControls.email.errors.required" class="formErr">Email is
+                                  required
+                                </div>
+                              </div>
+                              <input type="email" class="form-control" placeholder="email" formControlName="email" />
+                            </div>
+                            <div class="form-group">
+                              <div *ngIf="isTpoLoginSubmitted && tpoLoginFormControls.password.errors">
+                                <div *ngIf="tpoLoginFormControls.password.errors.required" class="formErr">Password is
+                                  required
+                                </div>
+                              </div>
+                              <input type="password" class="form-control" placeholder="Password"
+                                formControlName="password" />
+                            </div>
+                            <input type="submit" class="btn btn-primary btn-block  " value="Login">
+                            <div class="form-footer" > <a href="#" [routerLink]="['/forgotpwd']" style="color: black !important;">Forgot Your
+                                password?</a>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+
+
+
+              </ul>
+
+            </div>
+          </nav>
+
+          <div [@simpleFadeAnimation]="'in'" *ngIf="regSuccessAlert"
+            class="alert alert-success fade in alert-dismissible show" style="font-size:40px" role="alert">
+            <button style="outline:none;" type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true" style="font-size:20px">×</span>
+            </button>
+            Congratulations! You have been registered successfully. <br />
+            We have sent an activation link to your email. <br />
+            <u>Please check your email box including SPAM folder and activate it </u>
+            to complete the signup process.. <br />This activation is mandatory before login.
+          </div>
+          <div [@simpleFadeAnimation]="'in'" *ngIf="loginSuccessAlert"
+            class="alert alert-success fade in alert-dismissible show" role="alert">
+            <button style="outline:none;" type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true" style="font-size:20px">×</span>
+            </button>
+            You have been logged in successfully. You can Buy the courses in the bottom (or) goto Dashboard ==> My
+            Courses
+          </div>
+
+          <div [@simpleFadeAnimation]="'in'" *ngIf="enqurySuccessAlert"
+            class="alert alert-success fade in alert-dismissible show" role="alert">
+            <button style="outline:none;" type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true" style="font-size:20px">×</span>
+            </button>
+            Thank you {{ enquryForm.value.firstName }} for your information. We will provide more info very soon.
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- The Modal -->
+
+
+
+  <!-- <div class="modal fade" id="todaysClassesModal">
+    <div class="modal-dialog modal-lg"> -->
+
+  <!-- Modal content-->
+  <!-- <div class="modal-content">
+        <div class="modal-header">
+
+          <h4 class="modal-title">
+            In-class(off line) and online Live classes
+          </h4>
+        </div>
+        <div class="modal-body">
+
+          <div *ngIf="liveClasses.length == 0">
+            <div class="cpg-det">
+              <h5> No classes announced. </h5>
+            </div>
+          </div>
+
+          <div *ngIf="liveClasses.length != 0">
+            <div class="cpg-det">
+              <h5>Scheduled classes for all course packages </h5>
+            </div>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>SNO</th>
+                  <th>Date</th>
+                  <th>Time</th>
+                  <th>Topic</th>
+                  <th>Live URL</th>
+                  <th>Password</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let liveClass of liveClasses;index as i">
+                  <td> {{ i + 1 }} </td>
+                  <td> {{ getDate(liveClass.dateAndTime) }} </td>
+                  <td> {{ getTime(liveClass.dateAndTime) }} </td>
+                  <td> {{ liveClass.topic }} </td>
+
+                  <td> <a href='{{ liveClass.liveUrl }}' target='_blank'>Go to Live class</a> </td>
+                  <td>
+                    <span *ngIf="liveClass.isPublic">
+                      {{ liveClass.password }}
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div> -->
+
+  <!-- <div class="modal fade" id="newBatchModal" *ngIf="newBatchesList.length > 1">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h3 class="modal-title">New Batches for In-Class (Offline) and Online Live Classes</h3>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="row">
+
+                <div class="col-sm-6" *ngFor="let newBatch of newBatchesList;let i=index;">
+                  <div class="card bsw6">
+                    <div [ngClass]="'card-header ' +newBatch.cssClass">
+                      <div class="row">
+                        <div class="col-sm-8 text-center s8">
+                          <h3>
+                            <i class="fa fa-book pd-r6" area-hidden="true"></i>{{newBatch.batchSkills}}
+                          </h3>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-block">
+                      <div class="row">
+                        <div class="col-sm-4 text-left">
+                          <i class="fa fa-calendar" aria-hidden="true"></i> Start Date:
+                        </div>
+                        <div class="col-sm-8 text-left">
+                          {{newBatch.batchStartDate}}
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-4 text-left">
+                          <i class="fa fa-clock-o"></i>Timing:
+                        </div>
+                        <div class="col-sm-8 text-left">
+                          {{newBatch.batchTiming}}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="card-footer">
+                      <div class="row">
+                        <div class="col-sm-4 text-left">
+                          <i aria-hidden="true" class="fa fa-calendar pd-r6"></i> Duration:
+                        </div>
+                        <div class="col-sm-4 text-left">
+                          <h6>{{newBatch.batchDuration}}</h6>
+                        </div>
+                        <div class="col-sm-4">
+                          <a href="./assets/pdf/{{newBatch.batchCourseContentLink}}" target="_blank">Course Content</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <div class="modal fade" id="newBatchModaltest22" *ngIf="newBatchesList.length == 1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <h4 class="modal-title">New Batches Detail:</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="row">
+
+                  <div class="col-sm-12" *ngFor="let newBatch of newBatchesList;let i=index;">
+                    <div class="card bsw6">
+                      <div [ngClass]="'card-header ' +newBatch.cssClass">
+                        <div class="row">
+                          <div class="col-sm-4 text-left s8">
+                            <i class="fa fa-calendar" aria-hidden="true"></i> Start Date:
+                          </div>
+                          <div class="col-sm-8 text-left s8">
+                            {{newBatch.batchStartDate}}, {{newBatch.batchTiming}}
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card-block">
+                        <div class="row">
+                          <div class="col-sm-4 text-left">
+                            <i class="fa fa-book pd-r6" area-hidden="true"></i>Skills:
+                          </div>
+                          <div class="col-sm-8 text-left">
+                            {{newBatch.batchSkills}}
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card-footer">
+                        <div class="row">
+                          <div class="col-sm-4 text-left">
+                            <i aria-hidden="true" class="fa fa-clock-o pd-r6"></i> Duration:
+                          </div>
+                          <div class="col-sm-4 text-left">
+                            <h6>{{newBatch.batchDuration}}</h6>
+                          </div>
+                          <div class="col-sm-4">
+                            <a href="./assets/pdf/{{newBatch.batchCourseContentLink}}" target="_blank">Course
+                              Content</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <br />
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div id="myModal" class="modal">
+
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Some text in the Modal..</p>
+      </div>
+
+    </div>
+    <script>
+      var modal = document.getElementById("myModal");
+
+
+      var btn = document.getElementById("myBtn");
+
+      var span = document.getElementsByClassName("close")[0];
+
+      btn.onclick = function () {
+        modal.style.display = "block";
+      }
+
+      span.onclick = function () {
+        modal.style.display = "none";
+      }
+
+      window.onclick = function (event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+    </script>
+  </div> -->

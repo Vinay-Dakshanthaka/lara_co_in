@@ -1,0 +1,161 @@
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span
+            aria-hidden="true">&times;</span> </button>
+      </div>
+      <div class="modal-body">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/J3LGwXeIH1Y" frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+            style="border:0"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Modal end-->
+
+<!-- <div class="container-fluid cntfld-fw">
+  <div class="container form-bnr-sec">
+     <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 pd-t40 pd-b50 form-bnr">
+        <div class="row">
+          <div class="col-lg-11 col-md-12 col-sm-12 div-center">
+            <div>
+              <h1>Dashboard</h1>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> 
+  </div>
+</div> -->
+
+<div class="container-fluid cntfld-fw">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 pd-t30 pd-b30">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 div-center">
+
+
+
+
+            <div class="tabs">
+              <div class="container">
+                <div class="row">
+                  <div class="col-lg-2 pd-l0 pd-r0">
+                    <ul class="nav nav-pills nav-stacked flex-column w230">
+                      <li class="active"><a href="#totPts" data-toggle="pill"><span
+                            class="fa fa-tachometer s8 pd-r10"></span>Total Earned Points</a></li>
+                      <!-- <li><a href="#prof" data-toggle="pill"><span class="fa fa-user-o s8 pd-r10"></span>My Profile</a></li>   -->
+                      <li><a href="#myCrs" data-toggle="pill"><span class="fa fa-book s8 pd-r10"></span>My Courses</a>
+                      </li>
+                      <li><a href="#myLiveClasses" data-toggle="pill"><span class="fa fa-book s8 pd-r10"></span>My Live
+                          classes</a></li>
+                      <li><a href="#myNotifications" data-toggle="pill"><span class="fa fa-book s8 pd-r10"></span>My
+                          Notifications</a></li>
+                      <!-- <li><a href="#myExm" data-toggle="pill"><span class="fa fa-cogs s8 pd-r10"></span>Micro Topic Exams</a></li>
+                      <li><a href="#myScr" data-toggle="pill"><span class="fa fa-gamepad s8 pd-r10"></span>Micro Topic Score</a></li> -->
+                      <li><a href="#comExm" data-toggle="pill"><span
+                            class="fa fa-hourglass-start s8 pd-r10"></span>Cumulative Exams</a></li>
+                      <li><a href="#comScr" data-toggle="pill"><span class="fa fa-life-ring s8 pd-r10"></span>Cumulative
+                          Score</a></li>
+                      <!-- <li><a href="#onCmp" data-toggle="pill"><span class="fa fa-dot-circle-o s8 pd-r10"></span>Online compiler</a></li>
+					  <li><a href="#smartPrgm" data-toggle="pill"><span class="fa fa-compass s8 pd-r10"></span>Smart Programming</a></li> -->
+
+                      <li><a href="#accSet" data-toggle="pill"><span class="fa fa-key s8 pd-r10"></span>Account
+                          Settings</a></li>
+                      <li *ngIf="role == 'ROLE_ADMIN'"><a [routerLink]="['/adashboard']"><span
+                            class="fa fa-user-circle s8 pd-r10"></span>Admin Panel</a></li>
+                      <li><a href="#lgt" data-toggle="pill"><span class="fa fa-power-off s8 pd-r10"></span>Logout</a>
+                      </li>
+
+
+
+
+                    </ul>
+                  </div>
+                  <div class="col-lg-10 pd-l0">
+                    <div class="tab-content">
+                      <div class="tab-pane active bgc-white" id="totPts">
+                        <app-points></app-points>
+                      </div>
+                      <div class="tab-pane bgc-white" id="prof">
+                        <app-profile></app-profile>
+                      </div>
+                      <div class="tab-pane bgc-white" id="myCrs">
+                        <app-my-course></app-my-course>
+                      </div>
+                      <div class="tab-pane bgc-white" id="myLiveClasses">
+                        <app-live-class></app-live-class>
+                      </div>
+                      <div class="tab-pane bgc-white" id="myNotifications">
+                        <app-learner-notification></app-learner-notification>
+                      </div>
+
+
+                      <div class="tab-pane bgc-white" id="myExm">
+                        <app-exam-record></app-exam-record>
+                      </div>
+                      <div class="tab-pane bgc-white" id="tab_d">
+                        <h6>No notifications found</h6>
+                      </div>
+                      <div class="tab-pane bgc-white" id="myScr">
+                        <app-my-score></app-my-score>
+                      </div>
+                      <div class="tab-pane bgc-white" id="comExm">
+                        <app-com-exam></app-com-exam>
+                      </div>
+                      <div class="tab-pane bgc-white" id="comScr">
+                        <app-com-score></app-com-score>
+                      </div>
+                      <!-- <div class="tab-pane bgc-white" id="onCmp">
+                        <app-programming></app-programming>
+                      </div>	 -->
+                      <!-- <div class="tab-pane bgc-white" id="smartPrgm">
+                        <app-smartprogramming></app-smartprogramming>
+                      </div>	 -->
+
+                      <div class="tab-pane bgc-white" id="accSet">
+                        <app-update-password></app-update-password>
+                      </div>
+                      <div class="tab-pane bgc-white" id="lgt">
+                        <app-logout></app-logout>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--back to top-->
+<div class="container-fluid">
+  <div class="container">
+    <div class="row">
+      <div class="col"> <a id="back-to-top" href="#" class="btn btn-info back-to-top px-0" role="button"
+          title="Click to return on the top page" data-toggle="tooltip" data-placement="left"><fa-icon
+            [icon]="upArrow"></fa-icon></a> </div>
+    </div>
+  </div>
+</div>
+<!--back to top end-->
